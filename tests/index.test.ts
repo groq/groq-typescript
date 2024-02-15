@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import Groq from 'groq';
-import { APIUserAbortError } from 'groq';
-import { Headers } from 'groq/core';
+import Groq from 'groq-sdk';
+import { APIUserAbortError } from 'groq-sdk';
+import { Headers } from 'groq-sdk/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {

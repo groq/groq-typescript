@@ -6,9 +6,9 @@
     "rootDir": "./deno",
     "lib": ["es2020", "DOM"],
     "paths": {
-      "groq/_shims/auto/*": ["deno/_shims/auto/*-deno"],
-      "groq/*": ["deno/*"],
-      "groq": ["deno/index.ts"],
+      "groq-sdk/_shims/auto/*": ["deno/_shims/auto/*-deno"],
+      "groq-sdk/*": ["deno/*"],
+      "groq-sdk": ["deno/index.ts"],
       "digest-fetch": ["./typings/digest-fetch"]
     },
     "noEmit": true,

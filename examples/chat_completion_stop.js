@@ -12,18 +12,18 @@ async function main() {
       // assistant and can be used to provide specific instructions for
       // how it should behave throughout the conversation.
       {
-        "role": "system",
-        "content": "you are a helpful assistant."
+        role: 'system',
+        content: 'you are a helpful assistant.',
       },
       // Set a user message for the assistant to respond to.
       {
-        "role": "user",
-        "content": "Start at 1 and count to 10.  Separate each number with a comma and a space"
-      }
+        role: 'user',
+        content: 'Start at 1 and count to 10.  Separate each number with a comma and a space',
+      },
     ],
 
     // The language model which will generate the completion.
-    model: "mixtral-8x7b-32768",
+    model: 'mixtral-8x7b-32768',
 
     //
     // Optional parameters
@@ -50,7 +50,7 @@ async function main() {
     // For this example, we will use ", 6" so that the llm stops counting at 5.
     // If multiple stop values are needed, an array of string may be passed,
     // stop: [", 6", ", six", ", Six"]
-    stop: ", 6",
+    stop: ', 6',
 
     // If set, partial message deltas will be sent.
     stream: true,

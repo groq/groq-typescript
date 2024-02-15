@@ -1,6 +1,6 @@
 # Groq Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/groq.svg)](https://npmjs.org/package/groq)
+[![NPM version](https://img.shields.io/npm/v/groq-sdk.svg)](https://npmjs.org/package/groq-sdk)
 
 This library provides convenient access to the Groq REST API from server-side TypeScript or JavaScript.
 
@@ -9,9 +9,9 @@ The REST API documentation can be found [on console.groq.com](https://console.gr
 ## Installation
 
 ```sh
-npm install --save groq
+npm install --save groq-sdk
 # or
-yarn add groq
+yarn add groq-sdk
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import Groq from 'groq';
+import Groq from 'groq-sdk';
 
 const groq = new Groq();
 
@@ -42,7 +42,7 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import Groq from 'groq';
+import Groq from 'groq-sdk';
 
 const groq = new Groq();
 
@@ -196,11 +196,11 @@ add the following import before your first import `from "Groq"`:
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import 'groq/shims/web';
-import Groq from 'groq';
+import 'groq-sdk/shims/web';
+import Groq from 'groq-sdk';
 ```
 
-To do the inverse, add `import "groq/shims/node"` (which does import polyfills).
+To do the inverse, add `import "groq-sdk/shims/node"` (which does import polyfills).
 This can also be useful if you are getting the wrong TypeScript types for `Response` - more details [here](https://github.com/groq/groq-node/tree/main/src/_shims#readme).
 
 You may also provide a custom `fetch` function when instantiating the client,
@@ -208,7 +208,7 @@ which can be used to inspect or alter the `Request` or `Response` before/after e
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import Groq from 'groq';
+import Groq from 'groq-sdk';
 
 const client = new Groq({
   fetch: async (url: RequestInfo, init?: RequestInfo): Promise<Response> => {
@@ -265,7 +265,7 @@ TypeScript >= 4.5 is supported.
 The following runtimes are supported:
 
 - Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import Groq from "npm:groq"`.
+- Deno v1.28.0 or higher, using `import Groq from "npm:groq-sdk"`.
 - Bun 1.0 or later.
 - Cloudflare Workers.
 - Vercel Edge Runtime.

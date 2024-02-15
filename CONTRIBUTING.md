@@ -55,12 +55,12 @@ cd groq-node
 # With yarn
 yarn link
 cd ../my-package
-yarn link groq
+yarn link groq-sdk
 
 # With pnpm
 pnpm link --global
 cd ../my-package
-pnpm link -—global groq
+pnpm link -—global groq-sdk
 ```
 
 ## Running tests
