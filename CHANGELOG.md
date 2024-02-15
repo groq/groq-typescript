@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.2.0 (2024-02-15)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/groq/groq-node/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* Add initial Stainless SDK ([a6c643b](https://github.com/groq/groq-node/commit/a6c643bfc3b59145b1441fe927798de63b935992))
+* create default branch ([48105eb](https://github.com/groq/groq-node/commit/48105eb898d6cc13c9fdd7e96989d657d9d30f4e))
+
+
+### Chores
+
+* go live ([#1](https://github.com/groq/groq-node/issues/1)) ([08d2551](https://github.com/groq/groq-node/commit/08d2551190a07ff8619ddc85a083eb130a33ff0b))
+
 ## 0.1.0 (2024-02-12)
 
 Full Changelog: [v0.0.1...v0.1.0](https://github.com/definitive-io/groqcloud-node/compare/v0.0.1...v0.1.0)
