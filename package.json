@@ -1,5 +1,5 @@
 {
-  "name": "groq",
+  "name": "groq-sdk",
   "version": "0.1.0",
   "description": "The official TypeScript library for the Groq API",
   "author": "Groq <grea@groq.com>",
@@ -60,8 +60,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "groq": ".",
-    "groq/*": "./src/*"
+    "groq-sdk": ".",
+    "groq-sdk/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {

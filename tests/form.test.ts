@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from 'groq/core';
-import { Blob } from 'groq/_shims/index';
-import { toFile } from 'groq';
+import { multipartFormRequestOptions, createForm } from 'groq-sdk/core';
+import { Blob } from 'groq-sdk/_shims/index';
+import { toFile } from 'groq-sdk';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

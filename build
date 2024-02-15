@@ -5,7 +5,7 @@ node scripts/check-version.cjs
 
 # Build into dist and will publish the package from there,
 # so that src/resources/foo.ts becomes <package root>/resources/foo.js
-# This way importing from `"groq/resources/foo"` works
+# This way importing from `"groq-sdk/resources/foo"` works
 # even with `"moduleResolution": "node"`
 
 rm -rf dist; mkdir dist
@@ -44,8 +44,8 @@ node scripts/postprocess-files.cjs
 
 # make sure that nothing crashes when we require the output CJS or
 # import the output ESM
-(cd dist && node -e 'require("groq")')
-(cd dist && node -e 'import("groq")' --input-type=module)
+(cd dist && node -e 'require("groq-sdk")')
+(cd dist && node -e 'import("groq-sdk")' --input-type=module)
 
 if command -v deno &> /dev/null && [ -e ./build-deno ]
 then
