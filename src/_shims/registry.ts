@@ -42,11 +42,13 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
     throw new Error(
-      `you must \`import 'groq/shims/${shims.kind}'\` before importing anything else from groq`,
+      `you must \`import 'groq-sdk/shims/${shims.kind}'\` before importing anything else from groq-sdk`,
     );
   }
   if (kind) {
-    throw new Error(`can't \`import 'groq/shims/${shims.kind}'\` after \`import 'groq/shims/${kind}'\``);
+    throw new Error(
+      `can't \`import 'groq-sdk/shims/${shims.kind}'\` after \`import 'groq-sdk/shims/${kind}'\``,
+    );
   }
   auto = options.auto;
   kind = shims.kind;

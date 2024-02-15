@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import Groq from 'groq';
+import Groq from 'groq-sdk';
 import { Response } from 'node-fetch';
 
 const groq = new Groq({

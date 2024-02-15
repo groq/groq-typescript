@@ -12,18 +12,18 @@ async function main() {
       // assistant and can be used to provide specific instructions for
       // how it should behave throughout the conversation.
       {
-        "role": "system",
-        "content": "you are a helpful assistant."
+        role: 'system',
+        content: 'you are a helpful assistant.',
       },
       // Set a user message for the assistant to respond to.
       {
-        "role": "user",
-        "content": "Explain the importance of low latency LLMs",
-      }
+        role: 'user',
+        content: 'Explain the importance of low latency LLMs',
+      },
     ],
 
     // The language model which will generate the completion.
-    model: "mixtral-8x7b-32768",
+    model: 'mixtral-8x7b-32768',
 
     //
     // Optional parameters
