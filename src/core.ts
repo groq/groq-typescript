@@ -1,5 +1,4 @@
 import { VERSION } from './version';
-import { Stream } from './lib/streaming';
 import {
   GroqError,
   APIError,
@@ -39,19 +38,6 @@ type APIResponseProps = {
 
 async function defaultParseResponse<T>(props: APIResponseProps): Promise<T> {
   const { response } = props;
-  if (props.options.stream) {
-    debug('response', response.status, response.url, response.headers, response.body);
-
-    // Note: there is an invariant here that isn't represented in the type system
-    // that if you set `stream: true` the response type must also be `Stream<T>`
-
-    if (props.options.__streamClass) {
-      return props.options.__streamClass.fromSSEResponse(response, props.controller) as any;
-    }
-
-    return Stream.fromSSEResponse(response, props.controller) as any;
-  }
-
   // fetch refuses to read the body when the status code is 204.
   if (response.status === 204) {
     return null as T;
@@ -750,7 +736,6 @@ export type RequestOptions<Req = unknown | Record<string, unknown> | Readable> =
   idempotencyKey?: string;
 
   __binaryResponse?: boolean | undefined;
-  __streamClass?: typeof Stream;
 };
 
 // This is required so that we can determine if a given object matches the RequestOptions
@@ -771,7 +756,6 @@ const requestOptionsKeys: KeysEnum<RequestOptions> = {
   idempotencyKey: true,
 
   __binaryResponse: true,
-  __streamClass: true,
 };
 
 export const isRequestOptions = (obj: unknown): obj is RequestOptions => {
