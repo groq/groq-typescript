@@ -1,12 +1,12 @@
 {
   "name": "groq-sdk",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "The official TypeScript library for the Groq API",
   "author": "Groq <grea@groq.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:groq/groq-node",
+  "repository": "github:groq/groq-typescript",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.21",
   "files": [
