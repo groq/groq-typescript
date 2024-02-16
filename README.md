@@ -1,10 +1,53 @@
-# Groq Node API Library
+# Groq TypeScript API Library 🚀
 
 [![NPM version](https://img.shields.io/npm/v/groq-sdk.svg)](https://npmjs.org/package/groq-sdk)
 
-This library provides convenient access to the Groq REST API from server-side TypeScript or JavaScript.
+The Groq TypeScript API Library provides convenient access to the Groq REST API from server-side TypeScript or JavaScript. This README outlines how you can get started.
 
-The REST API documentation can be found [on console.groq.com](https://console.groq.com/docs). The full API of this library can be found in [api.md](api.md).
+For the REST API documentation, see [console.groq.com](https://console.groq.com/docs). 
+For full API details included in our library, see [api.md](api.md).
+
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Semantic Versioning](#semantic-versioning)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Request and Response Types](#request-and-response-types)
+- [Handling Errors](#handling-errors)
+  - [Error Codes](#error-codes) 
+  - [Retries](#retries)
+  - [Timeouts](#timeouts)
+- [Advanced Usage](#advanced-usage)
+  - [Accessing Raw Response Data](#accessing-raw-response-data)
+- [Customizing the Fetch Client](#customizing-the-fetch-client)
+- [Configuring an HTTP(S) Agent](#configuring-an-https-agent)
+
+## Requirements
+
+TypeScript >= 4.5 is supported along with the following runtimes:
+
+- Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions
+- Deno v1.28.0 or higher using `import Groq from "npm:groq-sdk"`
+- Bun 1.0 or later
+- Cloudflare Workers
+- Vercel Edge Runtime
+- Jest 28 or greater with the `"node"` environment (`"jsdom"` is not supported at this time)
+- Nitro v2.6 or greater
+
+**Note:** React Native is not supported at this time.
+
+If you are interested in other runtime environments, please open or upvote an issue on GitHub!
+
+## Semantic Versioning
+
+The Groq TypeScript API Library generally follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions, though certain backwards-incompatible changes may be released as minor versions:
+
+1. Changes that only affect static types, without breaking runtime behavior.
+2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals)_.
+3. Changes that we do not expect to impact the vast majority of users in practice.
+
+We take backwards-compatibility seriously to ensure you can rely on a smooth upgrade experience and are always interested in hearing your feedback. Please let us know how we're doing by opening an [issue](https://www.github.com/groq/groq-node/issues) with any questions, bugs, or suggestions! 🤝
 
 ## Installation
 
@@ -16,7 +59,7 @@ yarn add groq-sdk
 
 ## Usage
 
-The full API of this library can be found in [api.md](api.md).
+The code snippet below shows how to get started using the chat completions API. For the full API details included in our library, see [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
@@ -36,9 +79,9 @@ async function main() {
 main();
 ```
 
-### Request & Response types
+### Request and Response Types
 
-This library includes TypeScript definitions for all request params and response fields. You may import and use them like so:
+The Groq TypeScript API Library includes TypeScript definitions for all request params and response fields. You may import and use them like so:
 
 <!-- prettier-ignore -->
 ```ts
@@ -60,13 +103,11 @@ async function main() {
 main();
 ```
 
-Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
+Documentation for each method, request param, and response field is available in docstrings and will appear on hover in most modern editors.
 
 ## Handling errors
 
-When the library is unable to connect to the API,
-or if the API returns a non-success status code (i.e., 4xx or 5xx response),
-a subclass of `APIError` will be thrown:
+When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
@@ -93,7 +134,9 @@ async function main() {
 main();
 ```
 
-Error codes are as followed:
+### Error Codes
+
+Error codes are as follows:
 
 | Status Code | Error Type                 |
 | ----------- | -------------------------- |
@@ -109,10 +152,10 @@ Error codes are as followed:
 ### Retries
 
 Certain errors will be automatically retried 2 times by default, with a short exponential backoff.
-Connection errors (for example, due to a network connectivity problem), 408 Request Timeout, 409 Conflict,
-429 Rate Limit, and >=500 Internal errors will all be retried by default.
 
-You can use the `maxRetries` option to configure or disable this:
+Connection errors (e.g. due to network connectivity problems), 408 Request Timeout, 409 Conflict, 429 Rate Limit, and >=500 Internal errors will all be retried by default.
+
+You can use the `maxRetries` option to configure or disable retries:
 
 <!-- prettier-ignore -->
 ```js
@@ -129,7 +172,9 @@ await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You 
 
 ### Timeouts
 
-Requests time out after 1 minute by default. You can configure this with a `timeout` option:
+Requests time out after 1 minute by default. On timeout, an `APIConnectionTimeoutError` is thrown. 
+
+You can configure timeouts with the `timeout` option:
 
 <!-- prettier-ignore -->
 ```ts
@@ -144,17 +189,15 @@ await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You 
 });
 ```
 
-On timeout, an `APIConnectionTimeoutError` is thrown.
-
-Note that requests which time out will be [retried twice by default](#retries).
+**Note:** Requests that time out will be [retried twice by default](#retries).
 
 ## Advanced Usage
 
-### Accessing raw Response data (e.g., headers)
+### Accessing Raw Response Data
 
-The "raw" `Response` returned by `fetch()` can be accessed through the `.asResponse()` method on the `APIPromise` type that all methods return.
+The "raw" `Response` (e.g. headers) returned by `fetch()` can be accessed through the `.asResponse()` method on the `APIPromise` type that all methods return.
 
-You can also use the `.withResponse()` method to get the raw `Response` along with the parsed data.
+You can also use the `.withResponse()` method to get the raw `Response` along with the parsed data:
 
 <!-- prettier-ignore -->
 ```ts
@@ -185,13 +228,11 @@ console.log(raw.headers.get('X-My-Header'));
 console.log(chatCompletion.id);
 ```
 
-## Customizing the fetch client
+## Customizing the Fetch Client
 
-By default, this library uses `node-fetch` in Node, and expects a global `fetch` function in other environments.
+By default, the Groq TypeScript API Library uses `node-fetch` in Node, and expects a global `fetch` function in other environments.
 
-If you would prefer to use a global, web-standards-compliant `fetch` function even in a Node environment,
-(for example, if you are running Node with `--experimental-fetch` or using NextJS which polyfills with `undici`),
-add the following import before your first import `from "Groq"`:
+If you would prefer to use a global, web-standards-compliant `fetch` function even in a Node environment, (e.g. if you are running Node with `--experimental-fetch` or using NextJS which polyfills with `undici`), add the following import before your first import `from "Groq"`:
 
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
@@ -203,8 +244,7 @@ import Groq from 'groq-sdk';
 To do the inverse, add `import "groq-sdk/shims/node"` (which does import polyfills).
 This can also be useful if you are getting the wrong TypeScript types for `Response` - more details [here](https://github.com/groq/groq-node/tree/main/src/_shims#readme).
 
-You may also provide a custom `fetch` function when instantiating the client,
-which can be used to inspect or alter the `Request` or `Response` before/after each request:
+You may also provide a custom `fetch` function when instantiating the client, which can be used to inspect or alter the `Request` or `Response` before/after each request:
 
 ```ts
 import { fetch } from 'undici'; // as one example
@@ -220,14 +260,14 @@ const client = new Groq({
 });
 ```
 
-Note that if given a `DEBUG=true` environment variable, this library will log all requests and responses automatically.
+**Note:** If given a `DEBUG=true` environment variable, the Groq TypeScript API Librarywill log all requests and responses automatically.
 This is intended for debugging purposes only and may change in the future without notice.
 
-## Configuring an HTTP(S) Agent (e.g., for proxies)
+## Configuring an HTTP(S) Agent
 
-By default, this library uses a stable agent for all http/https requests to reuse TCP connections, eliminating many TCP & TLS handshakes and shaving around 100ms off most requests.
+By default, this library uses a stable agent for all HTTP/HTTPS requests to reuse TCP connections, eliminating many TCP & TLS handshakes and shaving around 100ms off most requests.
 
-If you would like to disable or customize this behavior, for example to use the API behind a proxy, you can pass an `httpAgent` which is used for all requests (be they http or https), for example:
+If you would like to disable or customize this behavior (e.g. to use the API behind a proxy), you can pass an `httpAgent` to be used for all requests (whether HTTP or HTTPS) as outlined in the following example:
 
 <!-- prettier-ignore -->
 ```ts
@@ -245,33 +285,3 @@ await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You 
   httpAgent: new http.Agent({ keepAlive: false }),
 })
 ```
-
-## Semantic Versioning
-
-This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions, though certain backwards-incompatible changes may be released as minor versions:
-
-1. Changes that only affect static types, without breaking runtime behavior.
-2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals)_.
-3. Changes that we do not expect to impact the vast majority of users in practice.
-
-We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
-
-We are keen for your feedback; please open an [issue](https://www.github.com/groq/groq-node/issues) with questions, bugs, or suggestions.
-
-## Requirements
-
-TypeScript >= 4.5 is supported.
-
-The following runtimes are supported:
-
-- Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import Groq from "npm:groq-sdk"`.
-- Bun 1.0 or later.
-- Cloudflare Workers.
-- Vercel Edge Runtime.
-- Jest 28 or greater with the `"node"` environment (`"jsdom"` is not supported at this time).
-- Nitro v2.6 or greater.
-
-Note that React Native is not supported at this time.
-
-If you are interested in other runtime environments, please open or upvote an issue on GitHub.
