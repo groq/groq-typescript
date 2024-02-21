@@ -67,6 +67,12 @@ export interface ClientOptions {
    * param to `undefined` in request options.
    */
   defaultQuery?: Core.DefaultQuery;
+
+  /**
+   * By default, client-side use of this library is not allowed, as it risks exposing your secret API credentials to attackers.
+   * Only set this option to `true` if you understand the risks and have appropriate mitigations in place.
+   */
+  dangerouslyAllowBrowser?: boolean;
 }
 
 /** API Client for interfacing with the Groq API. */
@@ -86,6 +92,7 @@ export class Groq extends Core.APIClient {
    * @param {number} [opts.maxRetries=2] - The maximum number of times the client will retry a request.
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
+   * @param {boolean} [opts.dangerouslyAllowBrowser=false] - By default, client-side use of this library is not allowed, as it risks exposing your secret API credentials to attackers.
    */
   constructor({
     baseURL = Core.readEnv('GROQ_BASE_URL'),
@@ -103,6 +110,12 @@ export class Groq extends Core.APIClient {
       ...opts,
       baseURL: baseURL || `https://api.groq.com`,
     };
+
+    if (!options.dangerouslyAllowBrowser && Core.isRunningInBrowser()) {
+      throw new Errors.GroqError(
+        'This is disabled by default, as it risks exposing your secret API credentials to attackers.\nIf you understand the risks and have appropriate mitigations in place,\nyou can set the `dangerouslyAllowBrowser` option to `true`, e.g.,\n\nnew Groq({ dangerouslyAllowBrowser: true })',
+      );
+    }
 
     super({
       baseURL: options.baseURL!,
