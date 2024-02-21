@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.3.0 (2024-02-21)
+
+Full Changelog: [v0.2.1...v0.3.0](https://github.com/groq/groq-typescript/compare/v0.2.1...v0.3.0)
+
+### Features
+
+* update via SDK Studio ([#10](https://github.com/groq/groq-typescript/issues/10)) ([b9b5d6a](https://github.com/groq/groq-typescript/commit/b9b5d6af6cc2a37f404ec6685a9b950d9703cec5))
+* update via SDK Studio ([#5](https://github.com/groq/groq-typescript/issues/5)) ([d6202e9](https://github.com/groq/groq-typescript/commit/d6202e9b12fa79c69fbe65c58fc716cd464f52f0))
+* update via SDK Studio ([#8](https://github.com/groq/groq-typescript/issues/8)) ([cbbbe5b](https://github.com/groq/groq-typescript/commit/cbbbe5b357ff8673b3d310010d4c66ff5389bfa2))
+
+
+### Chores
+
+* update branch ([#7](https://github.com/groq/groq-typescript/issues/7)) ([5bd9088](https://github.com/groq/groq-typescript/commit/5bd9088546ebcfc0f857a3630fecf35f714d53a9))
+
 ## 0.2.0 (2024-02-15)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/groq/groq-node/compare/v0.1.0...v0.2.0)
