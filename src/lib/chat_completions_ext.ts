@@ -1,4 +1,5 @@
 // Manually curated models for streaming chat completions.
+import { ChatCompletion } from '../resources/chat'
 
 export interface ChatCompletionChunk {
   id: string;
@@ -12,6 +13,8 @@ export interface ChatCompletionChunk {
   object: 'chat.completion.chunk';
 
   system_fingerprint?: string;
+
+  x_groq?: ChatCompletionChunk.XGroq;
 }
 
 export namespace ChatCompletionChunk {
@@ -65,6 +68,12 @@ export namespace ChatCompletionChunk {
     export interface Logprobs {
       content: Array<ChatCompletionTokenLogprob> | null;
     }
+  }
+
+  export type XGroq = {
+    id?: string;
+    usage?: ChatCompletion.Usage;
+    error?: string;
   }
 }
 
