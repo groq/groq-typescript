@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 (2024-03-01)
+
+Full Changelog: [v0.3.0...v0.3.1](https://github.com/groq/groq-typescript/compare/v0.3.0...v0.3.1)
+
+### Features
+
+* OpenAPI spec update via Stainless API ([#11](https://github.com/groq/groq-typescript/issues/11)) ([3b8d249](https://github.com/groq/groq-typescript/commit/3b8d249e4bb70d960447bb1667b59e30baec1853))
+
 ## 0.3.0 (2024-02-21)
 
 Full Changelog: [v0.2.1...v0.3.0](https://github.com/groq/groq-typescript/compare/v0.2.1...v0.3.0)
