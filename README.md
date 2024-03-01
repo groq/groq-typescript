@@ -9,6 +9,7 @@ The REST API documentation can be found [on console.groq.com](https://console.gr
 ## Installation
 
 ```sh
+# install from NPM
 npm install --save groq-sdk
 # or
 yarn add groq-sdk
@@ -201,7 +202,7 @@ import Groq from 'groq-sdk';
 ```
 
 To do the inverse, add `import "groq-sdk/shims/node"` (which does import polyfills).
-This can also be useful if you are getting the wrong TypeScript types for `Response` - more details [here](https://github.com/groq/groq-typescript/tree/main/src/_shims#readme).
+This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/groq/groq-typescript/tree/main/src/_shims#readme)).
 
 You may also provide a custom `fetch` function when instantiating the client,
 which can be used to inspect or alter the `Request` or `Response` before/after each request:
@@ -211,7 +212,7 @@ import { fetch } from 'undici'; // as one example
 import Groq from 'groq-sdk';
 
 const client = new Groq({
-  fetch: async (url: RequestInfo, init?: RequestInfo): Promise<Response> => {
+  fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
     console.log('About to make a request', url, init);
     const response = await fetch(url, init);
     console.log('Got response', response);
