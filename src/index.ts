@@ -130,6 +130,7 @@ export class Groq extends Core.APIClient {
   }
 
   chat: API.Chat = new API.Chat(this);
+  audio: API.Audio = new API.Audio(this);
   models: API.Models = new API.Models(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
@@ -191,6 +192,9 @@ export namespace Groq {
   export import RequestOptions = Core.RequestOptions;
 
   export import Chat = API.Chat;
+
+  export import Audio = API.Audio;
+  export import Translation = API.Translation;
 
   export import Models = API.Models;
   export import Model = API.Model;
