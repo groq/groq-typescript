@@ -1,7 +1,7 @@
-import { ReadableStream, type Response } from '../_shims/index';
-import { GroqError } from '../error';
+import { ReadableStream, type Response } from 'groq-sdk/_shims/index';
+import { GroqError } from 'groq-sdk/error';
 
-import { APIError } from '../error';
+import { APIError } from 'groq-sdk/error';
 
 type Bytes = string | ArrayBuffer | Uint8Array | Buffer | null | undefined;
 
