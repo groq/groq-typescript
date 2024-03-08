@@ -1,5 +1,5 @@
 // Manually curated models for streaming chat completions.
-import { ChatCompletion } from '../resources/chat'
+import { ChatCompletion } from '../resources/chat';
 
 export interface ChatCompletionChunk {
   id: string;
@@ -74,7 +74,7 @@ export namespace ChatCompletionChunk {
     id?: string;
     usage?: ChatCompletion.Usage;
     error?: string;
-  }
+  };
 }
 
 export interface ChatCompletionTokenLogprob {
