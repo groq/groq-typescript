@@ -1,16 +1,13 @@
 // File generated from our OpenAPI spec by Stainless.
 
 import { APIResource } from 'groq-sdk/resource';
-import { Translation } from './translation';
 import * as AudioAPI from 'groq-sdk/resources/audio/audio';
-import * as TranscriptionAPI from 'groq-sdk/resources/audio/transcription';
-import * as TranslationAPI from 'groq-sdk/resources/audio/translation';
+import * as TranscriptionsAPI from 'groq-sdk/resources/audio/transcriptions';
+import * as TranslationsAPI from 'groq-sdk/resources/audio/translations';
 
 export class Audio extends APIResource {
-  transcription: TranscriptionAPI.TranscriptionResource = new TranscriptionAPI.TranscriptionResource(
-    this._client,
-  );
-  translation: TranslationAPI.Translation = new TranslationAPI.Translation(this._client);
+  transcriptions: TranscriptionsAPI.Transcriptions = new TranscriptionsAPI.Transcriptions(this._client);
+  translations: TranslationsAPI.Translations = new TranslationsAPI.Translations(this._client);
 }
 
 export interface Translation {
@@ -19,8 +16,9 @@ export interface Translation {
 
 export namespace Audio {
   export import Translation = AudioAPI.Translation;
-  export import TranscriptionResource = TranscriptionAPI.TranscriptionResource;
-  export import Transcription = TranscriptionAPI.Transcription;
-  export import TranscriptionCreateParams = TranscriptionAPI.TranscriptionCreateParams;
-  export import TranslationCreateParams = TranslationAPI.TranslationCreateParams;
+  export import Transcriptions = TranscriptionsAPI.Transcriptions;
+  export import Transcription = TranscriptionsAPI.Transcription;
+  export import TranscriptionCreateParams = TranscriptionsAPI.TranscriptionCreateParams;
+  export import Translations = TranslationsAPI.Translations;
+  export import TranslationCreateParams = TranslationsAPI.TranslationCreateParams;
 }

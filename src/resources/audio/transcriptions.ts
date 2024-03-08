@@ -2,10 +2,10 @@
 
 import * as Core from 'groq-sdk/core';
 import { APIResource } from 'groq-sdk/resource';
-import * as TranscriptionAPI from 'groq-sdk/resources/audio/transcription';
+import * as TranscriptionsAPI from 'groq-sdk/resources/audio/transcriptions';
 import { type Uploadable, multipartFormRequestOptions } from 'groq-sdk/core';
 
-export class TranscriptionResource extends APIResource {
+export class Transcriptions extends APIResource {
   /**
    * Transcribes audio into the input language.
    */
@@ -79,7 +79,7 @@ export interface TranscriptionCreateParams {
   timestamp_granularities?: Array<'word' | 'segment'>;
 }
 
-export namespace TranscriptionResource {
-  export import Transcription = TranscriptionAPI.Transcription;
-  export import TranscriptionCreateParams = TranscriptionAPI.TranscriptionCreateParams;
+export namespace Transcriptions {
+  export import Transcription = TranscriptionsAPI.Transcription;
+  export import TranscriptionCreateParams = TranscriptionsAPI.TranscriptionCreateParams;
 }

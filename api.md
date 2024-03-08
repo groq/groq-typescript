@@ -16,21 +16,21 @@ Types:
 
 - <code><a href="./src/resources/audio/audio.ts">Translation</a></code>
 
-## Transcription
+## Transcriptions
 
 Types:
 
-- <code><a href="./src/resources/audio/transcription.ts">Transcription</a></code>
+- <code><a href="./src/resources/audio/transcriptions.ts">Transcription</a></code>
 
 Methods:
 
-- <code title="post /openai/v1/audio/transcriptions">client.audio.transcription.<a href="./src/resources/audio/transcription.ts">create</a>({ ...params }) -> Transcription</code>
+- <code title="post /openai/v1/audio/transcriptions">client.audio.transcriptions.<a href="./src/resources/audio/transcriptions.ts">create</a>({ ...params }) -> Transcription</code>
 
-## Translation
+## Translations
 
 Methods:
 
-- <code title="post /openai/v1/audio/translations">client.audio.translation.<a href="./src/resources/audio/translation.ts">create</a>({ ...params }) -> Translation</code>
+- <code title="post /openai/v1/audio/translations">client.audio.translations.<a href="./src/resources/audio/translations.ts">create</a>({ ...params }) -> Translation</code>
 
 # Models
 

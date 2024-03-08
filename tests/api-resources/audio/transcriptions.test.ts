@@ -8,9 +8,9 @@ const groq = new Groq({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource transcription', () => {
+describe('resource transcriptions', () => {
   test('create: only required params', async () => {
-    const responsePromise = groq.audio.transcription.create({
+    const responsePromise = groq.audio.transcriptions.create({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       model: 'whisper-large-v3',
     });
@@ -24,7 +24,7 @@ describe('resource transcription', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await groq.audio.transcription.create({
+    const response = await groq.audio.transcriptions.create({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       model: 'whisper-large-v3',
       language: 'string',

@@ -2,11 +2,11 @@
 
 import * as Core from 'groq-sdk/core';
 import { APIResource } from 'groq-sdk/resource';
-import * as TranslationAPI from 'groq-sdk/resources/audio/translation';
+import * as TranslationsAPI from 'groq-sdk/resources/audio/translations';
 import * as AudioAPI from 'groq-sdk/resources/audio/audio';
 import { type Uploadable, multipartFormRequestOptions } from 'groq-sdk/core';
 
-export class Translation extends APIResource {
+export class Translations extends APIResource {
   /**
    * Translates audio into English.
    */
@@ -56,6 +56,6 @@ export interface TranslationCreateParams {
   temperature?: number;
 }
 
-export namespace Translation {
-  export import TranslationCreateParams = TranslationAPI.TranslationCreateParams;
+export namespace Translations {
+  export import TranslationCreateParams = TranslationsAPI.TranslationCreateParams;
 }
