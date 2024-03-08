@@ -10,6 +10,28 @@ Methods:
 
 - <code title="post /openai/v1/chat/completions">client.chat.completions.<a href="./src/resources/chat/completions.ts">create</a>({ ...params }) -> ChatCompletion</code>
 
+# Audio
+
+Types:
+
+- <code><a href="./src/resources/audio/audio.ts">Translation</a></code>
+
+## Transcriptions
+
+Types:
+
+- <code><a href="./src/resources/audio/transcriptions.ts">Transcription</a></code>
+
+Methods:
+
+- <code title="post /openai/v1/audio/transcriptions">client.audio.transcriptions.<a href="./src/resources/audio/transcriptions.ts">create</a>({ ...params }) -> Transcription</code>
+
+## Translations
+
+Methods:
+
+- <code title="post /openai/v1/audio/translations">client.audio.translations.<a href="./src/resources/audio/translations.ts">create</a>({ ...params }) -> Translation</code>
+
 # Models
 
 Types:

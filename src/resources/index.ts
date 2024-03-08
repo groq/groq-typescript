@@ -2,3 +2,4 @@
 
 export { Chat } from './chat/chat';
 export { Model, ModelList, Models } from './models';
+export { Translation, Audio } from './audio/audio';
