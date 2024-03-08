@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.3.2 (2024-03-08)
+
+Full Changelog: [v0.3.1...v0.3.2](https://github.com/groq/groq-typescript/compare/v0.3.1...v0.3.2)
+
+### Features
+
+* Add transcription and translation endpoints ([5a422c4](https://github.com/groq/groq-typescript/commit/5a422c4f2c4d92d5a525ee63d674c92aff4990bb))
+
+
+### Bug Fixes
+
+* use absolute paths in /src/lib ([5c961f7](https://github.com/groq/groq-typescript/commit/5c961f7233ce5e4cfd32d3edcb9a845df7014b89))
+
+
+### Chores
+
+* Add CODEOWNERS ([e995ed1](https://github.com/groq/groq-typescript/commit/e995ed1214237379a1e4819a61876113e81a456b))
+* Fix streaming before release ([b7463c5](https://github.com/groq/groq-typescript/commit/b7463c5690613c2142e10f3eb549e87471aea367))
+
 ## 0.3.1 (2024-03-01)
 
 Full Changelog: [v0.3.0...v0.3.1](https://github.com/groq/groq-typescript/compare/v0.3.0...v0.3.1)
