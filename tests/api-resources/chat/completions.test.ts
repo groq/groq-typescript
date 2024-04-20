@@ -64,7 +64,7 @@ describe('resource completions', () => {
           ],
         },
       ],
-      model: 'string',
+      model: 'llama3-70b-8192',
       frequency_penalty: 0,
       logit_bias: { foo: 0 },
       logprobs: true,

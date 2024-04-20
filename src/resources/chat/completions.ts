@@ -26,9 +26,11 @@ export class Completions extends APIResource {
     body: ChatCompletionCreateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<ChatCompletion> | Core.APIPromise<Stream<ChatCompletionChunk>> {
-    return this._client.post('/openai/v1/chat/completions', { body, ...options, stream: body.stream ?? false }) as
-      | Core.APIPromise<ChatCompletion>
-      | Core.APIPromise<Stream<ChatCompletionChunk>>;
+    return this._client.post('/openai/v1/chat/completions', {
+      body,
+      ...options,
+      stream: body.stream ?? false,
+    }) as Core.APIPromise<ChatCompletion> | Core.APIPromise<Stream<ChatCompletionChunk>>;
   }
 }
 
@@ -130,10 +132,20 @@ export namespace ChatCompletion {
   }
 }
 
+/**
+ * From https://console.groq.com/docs/models
+ */
+export type Model =
+  | 'llama3-8b-8192'
+  | 'llama3-70b-8192'
+  | 'llama2-70b-4096'
+  | 'mixtral-8x7b-32768'
+  | 'gemma-7b-it';
+
 export interface ChatCompletionCreateParamsBase {
   messages: Array<CompletionCreateParams.Message>;
 
-  model: string;
+  model: Model;
 
   frequency_penalty?: number;
 
