@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.3 (2024-04-29)
+
+Full Changelog: [v0.3.2...v0.3.3](https://github.com/groq/groq-typescript/compare/v0.3.2...v0.3.3)
+
+### Bug Fixes
+
+* update import in chat_completions_ext.ts to address TS compilation error ([b1de786](https://github.com/groq/groq-typescript/commit/b1de7862495bd76b50b9b596d94bd5d7f2143f57))
+
 ## 0.3.2 (2024-03-08)
 
 Full Changelog: [v0.3.1...v0.3.2](https://github.com/groq/groq-typescript/compare/v0.3.1...v0.3.2)
