@@ -1,5 +1,5 @@
 // Manually curated models for streaming chat completions.
-import { ChatCompletion } from 'groq-sdk/resources/chat/index'
+import { ChatCompletion } from 'groq-sdk/resources/chat/index';
 
 export interface ChatCompletionChunk {
   id: string;
