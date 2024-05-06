@@ -1,34 +1,15 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import * as Core from 'groq-sdk/core';
 import { APIResource } from 'groq-sdk/resource';
 import * as CompletionsAPI from 'groq-sdk/resources/chat/completions';
-import { Stream } from 'groq-sdk/lib/streaming';
-import { ChatCompletionChunk } from 'groq-sdk/lib/chat_completions_ext';
 
 export class Completions extends APIResource {
   /**
    * Creates a completion for a chat prompt
    */
-  create(
-    body: ChatCompletionCreateParamsNonStreaming,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ChatCompletion>;
-  create(
-    body: ChatCompletionCreateParamsStreaming,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Stream<ChatCompletionChunk>>;
-  create(
-    body: ChatCompletionCreateParamsBase,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Stream<ChatCompletionChunk> | ChatCompletion>;
-  create(
-    body: ChatCompletionCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ChatCompletion> | Core.APIPromise<Stream<ChatCompletionChunk>> {
-    return this._client.post('/openai/v1/chat/completions', { body, ...options, stream: body.stream ?? false }) as
-      | Core.APIPromise<ChatCompletion>
-      | Core.APIPromise<Stream<ChatCompletionChunk>>;
+  create(body: CompletionCreateParams, options?: Core.RequestOptions): Core.APIPromise<ChatCompletion> {
+    return this._client.post('/openai/v1/chat/completions', { body, ...options });
   }
 }
 
@@ -130,7 +111,7 @@ export namespace ChatCompletion {
   }
 }
 
-export interface ChatCompletionCreateParamsBase {
+export interface CompletionCreateParams {
   messages: Array<CompletionCreateParams.Message>;
 
   model: string;
@@ -254,15 +235,3 @@ export namespace Completions {
   export import ChatCompletion = CompletionsAPI.ChatCompletion;
   export import CompletionCreateParams = CompletionsAPI.CompletionCreateParams;
 }
-
-export interface ChatCompletionCreateParamsNonStreaming extends ChatCompletionCreateParamsBase {
-  stream?: false;
-}
-
-export interface ChatCompletionCreateParamsStreaming extends ChatCompletionCreateParamsBase {
-  stream: true;
-}
-
-export type ChatCompletionCreateParams =
-  | ChatCompletionCreateParamsNonStreaming
-  | ChatCompletionCreateParamsStreaming;

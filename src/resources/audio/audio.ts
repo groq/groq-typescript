@@ -1,4 +1,4 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from 'groq-sdk/resource';
 import * as AudioAPI from 'groq-sdk/resources/audio/audio';
