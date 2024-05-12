@@ -189,16 +189,16 @@ export namespace Groq {
   export import toFile = Uploads.toFile;
   export import fileFromPath = Uploads.fileFromPath;
 
-  export import RequestOptions = Core.RequestOptions;
+  export type RequestOptions = Core.RequestOptions;
 
-  export import Chat = API.Chat;
+  export type Chat = API.Chat;
 
-  export import Audio = API.Audio;
-  export import Translation = API.Translation;
+  export type Audio = API.Audio;
+  export type Translation = API.Translation;
 
-  export import Models = API.Models;
-  export import Model = API.Model;
-  export import ModelList = API.ModelList;
+  export type Models = API.Models;
+  export type Model = API.Model;
+  export type ModelList = API.ModelList;
 }
 
 export default Groq;
