@@ -49,7 +49,7 @@ const groq = new Groq();
 async function main() {
   const params: Groq.Chat.CompletionCreateParams = {
     messages: [
-      { role: 'system', content: 'You are a helpful assisstant.' },
+      { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
     model: 'mixtral-8x7b-32768',
@@ -74,7 +74,7 @@ async function main() {
   const chatCompletion = await groq.chat.completions
     .create({
       messages: [
-        { role: 'system', content: 'You are a helpful assisstant.' },
+        { role: 'system', content: 'You are a helpful assistant.' },
         { role: 'user', content: 'Explain the importance of low latency LLMs' },
       ],
       model: 'mixtral-8x7b-32768',
@@ -122,7 +122,7 @@ const groq = new Groq({
 });
 
 // Or, configure per-request:
-await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assisstant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'mixtral-8x7b-32768' }, {
+await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'mixtral-8x7b-32768' }, {
   maxRetries: 5,
 });
 ```
@@ -139,7 +139,7 @@ const groq = new Groq({
 });
 
 // Override per-request:
-await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assisstant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'mixtral-8x7b-32768' }, {
+await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'mixtral-8x7b-32768' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -163,7 +163,7 @@ const groq = new Groq();
 const response = await groq.chat.completions
   .create({
     messages: [
-      { role: 'system', content: 'You are a helpful assisstant.' },
+      { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
     model: 'mixtral-8x7b-32768',
@@ -175,7 +175,7 @@ console.log(response.statusText); // access the underlying Response object
 const { data: chatCompletion, response: raw } = await groq.chat.completions
   .create({
     messages: [
-      { role: 'system', content: 'You are a helpful assisstant.' },
+      { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
     model: 'mixtral-8x7b-32768',
@@ -289,7 +289,7 @@ const groq = new Groq({
 await groq.chat.completions.create(
   {
     messages: [
-      { role: 'system', content: 'You are a helpful assisstant.' },
+      { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
     model: 'mixtral-8x7b-32768',
