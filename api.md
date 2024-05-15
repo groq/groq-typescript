@@ -1,3 +1,14 @@
+# Embeddings
+
+Types:
+
+- <code><a href="./src/resources/embeddings.ts">CreateEmbeddingResponse</a></code>
+- <code><a href="./src/resources/embeddings.ts">Embedding</a></code>
+
+Methods:
+
+- <code title="post /openai/v1/embeddings">client.embeddings.<a href="./src/resources/embeddings.ts">create</a>({ ...params }) -> CreateEmbeddingResponse</code>
+
 # Chat
 
 ## Completions
