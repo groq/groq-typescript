@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from 'groq-sdk/core';
-import { APIResource } from 'groq-sdk/resource';
-import * as CompletionsAPI from 'groq-sdk/resources/chat/completions';
+import * as Core from '../../core';
+import { APIResource } from '../../resource';
+import * as CompletionsAPI from './completions';
 
 export class Completions extends APIResource {
   /**
