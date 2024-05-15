@@ -179,7 +179,6 @@ export namespace Groq {
   export import RequestOptions = Core.RequestOptions;
 
   export import Embeddings = API.Embeddings;
-  export import EmbeddingCreateResponse = API.EmbeddingCreateResponse;
   export import EmbeddingCreateParams = API.EmbeddingCreateParams;
 
   export import Chat = API.Chat;
