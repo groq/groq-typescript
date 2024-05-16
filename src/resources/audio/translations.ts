@@ -3,7 +3,6 @@
 import * as Core from '../../core';
 import { APIResource } from '../../resource';
 import * as TranslationsAPI from './translations';
-import * as AudioAPI from './audio';
 import { type Uploadable, multipartFormRequestOptions } from '../../core';
 
 export class Translations extends APIResource {
@@ -21,8 +20,12 @@ export class Translations extends APIResource {
   }
 }
 
+export interface Translation {
+  text: string;
+}
+
 export type TranslationCreateResponse =
-  | AudioAPI.Translation
+  | Translation
   | TranslationCreateResponse.CreateTranslationResponseVerboseJson;
 
 export namespace TranslationCreateResponse {
@@ -142,6 +145,7 @@ export interface TranslationCreateParams {
 }
 
 export namespace Translations {
+  export import Translation = TranslationsAPI.Translation;
   export import TranslationCreateResponse = TranslationsAPI.TranslationCreateResponse;
   export import TranslationCreateParams = TranslationsAPI.TranslationCreateParams;
 }

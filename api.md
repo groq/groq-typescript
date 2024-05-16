@@ -23,10 +23,6 @@ Methods:
 
 # Audio
 
-Types:
-
-- <code><a href="./src/resources/audio/audio.ts">Translation</a></code>
-
 ## Transcriptions
 
 Types:
@@ -42,6 +38,7 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/audio/translations.ts">Translation</a></code>
 - <code><a href="./src/resources/audio/translations.ts">TranslationCreateResponse</a></code>
 
 Methods:
