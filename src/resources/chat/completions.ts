@@ -155,7 +155,12 @@ export interface CompletionCreateParams {
 
 export namespace CompletionCreateParams {
   export interface Message {
-    content: string;
+    content:
+      | string
+      | Array<
+          | Message.TypesChatCompletionRequestMessageContentPartText
+          | Message.TypesChatCompletionRequestMessageContentPartImage
+        >;
 
     role: string;
 
@@ -173,6 +178,41 @@ export namespace CompletionCreateParams {
   }
 
   export namespace Message {
+    export interface TypesChatCompletionRequestMessageContentPartText {
+      /**
+       * The text content.
+       */
+      text: string;
+
+      /**
+       * The type of the content part.
+       */
+      type: 'text';
+    }
+
+    export interface TypesChatCompletionRequestMessageContentPartImage {
+      image_url: TypesChatCompletionRequestMessageContentPartImage.ImageURL;
+
+      /**
+       * The type of the content part.
+       */
+      type: 'image_url';
+    }
+
+    export namespace TypesChatCompletionRequestMessageContentPartImage {
+      export interface ImageURL {
+        /**
+         * Either a URL of the image or the base64 encoded image data.
+         */
+        url: string;
+
+        /**
+         * Specifies the detail level of the image.
+         */
+        detail?: 'auto' | 'low' | 'high';
+      }
+    }
+
     export interface ToolCall {
       id?: string;
 
