@@ -8,16 +8,13 @@ export class Completions extends APIResource {
   /**
    * Creates a model response for the given chat conversation.
    */
-  create(
-    body: CompletionCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CompletionCreateResponse> {
+  create(body: CompletionCreateParams, options?: Core.RequestOptions): Core.APIPromise<ChatCompletion> {
     return this._client.post('/openai/v1/chat/completions', { body, ...options });
   }
 }
 
-export interface CompletionCreateResponse {
-  choices: Array<CompletionCreateResponse.Choice>;
+export interface ChatCompletion {
+  choices: Array<ChatCompletion.Choice>;
 
   id?: string;
 
@@ -29,10 +26,10 @@ export interface CompletionCreateResponse {
 
   system_fingerprint?: string;
 
-  usage?: CompletionCreateResponse.Usage;
+  usage?: ChatCompletion.Usage;
 }
 
-export namespace CompletionCreateResponse {
+export namespace ChatCompletion {
   export interface Choice {
     finish_reason: string;
 
@@ -578,6 +575,6 @@ export namespace CompletionCreateParams {
 }
 
 export namespace Completions {
-  export import CompletionCreateResponse = CompletionsAPI.CompletionCreateResponse;
+  export import ChatCompletion = CompletionsAPI.ChatCompletion;
   export import CompletionCreateParams = CompletionsAPI.CompletionCreateParams;
 }

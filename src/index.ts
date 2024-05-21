@@ -201,8 +201,8 @@ export namespace Groq {
   export import Audio = API.Audio;
 
   export import Models = API.Models;
-  export import ModelRetrieveResponse = API.ModelRetrieveResponse;
-  export import ModelListResponse = API.ModelListResponse;
+  export import Model = API.Model;
+  export import ModelList = API.ModelList;
 }
 
 export default Groq;
