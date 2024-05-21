@@ -91,12 +91,7 @@ export interface EmbeddingCreateParams {
   model: string;
 
   /**
-   * The number of dimensions to return the embeddings in.
-   */
-  dimensions?: number;
-
-  /**
-   * The format to return the embeddings in.
+   * The format to return the embeddings in. Can only be `float` or `base64`.
    */
   encoding_format?: 'float' | 'base64';
 

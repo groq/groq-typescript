@@ -8,14 +8,14 @@ export class Models extends APIResource {
   /**
    * Get a specific model
    */
-  retrieve(model: string, options?: Core.RequestOptions): Core.APIPromise<Model> {
+  retrieve(model: string, options?: Core.RequestOptions): Core.APIPromise<ModelRetrieveResponse> {
     return this._client.get(`/openai/v1/models/${model}`, options);
   }
 
   /**
    * get all available models
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<ModelList> {
+  list(options?: Core.RequestOptions): Core.APIPromise<ModelListResponse> {
     return this._client.get('/openai/v1/models', options);
   }
 
@@ -30,7 +30,7 @@ export class Models extends APIResource {
   }
 }
 
-export interface Model {
+export interface ModelRetrieveResponse {
   id?: string;
 
   created?: number;
@@ -40,13 +40,25 @@ export interface Model {
   owned_by?: string;
 }
 
-export interface ModelList {
-  data?: Array<Model>;
+export interface ModelListResponse {
+  data?: Array<ModelListResponse.Data>;
 
   object?: string;
 }
 
+export namespace ModelListResponse {
+  export interface Data {
+    id?: string;
+
+    created?: number;
+
+    object?: string;
+
+    owned_by?: string;
+  }
+}
+
 export namespace Models {
-  export import Model = ModelsAPI.Model;
-  export import ModelList = ModelsAPI.ModelList;
+  export import ModelRetrieveResponse = ModelsAPI.ModelRetrieveResponse;
+  export import ModelListResponse = ModelsAPI.ModelListResponse;
 }
