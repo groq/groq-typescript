@@ -54,9 +54,9 @@ describe('resource completions', () => {
       temperature: 0,
       tool_choice: 'none',
       tools: [
-        { function: { description: 'string', name: 'string', parameters: { foo: 'bar' } }, type: 'string' },
-        { function: { description: 'string', name: 'string', parameters: { foo: 'bar' } }, type: 'string' },
-        { function: { description: 'string', name: 'string', parameters: { foo: 'bar' } }, type: 'string' },
+        { function: { description: 'string', name: 'string', parameters: { foo: 'bar' } }, type: 'function' },
+        { function: { description: 'string', name: 'string', parameters: { foo: 'bar' } }, type: 'function' },
+        { function: { description: 'string', name: 'string', parameters: { foo: 'bar' } }, type: 'function' },
       ],
       top_logprobs: 0,
       top_p: 0,

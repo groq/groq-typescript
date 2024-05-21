@@ -130,9 +130,9 @@ export interface TranslationCreateParams {
 
   /**
    * The format of the transcript output, in one of these options: `json`, `text`,
-   * `srt`, `verbose_json`, or `vtt`.
+   * `verbose_json`, or `vtt`.
    */
-  response_format?: string;
+  response_format?: 'json' | 'text' | 'verbose_json';
 
   /**
    * The sampling temperature, between 0 and 1. Higher values like 0.8 will make the

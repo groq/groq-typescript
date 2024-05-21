@@ -543,9 +543,9 @@ export namespace CompletionCreateParams {
   }
 
   export interface ChatToolChoice {
-    function?: ChatToolChoice.Function;
+    function: ChatToolChoice.Function;
 
-    type?: string;
+    type: 'function';
   }
 
   export namespace ChatToolChoice {
@@ -553,21 +553,21 @@ export namespace CompletionCreateParams {
       /**
        * The name of the function to call.
        */
-      name?: string;
+      name: string;
     }
   }
 
   export interface Tool {
-    function?: Tool.Function;
+    function: Tool.Function;
 
-    type?: string;
+    type: 'function';
   }
 
   export namespace Tool {
     export interface Function {
-      description?: string;
+      name: string;
 
-      name?: string;
+      description?: string;
 
       parameters?: Record<string, unknown>;
     }
