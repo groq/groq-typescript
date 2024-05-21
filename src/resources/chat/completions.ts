@@ -6,15 +6,18 @@ import * as CompletionsAPI from './completions';
 
 export class Completions extends APIResource {
   /**
-   * Creates a completion for a chat prompt
+   * Creates a model response for the given chat conversation.
    */
-  create(body: CompletionCreateParams, options?: Core.RequestOptions): Core.APIPromise<ChatCompletion> {
+  create(
+    body: CompletionCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<CompletionCreateResponse> {
     return this._client.post('/openai/v1/chat/completions', { body, ...options });
   }
 }
 
-export interface ChatCompletion {
-  choices: Array<ChatCompletion.Choice>;
+export interface CompletionCreateResponse {
+  choices: Array<CompletionCreateResponse.Choice>;
 
   id?: string;
 
@@ -26,10 +29,10 @@ export interface ChatCompletion {
 
   system_fingerprint?: string;
 
-  usage?: ChatCompletion.Usage;
+  usage?: CompletionCreateResponse.Usage;
 }
 
-export namespace ChatCompletion {
+export namespace CompletionCreateResponse {
   export interface Choice {
     finish_reason: string;
 
@@ -112,25 +115,106 @@ export namespace ChatCompletion {
 }
 
 export interface CompletionCreateParams {
-  messages: Array<CompletionCreateParams.Message>;
+  /**
+   * A list of messages comprising the conversation so far.
+   */
+  messages: Array<
+    | CompletionCreateParams.ChatCompletionRequestSystemMessage
+    | CompletionCreateParams.ChatCompletionRequestUserMessage
+    | CompletionCreateParams.ChatCompletionRequestAssistantMessage
+    | CompletionCreateParams.ChatCompletionRequestToolMessage
+    | CompletionCreateParams.ChatCompletionRequestFunctionMessage
+  >;
 
+  /**
+   * ID of the model to use. For details on which models are compatible with the Chat
+   * API, see available [models](/docs/models)
+   */
   model: string;
 
-  frequency_penalty?: number;
+  /**
+   * Number between -2.0 and 2.0. Positive values penalize new tokens based on their
+   * existing frequency in the text so far, decreasing the model's likelihood to
+   * repeat the same line verbatim.
+   */
+  frequency_penalty?: number | null;
 
-  logit_bias?: Record<string, number>;
+  /**
+   * Deprecated in favor of `tool_choice`.
+   *
+   * Controls which (if any) function is called by the model. `none` means the model
+   * will not call a function and instead generates a message. `auto` means the model
+   * can pick between generating a message or calling a function. Specifying a
+   * particular function via `{"name": "my_function"}` forces the model to call that
+   * function.
+   *
+   * `none` is the default when no functions are present. `auto` is the default if
+   * functions are present.
+   */
+  function_call?: 'none' | 'auto' | CompletionCreateParams.ChatCompletionFunctionCallOption | null;
 
-  logprobs?: boolean;
+  /**
+   * Deprecated in favor of `tools`.
+   *
+   * A list of functions the model may generate JSON inputs for.
+   */
+  functions?: Array<CompletionCreateParams.Function> | null;
 
-  max_tokens?: number;
+  /**
+   * This is not yet supported by any of our models. Modify the likelihood of
+   * specified tokens appearing in the completion.
+   */
+  logit_bias?: Record<string, number> | null;
 
-  n?: number;
+  /**
+   * This is not yet supported by any of our models. Whether to return log
+   * probabilities of the output tokens or not. If true, returns the log
+   * probabilities of each output token returned in the `content` of `message`.
+   */
+  logprobs?: boolean | null;
 
-  presence_penalty?: number;
+  /**
+   * The maximum number of tokens that can be generated in the chat completion. The
+   * total length of input tokens and generated tokens is limited by the model's
+   * context length.
+   */
+  max_tokens?: number | null;
 
-  response_format?: CompletionCreateParams.ResponseFormat;
+  /**
+   * How many chat completion choices to generate for each input message. Note that
+   * you will be charged based on the number of generated tokens across all of the
+   * choices. Keep `n` as `1` to minimize costs.
+   */
+  n?: number | null;
 
-  seed?: number;
+  /**
+   * Number between -2.0 and 2.0. Positive values penalize new tokens based on
+   * whether they appear in the text so far, increasing the model's likelihood to
+   * talk about new topics.
+   */
+  presence_penalty?: number | null;
+
+  /**
+   * An object specifying the format that the model must output.
+   *
+   * Setting to `{ "type": "json" }` enables JSON mode, which guarantees the message
+   * the model generates is valid JSON.
+   *
+   * Important: when using JSON mode, you must also instruct the model to produce
+   * JSON yourself via a system or user message. Without this, the model may generate
+   * an unending stream of whitespace until the generation reaches the token limit,
+   * resulting in a long-running and seemingly "stuck" request. Also note that the
+   * message content may be partially cut off if finish_reason="length", which
+   * indicates the generation exceeded max_tokens or the conversation exceeded the
+   * max context length.
+   */
+  response_format?: CompletionCreateParams.ResponseFormat | null;
+
+  /**
+   * If specified, our system will sample deterministically, such that repeated
+   * requests with the same seed and parameters will return the same result.
+   */
+  seed?: number | null;
 
   /**
    * Up to 4 sequences where the API will stop generating further tokens. The
@@ -138,47 +222,107 @@ export interface CompletionCreateParams {
    */
   stop?: string | null | Array<string>;
 
-  stream?: boolean;
+  /**
+   * If set, partial message deltas will be sent. Tokens will be sent as data-only
+   * server-sent events as they become available, with the stream terminated by a
+   * data: [DONE]. [Example code](/docs/text-chat#streaming-a-chat-completion).
+   */
+  stream?: boolean | null;
 
-  temperature?: number;
+  /**
+   * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will
+   * make the output more random, while lower values like 0.2 will make it more
+   * focused and deterministic. We generally recommend altering this or top_p but not
+   * both
+   */
+  temperature?: number | null;
 
-  tool_choice?: CompletionCreateParams.ToolChoice;
+  /**
+   * Controls which (if any) function is called by the model. Specifying a particular
+   * function via a structured object like
+   * `{"type": "function", "function": {"name": "my_function"}}` forces the model to
+   * call that function.
+   */
+  tool_choice?: 'none' | 'auto' | CompletionCreateParams.ChatToolChoice | null;
 
-  tools?: Array<CompletionCreateParams.Tool>;
+  /**
+   * A list of tools the model may call. Currently, only functions are supported as a
+   * tool. Use this to provide a list of functions the model may generate JSON inputs
+   * for. A max of 128 functions are supported.
+   */
+  tools?: Array<CompletionCreateParams.Tool> | null;
 
-  top_logprobs?: number;
+  /**
+   * This is not yet supported by any of our models. An integer between 0 and 20
+   * specifying the number of most likely tokens to return at each token position,
+   * each with an associated log probability. `logprobs` must be set to `true` if
+   * this parameter is used.
+   */
+  top_logprobs?: number | null;
 
-  top_p?: number;
+  /**
+   * An alternative to sampling with temperature, called nucleus sampling, where the
+   * model considers the results of the tokens with top_p probability mass. So 0.1
+   * means only the tokens comprising the top 10% probability mass are considered. We
+   * generally recommend altering this or temperature but not both.
+   */
+  top_p?: number | null;
 
-  user?: string;
+  /**
+   * A unique identifier representing your end-user, which can help us monitor and
+   * detect abuse.
+   */
+  user?: string | null;
 }
 
 export namespace CompletionCreateParams {
-  export interface Message {
+  export interface ChatCompletionRequestSystemMessage {
+    /**
+     * The contents of the system message.
+     */
+    content: string;
+
+    /**
+     * The role of the messages author, in this case `system`.
+     */
+    role: 'system';
+
+    /**
+     * An optional name for the participant. Provides the model information to
+     * differentiate between participants of the same role.
+     */
+    name?: string;
+
+    tool_call_id?: string | null;
+  }
+
+  export interface ChatCompletionRequestUserMessage {
+    /**
+     * The contents of the user message.
+     */
     content:
       | string
       | Array<
-          | Message.TypesChatCompletionRequestMessageContentPartText
-          | Message.TypesChatCompletionRequestMessageContentPartImage
+          | ChatCompletionRequestUserMessage.ChatCompletionRequestMessageContentPartText
+          | ChatCompletionRequestUserMessage.ChatCompletionRequestMessageContentPartImage
         >;
 
-    role: string;
-
-    name?: string;
+    /**
+     * The role of the messages author, in this case `user`.
+     */
+    role: 'user';
 
     /**
-     * ToolMessage Fields
+     * An optional name for the participant. Provides the model information to
+     * differentiate between participants of the same role.
      */
-    tool_call_id?: string;
+    name?: string | null;
 
-    /**
-     * AssistantMessage Fields
-     */
-    tool_calls?: Array<Message.ToolCall>;
+    tool_call_id?: string | null;
   }
 
-  export namespace Message {
-    export interface TypesChatCompletionRequestMessageContentPartText {
+  export namespace ChatCompletionRequestUserMessage {
+    export interface ChatCompletionRequestMessageContentPartText {
       /**
        * The text content.
        */
@@ -190,8 +334,8 @@ export namespace CompletionCreateParams {
       type: 'text';
     }
 
-    export interface TypesChatCompletionRequestMessageContentPartImage {
-      image_url: TypesChatCompletionRequestMessageContentPartImage.ImageURL;
+    export interface ChatCompletionRequestMessageContentPartImage {
+      image_url: ChatCompletionRequestMessageContentPartImage.ImageURL;
 
       /**
        * The type of the content part.
@@ -199,7 +343,7 @@ export namespace CompletionCreateParams {
       type: 'image_url';
     }
 
-    export namespace TypesChatCompletionRequestMessageContentPartImage {
+    export namespace ChatCompletionRequestMessageContentPartImage {
       export interface ImageURL {
         /**
          * Either a URL of the image or the base64 encoded image data.
@@ -212,45 +356,207 @@ export namespace CompletionCreateParams {
         detail?: 'auto' | 'low' | 'high';
       }
     }
+  }
+
+  export interface ChatCompletionRequestAssistantMessage {
+    /**
+     * The role of the messages author, in this case `assistant`.
+     */
+    role: 'assistant';
+
+    /**
+     * The contents of the assistant message. Required unless `tool_calls` or
+     * `function_call` is specified.
+     */
+    content?: string | null;
+
+    /**
+     * @deprecated: Deprecated and replaced by `tool_calls`. The name and arguments of
+     * a function that should be called, as generated by the model.
+     */
+    function_call?: ChatCompletionRequestAssistantMessage.FunctionCall;
+
+    /**
+     * An optional name for the participant. Provides the model information to
+     * differentiate between participants of the same role.
+     */
+    name?: string;
+
+    tool_call_id?: string | null;
+
+    /**
+     * The tool calls generated by the model, such as function calls.
+     */
+    tool_calls?: Array<ChatCompletionRequestAssistantMessage.ToolCall>;
+  }
+
+  export namespace ChatCompletionRequestAssistantMessage {
+    /**
+     * @deprecated: Deprecated and replaced by `tool_calls`. The name and arguments of
+     * a function that should be called, as generated by the model.
+     */
+    export interface FunctionCall {
+      /**
+       * The arguments to call the function with, as generated by the model in JSON
+       * format. Note that the model does not always generate valid JSON, and may
+       * hallucinate parameters not defined by your function schema. Validate the
+       * arguments in your code before calling your function.
+       */
+      arguments: string;
+
+      /**
+       * The name of the function to call.
+       */
+      name: string;
+    }
 
     export interface ToolCall {
-      id?: string;
+      /**
+       * The ID of the tool call.
+       */
+      id: string;
 
-      function?: ToolCall.Function;
+      /**
+       * The function that the model called.
+       */
+      function: ToolCall.Function;
 
-      type?: string;
+      /**
+       * The type of the tool. Currently, only `function` is supported.
+       */
+      type: 'function';
     }
 
     export namespace ToolCall {
+      /**
+       * The function that the model called.
+       */
       export interface Function {
-        arguments?: string;
+        /**
+         * The arguments to call the function with, as generated by the model in JSON
+         * format. Note that the model does not always generate valid JSON, and may
+         * hallucinate parameters not defined by your function schema. Validate the
+         * arguments in your code before calling your function.
+         */
+        arguments: string;
 
-        name?: string;
+        /**
+         * The name of the function to call.
+         */
+        name: string;
       }
     }
   }
 
+  export interface ChatCompletionRequestToolMessage {
+    /**
+     * The contents of the tool message.
+     */
+    content: string;
+
+    /**
+     * The role of the messages author, in this case `tool`.
+     */
+    role: 'tool';
+
+    /**
+     * Tool call that this message is responding to.
+     */
+    tool_call_id: string;
+
+    name?: string | null;
+  }
+
+  /**
+   * @deprecated
+   */
+  export interface ChatCompletionRequestFunctionMessage {
+    /**
+     * The contents of the function message.
+     */
+    content: string | null;
+
+    /**
+     * The name of the function to call.
+     */
+    name: string;
+
+    /**
+     * The role of the messages author, in this case `function`.
+     */
+    role: 'function';
+
+    tool_call_id?: string | null;
+  }
+
+  /**
+   * Specifying a particular function via `{"name": "my_function"}` forces the model
+   * to call that function.
+   */
+  export interface ChatCompletionFunctionCallOption {
+    /**
+     * The name of the function to call.
+     */
+    name: string;
+  }
+
+  /**
+   * @deprecated
+   */
+  export interface Function {
+    /**
+     * The name of the function to be called. Must be a-z, A-Z, 0-9, or contain
+     * underscores and dashes, with a maximum length of 64.
+     */
+    name: string;
+
+    /**
+     * A description of what the function does, used by the model to choose when and
+     * how to call the function.
+     */
+    description?: string;
+
+    /**
+     * The parameters the functions accepts, described as a JSON Schema object. See the
+     * [guide](/docs/guides/text-generation/function-calling) for examples, and the
+     * [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for
+     * documentation about the format.
+     *
+     * Omitting `parameters` defines a function with an empty parameter list.
+     */
+    parameters?: Record<string, unknown>;
+  }
+
+  /**
+   * An object specifying the format that the model must output.
+   *
+   * Setting to `{ "type": "json" }` enables JSON mode, which guarantees the message
+   * the model generates is valid JSON.
+   *
+   * Important: when using JSON mode, you must also instruct the model to produce
+   * JSON yourself via a system or user message. Without this, the model may generate
+   * an unending stream of whitespace until the generation reaches the token limit,
+   * resulting in a long-running and seemingly "stuck" request. Also note that the
+   * message content may be partially cut off if finish_reason="length", which
+   * indicates the generation exceeded max_tokens or the conversation exceeded the
+   * max context length.
+   */
   export interface ResponseFormat {
     type?: string;
   }
 
-  export interface ToolChoice {
-    string?: string;
+  export interface ChatToolChoice {
+    function?: ChatToolChoice.Function;
 
-    toolChoice?: ToolChoice.ToolChoice;
+    type?: string;
   }
 
-  export namespace ToolChoice {
-    export interface ToolChoice {
-      function?: ToolChoice.Function;
-
-      type?: string;
-    }
-
-    export namespace ToolChoice {
-      export interface Function {
-        name?: string;
-      }
+  export namespace ChatToolChoice {
+    export interface Function {
+      /**
+       * The name of the function to call.
+       */
+      name?: string;
     }
   }
 
@@ -272,6 +578,6 @@ export namespace CompletionCreateParams {
 }
 
 export namespace Completions {
-  export import ChatCompletion = CompletionsAPI.ChatCompletion;
+  export import CompletionCreateResponse = CompletionsAPI.CompletionCreateResponse;
   export import CompletionCreateParams = CompletionsAPI.CompletionCreateParams;
 }

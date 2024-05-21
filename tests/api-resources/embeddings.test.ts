@@ -12,7 +12,7 @@ describe('resource embeddings', () => {
   test('create: only required params', async () => {
     const responsePromise = groq.embeddings.create({
       input: 'The quick brown fox jumped over the lazy dog',
-      model: 'nomic-embed-text-v1.5',
+      model: 'nomic',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -26,8 +26,7 @@ describe('resource embeddings', () => {
   test('create: required and optional params', async () => {
     const response = await groq.embeddings.create({
       input: 'The quick brown fox jumped over the lazy dog',
-      model: 'nomic-embed-text-v1.5',
-      dimensions: 1,
+      model: 'nomic',
       encoding_format: 'float',
       user: 'string',
     });

@@ -25,12 +25,12 @@ import Groq from 'groq-sdk';
 const groq = new Groq();
 
 async function main() {
-  const chatCompletion = await groq.chat.completions.create({
+  const completionCreateResponse = await groq.chat.completions.create({
     messages: [{ role: 'user', content: 'Explain the importance of low latency LLMs' }],
     model: 'mixtral-8x7b-32768',
   });
 
-  console.log(chatCompletion.choices[0].message.content);
+  console.log(completionCreateResponse.choices[0].message.content);
 }
 
 main();
@@ -54,7 +54,9 @@ async function main() {
     ],
     model: 'mixtral-8x7b-32768',
   };
-  const chatCompletion: Groq.Chat.ChatCompletion = await groq.chat.completions.create(params);
+  const completionCreateResponse: Groq.Chat.CompletionCreateResponse = await groq.chat.completions.create(
+    params,
+  );
 }
 
 main();
@@ -71,7 +73,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const chatCompletion = await groq.chat.completions
+  const completionCreateResponse = await groq.chat.completions
     .create({
       messages: [
         { role: 'system', content: 'You are a helpful assistant.' },
@@ -172,7 +174,7 @@ const response = await groq.chat.completions
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: chatCompletion, response: raw } = await groq.chat.completions
+const { data: completionCreateResponse, response: raw } = await groq.chat.completions
   .create({
     messages: [
       { role: 'system', content: 'You are a helpful assistant.' },
@@ -182,7 +184,7 @@ const { data: chatCompletion, response: raw } = await groq.chat.completions
   })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(chatCompletion.id);
+console.log(completionCreateResponse.id);
 ```
 
 ### Making custom/undocumented requests
