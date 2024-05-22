@@ -88,7 +88,7 @@ export interface EmbeddingCreateParams {
   /**
    * ID of the model to use.
    */
-  model: (string & {}) | 'nomic-embed-text-v1_5';
+  model: string;
 
   /**
    * The format to return the embeddings in. Can only be `float` or `base64`.

@@ -15,59 +15,38 @@ export class Models extends APIResource {
   /**
    * get all available models
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<ModelListResponse> {
+  list(options?: Core.RequestOptions): Core.APIPromise<ModelList> {
     return this._client.get('/openai/v1/models', options);
   }
 
   /**
    * Delete a model
    */
-  delete(model: string, options?: Core.RequestOptions): Core.APIPromise<ModelDeleted> {
-    return this._client.delete(`/openai/v1/models/${model}`, options);
+  delete(model: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.delete(`/openai/v1/models/${model}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
   }
 }
 
-/**
- * Describes an OpenAI model offering that can be used with the API.
- */
 export interface Model {
-  /**
-   * The model identifier, which can be referenced in the API endpoints.
-   */
-  id: string;
+  id?: string;
 
-  /**
-   * The Unix timestamp (in seconds) when the model was created.
-   */
-  created: number;
+  created?: number;
 
-  /**
-   * The object type, which is always "model".
-   */
-  object: 'model';
+  object?: string;
 
-  /**
-   * The organization that owns the model.
-   */
-  owned_by: string;
+  owned_by?: string;
 }
 
-export interface ModelDeleted {
-  id: string;
+export interface ModelList {
+  data?: Array<Model>;
 
-  deleted: boolean;
-
-  object: string;
-}
-
-export interface ModelListResponse {
-  data: Array<Model>;
-
-  object: 'list';
+  object?: string;
 }
 
 export namespace Models {
   export import Model = ModelsAPI.Model;
-  export import ModelDeleted = ModelsAPI.ModelDeleted;
-  export import ModelListResponse = ModelsAPI.ModelListResponse;
+  export import ModelList = ModelsAPI.ModelList;
 }
