@@ -202,8 +202,8 @@ export namespace Groq {
 
   export import Models = API.Models;
   export import Model = API.Model;
+  export import ModelDeleted = API.ModelDeleted;
   export import ModelListResponse = API.ModelListResponse;
-  export import ModelDeleteResponse = API.ModelDeleteResponse;
 
   export import ErrorObject = API.ErrorObject;
   export import FunctionDefinition = API.FunctionDefinition;
