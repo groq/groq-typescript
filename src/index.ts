@@ -145,10 +145,6 @@ export class Groq extends Core.APIClient {
     };
   }
 
-  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
-    return { Authorization: `Bearer ${this.apiKey}` };
-  }
-
   static Groq = this;
 
   static GroqError = Errors.GroqError;
@@ -203,7 +199,10 @@ export namespace Groq {
   export import Models = API.Models;
   export import Model = API.Model;
   export import ModelListResponse = API.ModelListResponse;
+  export import ModelDeleteResponse = API.ModelDeleteResponse;
 
+  export import ErrorObject = API.ErrorObject;
+  export import FunctionDefinition = API.FunctionDefinition;
   export import FunctionParameters = API.FunctionParameters;
 }
 
