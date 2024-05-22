@@ -146,6 +146,10 @@ export class Groq extends Core.APIClient {
     };
   }
 
+  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    return { Authorization: `Bearer ${this.apiKey}` };
+  }
+
   static Groq = this;
 
   static GroqError = Errors.GroqError;
