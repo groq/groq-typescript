@@ -22,7 +22,9 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Groq from 'groq-sdk';
 
-const groq = new Groq();
+const groq = new Groq({
+  apiKey: process.env['GROQ_API_KEY'], // This is the default and can be omitted
+});
 
 async function main() {
   const chatCompletion = await groq.chat.completions.create({
@@ -44,7 +46,9 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Groq from 'groq-sdk';
 
-const groq = new Groq();
+const groq = new Groq({
+  apiKey: process.env['GROQ_API_KEY'], // This is the default and can be omitted
+});
 
 async function main() {
   const params: Groq.Chat.CompletionCreateParams = {
