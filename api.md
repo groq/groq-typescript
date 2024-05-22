@@ -15,11 +15,11 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/chat/completions.ts">CompletionCreateResponse</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletion</a></code>
 
 Methods:
 
-- <code title="post /openai/v1/chat/completions">client.chat.completions.<a href="./src/resources/chat/completions.ts">create</a>({ ...params }) -> CompletionCreateResponse</code>
+- <code title="post /openai/v1/chat/completions">client.chat.completions.<a href="./src/resources/chat/completions.ts">create</a>({ ...params }) -> ChatCompletion</code>
 
 # Audio
 
