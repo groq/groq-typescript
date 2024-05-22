@@ -3,7 +3,7 @@
 export { Chat } from './chat';
 export {
   ChatCompletion,
-  ChatCompletionMessage,
+  ChatCompletionMessageParam,
   ChatCompletionContentPart,
   ChatCompletionContentPartImage,
   ChatCompletionContentPartText,
