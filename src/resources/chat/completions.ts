@@ -111,14 +111,14 @@ export namespace ChatCompletion {
   }
 }
 
-export type ChatCompletionMessage =
-  | ChatCompletionMessage.ChatCompletionRequestSystemMessage
-  | ChatCompletionMessage.ChatCompletionRequestUserMessage
-  | ChatCompletionMessage.ChatCompletionRequestAssistantMessage
-  | ChatCompletionMessage.ChatCompletionRequestToolMessage
-  | ChatCompletionMessage.ChatCompletionRequestFunctionMessage;
+export type ChatCompletionMessageParam =
+  | ChatCompletionMessageParam.ChatCompletionRequestSystemMessage
+  | ChatCompletionMessageParam.ChatCompletionRequestUserMessage
+  | ChatCompletionMessageParam.ChatCompletionRequestAssistantMessage
+  | ChatCompletionMessageParam.ChatCompletionRequestToolMessage
+  | ChatCompletionMessageParam.ChatCompletionRequestFunctionMessage;
 
-export namespace ChatCompletionMessage {
+export namespace ChatCompletionMessageParam {
   export interface ChatCompletionRequestSystemMessage {
     /**
      * The contents of the system message.
@@ -332,7 +332,7 @@ export interface CompletionCreateParams {
   /**
    * A list of messages comprising the conversation so far.
    */
-  messages: Array<ChatCompletionMessage>;
+  messages: Array<ChatCompletionMessageParam>;
 
   /**
    * ID of the model to use. For details on which models are compatible with the Chat
@@ -574,7 +574,7 @@ export namespace CompletionCreateParams {
 
 export namespace Completions {
   export import ChatCompletion = CompletionsAPI.ChatCompletion;
-  export import ChatCompletionMessage = CompletionsAPI.ChatCompletionMessage;
+  export import ChatCompletionMessageParam = CompletionsAPI.ChatCompletionMessageParam;
   export import ChatCompletionContentPart = CompletionsAPI.ChatCompletionContentPart;
   export import ChatCompletionContentPartImage = CompletionsAPI.ChatCompletionContentPartImage;
   export import ChatCompletionContentPartText = CompletionsAPI.ChatCompletionContentPartText;
