@@ -6,23 +6,13 @@ Types:
 - <code><a href="./src/resources/shared.ts">FunctionDefinition</a></code>
 - <code><a href="./src/resources/shared.ts">FunctionParameters</a></code>
 
-# Embeddings
-
-Types:
-
-- <code><a href="./src/resources/embeddings.ts">CreateEmbeddingResponse</a></code>
-- <code><a href="./src/resources/embeddings.ts">Embedding</a></code>
-
-Methods:
-
-- <code title="post /openai/v1/embeddings">client.embeddings.<a href="./src/resources/embeddings.ts">create</a>({ ...params }) -> CreateEmbeddingResponse</code>
-
 # Chat
 
 ## Completions
 
 Types:
 
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletion</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionAssistantMessageParam</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionContentPart</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionContentPartImage</a></code>
@@ -36,14 +26,25 @@ Types:
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionRole</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionSystemMessageParam</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionTokenLogprob</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletionTool</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionToolChoiceOption</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionToolMessageParam</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionUserMessageParam</a></code>
-- <code><a href="./src/resources/chat/completions.ts">CompletionCreateResponse</a></code>
 
 Methods:
 
-- <code title="post /openai/v1/chat/completions">client.chat.completions.<a href="./src/resources/chat/completions.ts">create</a>({ ...params }) -> CompletionCreateResponse</code>
+- <code title="post /openai/v1/chat/completions">client.chat.completions.<a href="./src/resources/chat/completions.ts">create</a>({ ...params }) -> ChatCompletion</code>
+
+# Embeddings
+
+Types:
+
+- <code><a href="./src/resources/embeddings.ts">CreateEmbeddingResponse</a></code>
+- <code><a href="./src/resources/embeddings.ts">Embedding</a></code>
+
+Methods:
+
+- <code title="post /openai/v1/embeddings">client.embeddings.<a href="./src/resources/embeddings.ts">create</a>({ ...params }) -> CreateEmbeddingResponse</code>
 
 # Audio
 

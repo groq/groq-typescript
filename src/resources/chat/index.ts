@@ -2,6 +2,7 @@
 
 export { Chat } from './chat';
 export {
+  ChatCompletion,
   ChatCompletionAssistantMessageParam,
   ChatCompletionContentPart,
   ChatCompletionContentPartImage,
@@ -15,10 +16,10 @@ export {
   ChatCompletionRole,
   ChatCompletionSystemMessageParam,
   ChatCompletionTokenLogprob,
+  ChatCompletionTool,
   ChatCompletionToolChoiceOption,
   ChatCompletionToolMessageParam,
   ChatCompletionUserMessageParam,
-  CompletionCreateResponse,
   CompletionCreateParams,
   Completions,
 } from './completions';
