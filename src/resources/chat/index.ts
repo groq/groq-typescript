@@ -10,6 +10,10 @@ export {
   ChatCompletionFunctionCallOption,
   ChatCompletionFunctionMessageParam,
   ChatCompletionMessageParam,
+  ChatCompletionMessageToolCall,
+  ChatCompletionSystemMessageParam,
+  ChatCompletionToolMessageParam,
+  ChatCompletionUserMessageParam,
   CompletionCreateParams,
   Completions,
 } from './completions';
