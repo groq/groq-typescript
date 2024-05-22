@@ -22,7 +22,7 @@ export class Models extends APIResource {
   /**
    * Delete a model
    */
-  delete(model: string, options?: Core.RequestOptions): Core.APIPromise<ModelDeleteResponse> {
+  delete(model: string, options?: Core.RequestOptions): Core.APIPromise<ModelDeleted> {
     return this._client.delete(`/openai/v1/models/${model}`, options);
   }
 }
@@ -52,13 +52,7 @@ export interface Model {
   owned_by: string;
 }
 
-export interface ModelListResponse {
-  data: Array<Model>;
-
-  object: 'list';
-}
-
-export interface ModelDeleteResponse {
+export interface ModelDeleted {
   id: string;
 
   deleted: boolean;
@@ -66,8 +60,14 @@ export interface ModelDeleteResponse {
   object: string;
 }
 
+export interface ModelListResponse {
+  data: Array<Model>;
+
+  object: 'list';
+}
+
 export namespace Models {
   export import Model = ModelsAPI.Model;
+  export import ModelDeleted = ModelsAPI.ModelDeleted;
   export import ModelListResponse = ModelsAPI.ModelListResponse;
-  export import ModelDeleteResponse = ModelsAPI.ModelDeleteResponse;
 }
