@@ -129,6 +129,7 @@ export class Groq extends Core.APIClient {
     this.apiKey = apiKey;
   }
 
+  completions: API.Completions = new API.Completions(this);
   chat: API.Chat = new API.Chat(this);
   embeddings: API.Embeddings = new API.Embeddings(this);
   audio: API.Audio = new API.Audio(this);
@@ -186,6 +187,9 @@ export import fileFromPath = Uploads.fileFromPath;
 
 export namespace Groq {
   export import RequestOptions = Core.RequestOptions;
+
+  export import Completions = API.Completions;
+  export import CompletionUsage = API.CompletionUsage;
 
   export import Chat = API.Chat;
 
