@@ -4,6 +4,7 @@ export { Chat } from './chat';
 export {
   ChatCompletion,
   ChatCompletionAssistantMessageParam,
+  ChatCompletionChunk,
   ChatCompletionContentPart,
   ChatCompletionContentPartImage,
   ChatCompletionContentPartText,
