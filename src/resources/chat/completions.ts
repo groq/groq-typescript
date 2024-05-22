@@ -3,6 +3,7 @@
 import * as Core from '../../core';
 import { APIResource } from '../../resource';
 import * as CompletionsAPI from './completions';
+import * as Shared from '../shared';
 
 export class Completions extends APIResource {
   /**
@@ -536,7 +537,7 @@ export namespace CompletionCreateParams {
      *
      * Omitting `parameters` defines a function with an empty parameter list.
      */
-    parameters?: Record<string, unknown>;
+    parameters?: Shared.FunctionParameters;
   }
 
   /**

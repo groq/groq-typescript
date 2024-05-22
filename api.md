@@ -1,3 +1,9 @@
+# Shared
+
+Types:
+
+- <code><a href="./src/resources/shared.ts">FunctionParameters</a></code>
+
 # Embeddings
 
 Types:
