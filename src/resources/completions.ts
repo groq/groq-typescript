@@ -14,6 +14,9 @@ export interface CompletionUsage {
    */
   completion_tokens: number;
 
+  /**
+   * Number of tokens in the prompt.
+   */
   prompt_tokens: number;
 
   /**
@@ -21,14 +24,23 @@ export interface CompletionUsage {
    */
   total_tokens: number;
 
+  /**
+   * Time spent generating tokens
+   */
   completion_time?: number;
 
+  /**
+   * Time spent processing input tokens
+   */
   prompt_time?: number;
 
+  /**
+   * Time the requests was spent queued
+   */
   queue_time?: number;
 
   /**
-   * Number of tokens in the prompt.
+   * completion time and prompt time combined
    */
   total_time?: number;
 }
