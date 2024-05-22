@@ -2,18 +2,23 @@
 
 export { Chat } from './chat';
 export {
-  ChatCompletion,
   ChatCompletionAssistantMessageParam,
   ChatCompletionContentPart,
   ChatCompletionContentPartImage,
   ChatCompletionContentPartText,
   ChatCompletionFunctionCallOption,
   ChatCompletionFunctionMessageParam,
+  ChatCompletionMessage,
   ChatCompletionMessageParam,
   ChatCompletionMessageToolCall,
+  ChatCompletionNamedToolChoice,
+  ChatCompletionRole,
   ChatCompletionSystemMessageParam,
+  ChatCompletionTokenLogprob,
+  ChatCompletionToolChoiceOption,
   ChatCompletionToolMessageParam,
   ChatCompletionUserMessageParam,
+  CompletionCreateResponse,
   CompletionCreateParams,
   Completions,
 } from './completions';
