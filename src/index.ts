@@ -203,6 +203,8 @@ export namespace Groq {
   export import Models = API.Models;
   export import Model = API.Model;
   export import ModelListResponse = API.ModelListResponse;
+
+  export import FunctionParameters = API.FunctionParameters;
 }
 
 export default Groq;
