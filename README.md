@@ -27,7 +27,7 @@ const groq = new Groq();
 async function main() {
   const completionCreateResponse = await groq.chat.completions.create({
     messages: [{ role: 'user', content: 'Explain the importance of low latency LLMs' }],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   });
 
   console.log(completionCreateResponse.choices[0].message.content);
@@ -52,7 +52,7 @@ async function main() {
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   };
   const completionCreateResponse: Groq.Chat.CompletionCreateResponse = await groq.chat.completions.create(
     params,
@@ -79,7 +79,7 @@ async function main() {
         { role: 'system', content: 'You are a helpful assistant.' },
         { role: 'user', content: 'Explain the importance of low latency LLMs' },
       ],
-      model: 'mixtral-8x7b-32768',
+      model: 'llama3-8b-8192',
     })
     .catch(async (err) => {
       if (err instanceof Groq.APIError) {
@@ -121,11 +121,10 @@ You can use the `maxRetries` option to configure or disable this:
 // Configure the default for all requests:
 const groq = new Groq({
   maxRetries: 0, // default is 2
-  apiKey: 'My API Key',
 });
 
 // Or, configure per-request:
-await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'mixtral-8x7b-32768' }, {
+await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
   maxRetries: 5,
 });
 ```
@@ -139,11 +138,10 @@ Requests time out after 1 minute by default. You can configure this with a `time
 // Configure the default for all requests:
 const groq = new Groq({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
-  apiKey: 'My API Key',
 });
 
 // Override per-request:
-await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'mixtral-8x7b-32768' }, {
+await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -170,7 +168,7 @@ const response = await groq.chat.completions
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -182,7 +180,7 @@ const { data: completionCreateResponse, response: raw } = await groq.chat.comple
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
@@ -287,7 +285,6 @@ import { HttpsProxyAgent } from 'https-proxy-agent';
 // Configure the default for all requests:
 const groq = new Groq({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
-  apiKey: 'My API Key',
 });
 
 // Override per-request:
@@ -297,7 +294,7 @@ await groq.chat.completions.create(
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   },
   {
     httpAgent: new http.Agent({ keepAlive: false }),
