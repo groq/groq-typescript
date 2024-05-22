@@ -3,10 +3,10 @@
 export { Chat } from './chat';
 export {
   ChatCompletion,
+  ChatCompletionMessage,
   ChatCompletionContentPart,
   ChatCompletionContentPartImage,
   ChatCompletionContentPartText,
-  ChatCompletionMessage,
   CompletionCreateParams,
   Completions,
 } from './completions';

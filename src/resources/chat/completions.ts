@@ -111,43 +111,6 @@ export namespace ChatCompletion {
   }
 }
 
-export type ChatCompletionContentPart = ChatCompletionContentPartText | ChatCompletionContentPartImage;
-
-export interface ChatCompletionContentPartImage {
-  image_url: ChatCompletionContentPartImage.ImageURL;
-
-  /**
-   * The type of the content part.
-   */
-  type: 'image_url';
-}
-
-export namespace ChatCompletionContentPartImage {
-  export interface ImageURL {
-    /**
-     * Either a URL of the image or the base64 encoded image data.
-     */
-    url: string;
-
-    /**
-     * Specifies the detail level of the image.
-     */
-    detail?: 'auto' | 'low' | 'high';
-  }
-}
-
-export interface ChatCompletionContentPartText {
-  /**
-   * The text content.
-   */
-  text: string;
-
-  /**
-   * The type of the content part.
-   */
-  type: 'text';
-}
-
 export type ChatCompletionMessage =
   | ChatCompletionMessage.ChatCompletionRequestSystemMessage
   | ChatCompletionMessage.ChatCompletionRequestUserMessage
@@ -326,6 +289,43 @@ export namespace ChatCompletionMessage {
 
     tool_call_id?: string | null;
   }
+}
+
+export type ChatCompletionContentPart = ChatCompletionContentPartText | ChatCompletionContentPartImage;
+
+export interface ChatCompletionContentPartImage {
+  image_url: ChatCompletionContentPartImage.ImageURL;
+
+  /**
+   * The type of the content part.
+   */
+  type: 'image_url';
+}
+
+export namespace ChatCompletionContentPartImage {
+  export interface ImageURL {
+    /**
+     * Either a URL of the image or the base64 encoded image data.
+     */
+    url: string;
+
+    /**
+     * Specifies the detail level of the image.
+     */
+    detail?: 'auto' | 'low' | 'high';
+  }
+}
+
+export interface ChatCompletionContentPartText {
+  /**
+   * The text content.
+   */
+  text: string;
+
+  /**
+   * The type of the content part.
+   */
+  type: 'text';
 }
 
 export interface CompletionCreateParams {
@@ -574,9 +574,9 @@ export namespace CompletionCreateParams {
 
 export namespace Completions {
   export import ChatCompletion = CompletionsAPI.ChatCompletion;
+  export import ChatCompletionMessage = CompletionsAPI.ChatCompletionMessage;
   export import ChatCompletionContentPart = CompletionsAPI.ChatCompletionContentPart;
   export import ChatCompletionContentPartImage = CompletionsAPI.ChatCompletionContentPartImage;
   export import ChatCompletionContentPartText = CompletionsAPI.ChatCompletionContentPartText;
-  export import ChatCompletionMessage = CompletionsAPI.ChatCompletionMessage;
   export import CompletionCreateParams = CompletionsAPI.CompletionCreateParams;
 }
