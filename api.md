@@ -16,6 +16,10 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletion</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletionContentPart</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletionContentPartImage</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletionContentPartText</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletionMessage</a></code>
 
 Methods:
 
