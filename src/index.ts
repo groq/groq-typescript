@@ -129,8 +129,9 @@ export class Groq extends Core.APIClient {
     this.apiKey = apiKey;
   }
 
-  embeddings: API.Embeddings = new API.Embeddings(this);
+  completions: API.Completions = new API.Completions(this);
   chat: API.Chat = new API.Chat(this);
+  embeddings: API.Embeddings = new API.Embeddings(this);
   audio: API.Audio = new API.Audio(this);
   models: API.Models = new API.Models(this);
 
@@ -191,18 +192,26 @@ export import fileFromPath = Uploads.fileFromPath;
 export namespace Groq {
   export import RequestOptions = Core.RequestOptions;
 
+  export import Completions = API.Completions;
+  export import CompletionUsage = API.CompletionUsage;
+
+  export import Chat = API.Chat;
+
   export import Embeddings = API.Embeddings;
   export import CreateEmbeddingResponse = API.CreateEmbeddingResponse;
   export import Embedding = API.Embedding;
   export import EmbeddingCreateParams = API.EmbeddingCreateParams;
 
-  export import Chat = API.Chat;
-
   export import Audio = API.Audio;
 
   export import Models = API.Models;
   export import Model = API.Model;
-  export import ModelList = API.ModelList;
+  export import ModelDeleted = API.ModelDeleted;
+  export import ModelListResponse = API.ModelListResponse;
+
+  export import ErrorObject = API.ErrorObject;
+  export import FunctionDefinition = API.FunctionDefinition;
+  export import FunctionParameters = API.FunctionParameters;
 }
 
 export default Groq;
