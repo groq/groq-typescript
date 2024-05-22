@@ -23,6 +23,10 @@ Types:
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionFunctionCallOption</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionFunctionMessageParam</a></code>
 - <code><a href="./src/resources/chat/completions.ts">ChatCompletionMessageParam</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletionMessageToolCall</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletionSystemMessageParam</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletionToolMessageParam</a></code>
+- <code><a href="./src/resources/chat/completions.ts">ChatCompletionUserMessageParam</a></code>
 
 Methods:
 

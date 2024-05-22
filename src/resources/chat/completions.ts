@@ -272,71 +272,88 @@ export interface ChatCompletionFunctionMessageParam {
 }
 
 export type ChatCompletionMessageParam =
-  | ChatCompletionMessageParam.ChatCompletionRequestSystemMessage
-  | ChatCompletionMessageParam.ChatCompletionRequestUserMessage
+  | ChatCompletionSystemMessageParam
+  | ChatCompletionUserMessageParam
   | ChatCompletionAssistantMessageParam
-  | ChatCompletionMessageParam.ChatCompletionRequestToolMessage
+  | ChatCompletionMessageToolCall
   | ChatCompletionFunctionMessageParam;
 
-export namespace ChatCompletionMessageParam {
-  export interface ChatCompletionRequestSystemMessage {
-    /**
-     * The contents of the system message.
-     */
-    content: string;
+export interface ChatCompletionMessageToolCall {
+  /**
+   * The contents of the tool message.
+   */
+  content: string;
 
-    /**
-     * The role of the messages author, in this case `system`.
-     */
-    role: 'system';
+  /**
+   * The role of the messages author, in this case `tool`.
+   */
+  role: 'tool';
 
-    /**
-     * An optional name for the participant. Provides the model information to
-     * differentiate between participants of the same role.
-     */
-    name?: string;
+  /**
+   * Tool call that this message is responding to.
+   */
+  tool_call_id: string;
 
-    tool_call_id?: string | null;
-  }
+  name?: string | null;
+}
 
-  export interface ChatCompletionRequestUserMessage {
-    /**
-     * The contents of the user message.
-     */
-    content: string | Array<CompletionsAPI.ChatCompletionContentPart>;
+export interface ChatCompletionSystemMessageParam {
+  /**
+   * The contents of the system message.
+   */
+  content: string;
 
-    /**
-     * The role of the messages author, in this case `user`.
-     */
-    role: 'user';
+  /**
+   * The role of the messages author, in this case `system`.
+   */
+  role: 'system';
 
-    /**
-     * An optional name for the participant. Provides the model information to
-     * differentiate between participants of the same role.
-     */
-    name?: string | null;
+  /**
+   * An optional name for the participant. Provides the model information to
+   * differentiate between participants of the same role.
+   */
+  name?: string;
 
-    tool_call_id?: string | null;
-  }
+  tool_call_id?: string | null;
+}
 
-  export interface ChatCompletionRequestToolMessage {
-    /**
-     * The contents of the tool message.
-     */
-    content: string;
+export interface ChatCompletionToolMessageParam {
+  /**
+   * The contents of the tool message.
+   */
+  content: string;
 
-    /**
-     * The role of the messages author, in this case `tool`.
-     */
-    role: 'tool';
+  /**
+   * The role of the messages author, in this case `tool`.
+   */
+  role: 'tool';
 
-    /**
-     * Tool call that this message is responding to.
-     */
-    tool_call_id: string;
+  /**
+   * Tool call that this message is responding to.
+   */
+  tool_call_id: string;
 
-    name?: string | null;
-  }
+  name?: string | null;
+}
+
+export interface ChatCompletionUserMessageParam {
+  /**
+   * The contents of the user message.
+   */
+  content: string | Array<ChatCompletionContentPart>;
+
+  /**
+   * The role of the messages author, in this case `user`.
+   */
+  role: 'user';
+
+  /**
+   * An optional name for the participant. Provides the model information to
+   * differentiate between participants of the same role.
+   */
+  name?: string | null;
+
+  tool_call_id?: string | null;
 }
 
 export interface CompletionCreateParams {
@@ -581,5 +598,9 @@ export namespace Completions {
   export import ChatCompletionFunctionCallOption = CompletionsAPI.ChatCompletionFunctionCallOption;
   export import ChatCompletionFunctionMessageParam = CompletionsAPI.ChatCompletionFunctionMessageParam;
   export import ChatCompletionMessageParam = CompletionsAPI.ChatCompletionMessageParam;
+  export import ChatCompletionMessageToolCall = CompletionsAPI.ChatCompletionMessageToolCall;
+  export import ChatCompletionSystemMessageParam = CompletionsAPI.ChatCompletionSystemMessageParam;
+  export import ChatCompletionToolMessageParam = CompletionsAPI.ChatCompletionToolMessageParam;
+  export import ChatCompletionUserMessageParam = CompletionsAPI.ChatCompletionUserMessageParam;
   export import CompletionCreateParams = CompletionsAPI.CompletionCreateParams;
 }
