@@ -10,9 +10,12 @@ export class Chat extends APIResource {
 export namespace Chat {
   export import Completions = CompletionsAPI.Completions;
   export import ChatCompletion = CompletionsAPI.ChatCompletion;
-  export import ChatCompletionMessageParam = CompletionsAPI.ChatCompletionMessageParam;
+  export import ChatCompletionAssistantMessageParam = CompletionsAPI.ChatCompletionAssistantMessageParam;
   export import ChatCompletionContentPart = CompletionsAPI.ChatCompletionContentPart;
   export import ChatCompletionContentPartImage = CompletionsAPI.ChatCompletionContentPartImage;
   export import ChatCompletionContentPartText = CompletionsAPI.ChatCompletionContentPartText;
+  export import ChatCompletionFunctionCallOption = CompletionsAPI.ChatCompletionFunctionCallOption;
+  export import ChatCompletionFunctionMessageParam = CompletionsAPI.ChatCompletionFunctionMessageParam;
+  export import ChatCompletionMessageParam = CompletionsAPI.ChatCompletionMessageParam;
   export import CompletionCreateParams = CompletionsAPI.CompletionCreateParams;
 }
