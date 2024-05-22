@@ -1,17 +1,3 @@
-# Shared
-
-Types:
-
-- <code><a href="./src/resources/shared.ts">ErrorObject</a></code>
-- <code><a href="./src/resources/shared.ts">FunctionDefinition</a></code>
-- <code><a href="./src/resources/shared.ts">FunctionParameters</a></code>
-
-# Completions
-
-Types:
-
-- <code><a href="./src/resources/completions.ts">CompletionUsage</a></code>
-
 # Chat
 
 ## Completions
