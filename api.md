@@ -53,6 +53,20 @@ Methods:
 
 - <code title="post /openai/v1/embeddings">client.embeddings.<a href="./src/resources/embeddings.ts">create</a>({ ...params }) -> CreateEmbeddingResponse</code>
 
+# Models
+
+Types:
+
+- <code><a href="./src/resources/models.ts">Model</a></code>
+- <code><a href="./src/resources/models.ts">ModelDeleted</a></code>
+- <code><a href="./src/resources/models.ts">ModelListResponse</a></code>
+
+Methods:
+
+- <code title="get /openai/v1/models/{model}">client.models.<a href="./src/resources/models.ts">retrieve</a>(model) -> Model</code>
+- <code title="get /openai/v1/models">client.models.<a href="./src/resources/models.ts">list</a>() -> ModelListResponse</code>
+- <code title="delete /openai/v1/models/{model}">client.models.<a href="./src/resources/models.ts">delete</a>(model) -> ModelDeleted</code>
+
 # Audio
 
 ## Transcriptions
