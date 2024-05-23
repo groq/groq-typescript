@@ -24,22 +24,22 @@ export class Transcriptions extends APIResource {
  * Represents a transcription response returned by model, based on the provided
  * input.
  */
+export interface Transcription {
+  /**
+   * The transcribed text.
+   */
+  text: string;
+}
+
+/**
+ * Represents a transcription response returned by model, based on the provided
+ * input.
+ */
 export type TranscriptionCreateResponse =
-  | TranscriptionCreateResponse.CreateTranscriptionResponseJson
+  | Transcription
   | TranscriptionCreateResponse.CreateTranscriptionResponseVerboseJson;
 
 export namespace TranscriptionCreateResponse {
-  /**
-   * Represents a transcription response returned by model, based on the provided
-   * input.
-   */
-  export interface CreateTranscriptionResponseJson {
-    /**
-     * The transcribed text.
-     */
-    text: string;
-  }
-
   /**
    * Represents a verbose json transcription response returned by model, based on the
    * provided input.
@@ -198,6 +198,7 @@ export interface TranscriptionCreateParams {
 }
 
 export namespace Transcriptions {
+  export import Transcription = TranscriptionsAPI.Transcription;
   export import TranscriptionCreateResponse = TranscriptionsAPI.TranscriptionCreateResponse;
   export import TranscriptionCreateParams = TranscriptionsAPI.TranscriptionCreateParams;
 }
