@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.4.0 (2024-05-23)
+
+Full Changelog: [v0.3.3...v0.4.0](https://github.com/groq/groq-typescript/compare/v0.3.3...v0.4.0)
+
+### Features
+
+* **api:** Add embeddings endpoint ([cf59ec3](https://github.com/groq/groq-typescript/commit/cf59ec37bff37cb923eb389126f17931fcf97e2e))
+* **api:** Add support for image_url in chat user messages ([a8f7743](https://github.com/groq/groq-typescript/commit/a8f7743e3663de628247df3a655938b3ed53231a))
+* **api:** Define OpenAI-compatible models ([29fe116](https://github.com/groq/groq-typescript/commit/29fe116c88ad0d3c28562581f0929090833861ad))
+* **api:** Improve types ([c879cb2](https://github.com/groq/groq-typescript/commit/c879cb29871aa247a60b984874ffca40a9ae924c))
+
+
+### Bug Fixes
+
+* patch streaming ([80b1255](https://github.com/groq/groq-typescript/commit/80b12555fcffd58bfd760b993e8bc3dcebfdbe6b))
+
+
+### Chores
+
+* **api:** add response objects for translations and transcriptions ([ceba2a3](https://github.com/groq/groq-typescript/commit/ceba2a3c7a398c25cd47f6cc42f655822877c53a))
+* **api:** Internal SDK changes ([e1a6688](https://github.com/groq/groq-typescript/commit/e1a66880ec8843f5b9e62526ed31fbe34345a293))
+
 ## 0.3.3 (2024-04-29)
 
 Full Changelog: [v0.3.2...v0.3.3](https://github.com/groq/groq-typescript/compare/v0.3.2...v0.3.3)
