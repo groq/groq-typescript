@@ -53,30 +53,6 @@ Methods:
 
 - <code title="post /openai/v1/embeddings">client.embeddings.<a href="./src/resources/embeddings.ts">create</a>({ ...params }) -> CreateEmbeddingResponse</code>
 
-# Audio
-
-## Transcriptions
-
-Types:
-
-- <code><a href="./src/resources/audio/transcriptions.ts">Transcription</a></code>
-- <code><a href="./src/resources/audio/transcriptions.ts">TranscriptionCreateResponse</a></code>
-
-Methods:
-
-- <code title="post /openai/v1/audio/transcriptions">client.audio.transcriptions.<a href="./src/resources/audio/transcriptions.ts">create</a>({ ...params }) -> TranscriptionCreateResponse</code>
-
-## Translations
-
-Types:
-
-- <code><a href="./src/resources/audio/translations.ts">Translation</a></code>
-- <code><a href="./src/resources/audio/translations.ts">TranslationCreateResponse</a></code>
-
-Methods:
-
-- <code title="post /openai/v1/audio/translations">client.audio.translations.<a href="./src/resources/audio/translations.ts">create</a>({ ...params }) -> TranslationCreateResponse</code>
-
 # Models
 
 Types:
