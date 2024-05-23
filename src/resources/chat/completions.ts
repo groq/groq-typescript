@@ -188,8 +188,6 @@ export interface ChatCompletionChunk {
    * backend changes have been made that might impact determinism.
    */
   system_fingerprint?: string;
-
-  x_groq?: ChatCompletionChunk.XGroq;
 }
 
 export namespace ChatCompletionChunk {
@@ -305,24 +303,6 @@ export namespace ChatCompletionChunk {
        */
       content: Array<ChatCompletionsAPI.ChatCompletionTokenLogprob> | null;
     }
-  }
-
-  export interface XGroq {
-    /**
-     * A groq request ID which can be used by to refer to a specific request to groq
-     * support Only sent with the first chunk
-     */
-    id?: string;
-
-    /**
-     * An error string indicating why a stream was stopped early
-     */
-    error?: string;
-
-    /**
-     * Usage information for the stream. Only sent in the final chunk
-     */
-    usage?: CompletionsAPI.CompletionUsage;
   }
 }
 
