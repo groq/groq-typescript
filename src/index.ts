@@ -133,7 +133,6 @@ export class Groq extends Core.APIClient {
   chat: API.Chat = new API.Chat(this);
   embeddings: API.Embeddings = new API.Embeddings(this);
   audio: API.Audio = new API.Audio(this);
-  models: API.Models = new API.Models(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -203,11 +202,6 @@ export namespace Groq {
   export import EmbeddingCreateParams = API.EmbeddingCreateParams;
 
   export import Audio = API.Audio;
-
-  export import Models = API.Models;
-  export import Model = API.Model;
-  export import ModelDeleted = API.ModelDeleted;
-  export import ModelListResponse = API.ModelListResponse;
 
   export import ErrorObject = API.ErrorObject;
   export import FunctionDefinition = API.FunctionDefinition;
