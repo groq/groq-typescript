@@ -1,6 +1,6 @@
 {
   "name": "groq-sdk",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "The official TypeScript library for the Groq API",
   "author": "Groq <support@groq.com>",
   "types": "dist/index.d.ts",
