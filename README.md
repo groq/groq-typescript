@@ -1,6 +1,6 @@
 # Groq Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/groq-sdk.svg)](https://npmjs.org/package/groq-sdk)
+[![NPM version](https://img.shields.io/npm/v/groq-sdk.svg)](https://npmjs.org/package/groq-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/groq-sdk)
 
 This library provides convenient access to the Groq REST API from server-side TypeScript or JavaScript.
 
@@ -22,12 +22,14 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Groq from 'groq-sdk';
 
-const groq = new Groq();
+const groq = new Groq({
+  apiKey: process.env['GROQ_API_KEY'], // This is the default and can be omitted
+});
 
 async function main() {
   const chatCompletion = await groq.chat.completions.create({
     messages: [{ role: 'user', content: 'Explain the importance of low latency LLMs' }],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   });
 
   console.log(chatCompletion.choices[0].message.content);
@@ -44,7 +46,9 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Groq from 'groq-sdk';
 
-const groq = new Groq();
+const groq = new Groq({
+  apiKey: process.env['GROQ_API_KEY'], // This is the default and can be omitted
+});
 
 async function main() {
   const params: Groq.Chat.CompletionCreateParams = {
@@ -52,7 +56,7 @@ async function main() {
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   };
   const chatCompletion: Groq.Chat.ChatCompletion = await groq.chat.completions.create(params);
 }
@@ -77,7 +81,7 @@ async function main() {
         { role: 'system', content: 'You are a helpful assistant.' },
         { role: 'user', content: 'Explain the importance of low latency LLMs' },
       ],
-      model: 'mixtral-8x7b-32768',
+      model: 'llama3-8b-8192',
     })
     .catch(async (err) => {
       if (err instanceof Groq.APIError) {
@@ -122,7 +126,7 @@ const groq = new Groq({
 });
 
 // Or, configure per-request:
-await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'mixtral-8x7b-32768' }, {
+await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
   maxRetries: 5,
 });
 ```
@@ -139,7 +143,7 @@ const groq = new Groq({
 });
 
 // Override per-request:
-await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'mixtral-8x7b-32768' }, {
+await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -166,7 +170,7 @@ const response = await groq.chat.completions
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -178,7 +182,7 @@ const { data: chatCompletion, response: raw } = await groq.chat.completions
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
@@ -292,7 +296,7 @@ await groq.chat.completions.create(
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'mixtral-8x7b-32768',
+    model: 'llama3-8b-8192',
   },
   {
     httpAgent: new http.Agent({ keepAlive: false }),
