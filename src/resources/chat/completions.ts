@@ -623,7 +623,7 @@ export interface ChatCompletionTool {
  * `none` is the default when no tools are present. `auto` is the default if tools
  * are present.
  */
-export type ChatCompletionToolChoiceOption = 'none' | 'auto' | ChatCompletionNamedToolChoice;
+export type ChatCompletionToolChoiceOption = 'none' | 'auto' | 'required' | ChatCompletionNamedToolChoice;
 
 export interface ChatCompletionToolMessageParam {
   /**
@@ -695,7 +695,7 @@ export interface ChatCompletionCreateParamsBase {
    * `none` is the default when no functions are present. `auto` is the default if
    * functions are present.
    */
-  function_call?: 'none' | 'auto' | ChatCompletionFunctionCallOption | null;
+  function_call?: 'none' | 'auto' | 'required' | ChatCompletionFunctionCallOption | null;
 
   /**
    * Deprecated in favor of `tools`.
@@ -726,10 +726,15 @@ export interface ChatCompletionCreateParamsBase {
 
   /**
    * How many chat completion choices to generate for each input message. Note that
-   * you will be charged based on the number of generated tokens across all of the
-   * choices. Keep `n` as `1` to minimize costs.
+   * the current moment, only n=1 is supported. Other values will result in a 400
+   * response.
    */
   n?: number | null;
+
+  /**
+   * Whether to enable parallel function calling during tool use.
+   */
+  parallel_tool_calls?: boolean | null;
 
   /**
    * Number between -2.0 and 2.0. Positive values penalize new tokens based on
@@ -841,7 +846,7 @@ export namespace CompletionCreateParams {
 
     /**
      * The parameters the functions accepts, described as a JSON Schema object. See the
-     * [guide](/docs/guides/text-generation/function-calling) for examples, and the
+     * docs on [tool use](/docs/tool-use) for examples, and the
      * [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for
      * documentation about the format.
      *
