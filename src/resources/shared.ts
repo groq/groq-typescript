@@ -25,7 +25,7 @@ export interface FunctionDefinition {
 
   /**
    * The parameters the functions accepts, described as a JSON Schema object. See the
-   * [guide](/docs/guides/text-generation/function-calling) for examples, and the
+   * docs on [tool use](/docs/tool-use) for examples, and the
    * [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for
    * documentation about the format.
    *
@@ -36,7 +36,7 @@ export interface FunctionDefinition {
 
 /**
  * The parameters the functions accepts, described as a JSON Schema object. See the
- * [guide](/docs/guides/text-generation/function-calling) for examples, and the
+ * docs on [tool use](/docs/tool-use) for examples, and the
  * [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for
  * documentation about the format.
  *
