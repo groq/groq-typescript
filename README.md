@@ -1,6 +1,6 @@
 # Groq Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/groq-sdk.svg)](https://npmjs.org/package/groq-sdk)
+[![NPM version](https://img.shields.io/npm/v/groq-sdk.svg)](https://npmjs.org/package/groq-sdk) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/groq-sdk)
 
 This library provides convenient access to the Groq REST API from server-side TypeScript or JavaScript.
 
