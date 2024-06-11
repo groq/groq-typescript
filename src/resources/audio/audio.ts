@@ -12,10 +12,8 @@ export class Audio extends APIResource {
 export namespace Audio {
   export import Transcriptions = TranscriptionsAPI.Transcriptions;
   export import Transcription = TranscriptionsAPI.Transcription;
-  export import TranscriptionCreateResponse = TranscriptionsAPI.TranscriptionCreateResponse;
   export import TranscriptionCreateParams = TranscriptionsAPI.TranscriptionCreateParams;
   export import Translations = TranslationsAPI.Translations;
   export import Translation = TranslationsAPI.Translation;
-  export import TranslationCreateResponse = TranslationsAPI.TranslationCreateResponse;
   export import TranslationCreateParams = TranslationsAPI.TranslationCreateParams;
 }

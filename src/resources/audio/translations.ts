@@ -9,10 +9,7 @@ export class Translations extends APIResource {
   /**
    * Translates audio into English.
    */
-  create(
-    body: TranslationCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<TranslationCreateResponse> {
+  create(body: TranslationCreateParams, options?: Core.RequestOptions): Core.APIPromise<Translation> {
     return this._client.post(
       '/openai/v1/audio/translations',
       multipartFormRequestOptions({ body, ...options }),
@@ -22,91 +19,6 @@ export class Translations extends APIResource {
 
 export interface Translation {
   text: string;
-}
-
-export type TranslationCreateResponse =
-  | Translation
-  | TranslationCreateResponse.CreateTranslationResponseVerboseJson;
-
-export namespace TranslationCreateResponse {
-  export interface CreateTranslationResponseVerboseJson {
-    /**
-     * The duration of the input audio.
-     */
-    duration: string;
-
-    /**
-     * The language of the output translation (always `english`).
-     */
-    language: string;
-
-    /**
-     * The translated text.
-     */
-    text: string;
-
-    /**
-     * Segments of the translated text and their corresponding details.
-     */
-    segments?: Array<CreateTranslationResponseVerboseJson.Segment>;
-  }
-
-  export namespace CreateTranslationResponseVerboseJson {
-    export interface Segment {
-      /**
-       * Unique identifier of the segment.
-       */
-      id: number;
-
-      /**
-       * Average logprob of the segment. If the value is lower than -1, consider the
-       * logprobs failed.
-       */
-      avg_logprob: number;
-
-      /**
-       * Compression ratio of the segment. If the value is greater than 2.4, consider the
-       * compression failed.
-       */
-      compression_ratio: number;
-
-      /**
-       * End time of the segment in seconds.
-       */
-      end: number;
-
-      /**
-       * Probability of no speech in the segment. If the value is higher than 1.0 and the
-       * `avg_logprob` is below -1, consider this segment silent.
-       */
-      no_speech_prob: number;
-
-      /**
-       * Seek offset of the segment.
-       */
-      seek: number;
-
-      /**
-       * Start time of the segment in seconds.
-       */
-      start: number;
-
-      /**
-       * Temperature parameter used for generating the segment.
-       */
-      temperature: number;
-
-      /**
-       * Text content of the segment.
-       */
-      text: string;
-
-      /**
-       * Array of token IDs for the text content.
-       */
-      tokens: Array<number>;
-    }
-  }
 }
 
 export interface TranslationCreateParams {
@@ -146,6 +58,5 @@ export interface TranslationCreateParams {
 
 export namespace Translations {
   export import Translation = TranslationsAPI.Translation;
-  export import TranslationCreateResponse = TranslationsAPI.TranslationCreateResponse;
   export import TranslationCreateParams = TranslationsAPI.TranslationCreateParams;
 }
