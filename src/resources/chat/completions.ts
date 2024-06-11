@@ -733,6 +733,11 @@ export interface CompletionCreateParams {
   n?: number | null;
 
   /**
+   * Whether to enable parallel function calling during tool use.
+   */
+  parallel_tool_calls?: boolean | null;
+
+  /**
    * Number between -2.0 and 2.0. Positive values penalize new tokens based on
    * whether they appear in the text so far, increasing the model's likelihood to
    * talk about new topics.
