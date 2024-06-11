@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0 (2024-06-11)
+
+Full Changelog: [v0.4.0...v0.5.0](https://github.com/groq/groq-typescript/compare/v0.4.0...v0.5.0)
+
+### Features
+
+* **api:** Fix audio transcription response formats ([7154e35](https://github.com/groq/groq-typescript/commit/7154e35221cb906b853c0271ec4badeeef7c825b))
+* **api:** Tool calling features ([e257ab7](https://github.com/groq/groq-typescript/commit/e257ab70890b4c8be0879696edf7379f5225566b))
+
 ## 0.4.0 (2024-05-23)
 
 Full Changelog: [v0.3.3...v0.4.0](https://github.com/groq/groq-typescript/compare/v0.3.3...v0.4.0)
