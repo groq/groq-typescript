@@ -70,11 +70,10 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/audio/translations.ts">Translation</a></code>
-- <code><a href="./src/resources/audio/translations.ts">TranslationCreateResponse</a></code>
 
 Methods:
 
-- <code title="post /openai/v1/audio/translations">client.audio.translations.<a href="./src/resources/audio/translations.ts">create</a>({ ...params }) -> TranslationCreateResponse</code>
+- <code title="post /openai/v1/audio/translations">client.audio.translations.<a href="./src/resources/audio/translations.ts">create</a>({ ...params }) -> Translation</code>
 
 # Models
 

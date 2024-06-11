@@ -15,6 +15,5 @@ export namespace Audio {
   export import TranscriptionCreateParams = TranscriptionsAPI.TranscriptionCreateParams;
   export import Translations = TranslationsAPI.Translations;
   export import Translation = TranslationsAPI.Translation;
-  export import TranslationCreateResponse = TranslationsAPI.TranslationCreateResponse;
   export import TranslationCreateParams = TranslationsAPI.TranslationCreateParams;
 }

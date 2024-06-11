@@ -2,9 +2,4 @@
 
 export { Audio } from './audio';
 export { Transcription, TranscriptionCreateParams, Transcriptions } from './transcriptions';
-export {
-  Translation,
-  TranslationCreateResponse,
-  TranslationCreateParams,
-  Translations,
-} from './translations';
+export { Translation, TranslationCreateParams, Translations } from './translations';
