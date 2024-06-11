@@ -25,7 +25,7 @@ describe('resource completions', () => {
 
   test('create: required and optional params', async () => {
     const response = await groq.chat.completions.create({
-      messages: [{ content: 'string', role: 'system', name: 'string', tool_call_id: 'string' }],
+      messages: [{ content: 'string', role: 'system', name: 'string' }],
       model: 'string',
       frequency_penalty: -2,
       function_call: 'none',
