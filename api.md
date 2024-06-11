@@ -60,11 +60,10 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/audio/transcriptions.ts">Transcription</a></code>
-- <code><a href="./src/resources/audio/transcriptions.ts">TranscriptionCreateResponse</a></code>
 
 Methods:
 
-- <code title="post /openai/v1/audio/transcriptions">client.audio.transcriptions.<a href="./src/resources/audio/transcriptions.ts">create</a>({ ...params }) -> TranscriptionCreateResponse</code>
+- <code title="post /openai/v1/audio/transcriptions">client.audio.transcriptions.<a href="./src/resources/audio/transcriptions.ts">create</a>({ ...params }) -> Transcription</code>
 
 ## Translations
 
