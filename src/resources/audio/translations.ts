@@ -1,9 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
+import * as Core from '../../core';
 import * as TranslationsAPI from './translations';
-import { type Uploadable, multipartFormRequestOptions } from '../../core';
 
 export class Translations extends APIResource {
   /**
@@ -12,7 +11,7 @@ export class Translations extends APIResource {
   create(body: TranslationCreateParams, options?: Core.RequestOptions): Core.APIPromise<Translation> {
     return this._client.post(
       '/openai/v1/audio/translations',
-      multipartFormRequestOptions({ body, ...options }),
+      Core.multipartFormRequestOptions({ body, ...options }),
     );
   }
 }
@@ -26,7 +25,7 @@ export interface TranslationCreateParams {
    * The audio file object (not file name) translate, in one of these formats: flac,
    * mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
    */
-  file: Uploadable;
+  file: Core.Uploadable;
 
   /**
    * ID of the model to use. Only `whisper-large-v3` is currently available.
