@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.0 (2024-06-26)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/groq/groq-typescript/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#101](https://github.com/groq/groq-typescript/issues/101)) ([e2db04a](https://github.com/groq/groq-typescript/commit/e2db04a02b60bdf26a9590916f446250742cef8c))
+* **api:** update via SDK Studio ([#99](https://github.com/groq/groq-typescript/issues/99)) ([e96de18](https://github.com/groq/groq-typescript/commit/e96de183786c91172ad59225f32b23265c9a7fb6))
+
 ## 0.5.0 (2024-06-11)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/groq/groq-typescript/compare/v0.4.0...v0.5.0)
