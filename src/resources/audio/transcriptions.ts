@@ -45,6 +45,7 @@ export interface TranscriptionCreateParams {
    * improve accuracy and latency.
    */
   language?:
+    | (string & {})
     | 'en'
     | 'zh'
     | 'de'
@@ -142,7 +143,7 @@ export interface TranscriptionCreateParams {
     | 'ln'
     | 'ha'
     | 'ba'
-    | 'jw'
+    | 'jv'
     | 'su'
     | 'yue';
 
