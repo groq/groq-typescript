@@ -27,7 +27,7 @@ describe('resource transcriptions', () => {
     const response = await groq.audio.transcriptions.create({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       model: 'whisper-large-v3',
-      language: 'string',
+      language: 'en',
       prompt: 'string',
       response_format: 'json',
       temperature: 0,
