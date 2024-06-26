@@ -1,9 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '../../core';
 import { APIResource } from '../../resource';
+import * as Core from '../../core';
 import * as TranscriptionsAPI from './transcriptions';
-import { type Uploadable, multipartFormRequestOptions } from '../../core';
 
 export class Transcriptions extends APIResource {
   /**
@@ -12,7 +11,7 @@ export class Transcriptions extends APIResource {
   create(body: TranscriptionCreateParams, options?: Core.RequestOptions): Core.APIPromise<Transcription> {
     return this._client.post(
       '/openai/v1/audio/transcriptions',
-      multipartFormRequestOptions({ body, ...options }),
+      Core.multipartFormRequestOptions({ body, ...options }),
     );
   }
 }
@@ -33,7 +32,7 @@ export interface TranscriptionCreateParams {
    * The audio file object (not file name) to transcribe, in one of these formats:
    * flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
    */
-  file: Uploadable;
+  file: Core.Uploadable;
 
   /**
    * ID of the model to use. Only `whisper-large-v3` is currently available.
@@ -45,7 +44,107 @@ export interface TranscriptionCreateParams {
    * [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format will
    * improve accuracy and latency.
    */
-  language?: string;
+  language?:
+    | 'en'
+    | 'zh'
+    | 'de'
+    | 'es'
+    | 'ru'
+    | 'ko'
+    | 'fr'
+    | 'ja'
+    | 'pt'
+    | 'tr'
+    | 'pl'
+    | 'ca'
+    | 'nl'
+    | 'ar'
+    | 'sv'
+    | 'it'
+    | 'id'
+    | 'hi'
+    | 'fi'
+    | 'vi'
+    | 'he'
+    | 'uk'
+    | 'el'
+    | 'ms'
+    | 'cs'
+    | 'ro'
+    | 'da'
+    | 'hu'
+    | 'ta'
+    | 'no'
+    | 'th'
+    | 'ur'
+    | 'hr'
+    | 'bg'
+    | 'lt'
+    | 'la'
+    | 'mi'
+    | 'ml'
+    | 'cy'
+    | 'sk'
+    | 'te'
+    | 'fa'
+    | 'lv'
+    | 'bn'
+    | 'sr'
+    | 'az'
+    | 'sl'
+    | 'kn'
+    | 'et'
+    | 'mk'
+    | 'br'
+    | 'eu'
+    | 'is'
+    | 'hy'
+    | 'ne'
+    | 'mn'
+    | 'bs'
+    | 'kk'
+    | 'sq'
+    | 'sw'
+    | 'gl'
+    | 'mr'
+    | 'pa'
+    | 'si'
+    | 'km'
+    | 'sn'
+    | 'yo'
+    | 'so'
+    | 'af'
+    | 'oc'
+    | 'ka'
+    | 'be'
+    | 'tg'
+    | 'sd'
+    | 'gu'
+    | 'am'
+    | 'yi'
+    | 'lo'
+    | 'uz'
+    | 'fo'
+    | 'ht'
+    | 'ps'
+    | 'tk'
+    | 'nn'
+    | 'mt'
+    | 'sa'
+    | 'lb'
+    | 'my'
+    | 'bo'
+    | 'tl'
+    | 'mg'
+    | 'as'
+    | 'tt'
+    | 'haw'
+    | 'ln'
+    | 'ha'
+    | 'ba'
+    | 'jw'
+    | 'su'
+    | 'yue';
 
   /**
    * An optional text to guide the model's style or continue a previous audio

@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from './core';
 import * as Errors from './error';
-import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
+import { type Agent } from './_shims/index';
+import * as Core from './core';
 import * as API from './resources/index';
 
 export interface ClientOptions {
@@ -75,7 +75,9 @@ export interface ClientOptions {
   dangerouslyAllowBrowser?: boolean;
 }
 
-/** API Client for interfacing with the Groq API. */
+/**
+ * API Client for interfacing with the Groq API.
+ */
 export class Groq extends Core.APIClient {
   apiKey: string;
 
@@ -124,6 +126,7 @@ export class Groq extends Core.APIClient {
       maxRetries: options.maxRetries,
       fetch: options.fetch,
     });
+
     this._options = options;
 
     this.apiKey = apiKey;
