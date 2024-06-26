@@ -778,6 +778,11 @@ export interface CompletionCreateParams {
   stream?: boolean | null;
 
   /**
+   * Options for streaming response. Only set this when you set `stream: true`.
+   */
+  stream_options?: CompletionCreateParams.StreamOptions | null;
+
+  /**
    * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will
    * make the output more random, while lower values like 0.2 will make it more
    * focused and deterministic. We generally recommend altering this or top_p but not
@@ -870,6 +875,16 @@ export namespace CompletionCreateParams {
      * Must be one of `text` or `json_object`.
      */
     type?: 'text' | 'json_object';
+  }
+
+  /**
+   * Options for streaming response. Only set this when you set `stream: true`.
+   */
+  export interface StreamOptions {
+    /**
+     * This field is unused
+     */
+    include_usage?: boolean;
   }
 }
 
