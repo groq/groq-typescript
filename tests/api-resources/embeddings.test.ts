@@ -28,7 +28,7 @@ describe('resource embeddings', () => {
       input: 'The quick brown fox jumped over the lazy dog',
       model: 'nomic-embed-text-v1_5',
       encoding_format: 'float',
-      user: 'string',
+      user: 'user',
     });
   });
 });

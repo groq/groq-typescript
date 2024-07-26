@@ -10,7 +10,7 @@ const groq = new Groq({
 
 describe('resource models', () => {
   test('retrieve', async () => {
-    const responsePromise = groq.models.retrieve('string');
+    const responsePromise = groq.models.retrieve('model');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,7 +22,7 @@ describe('resource models', () => {
 
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(groq.models.retrieve('string', { path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(groq.models.retrieve('model', { path: '/_stainless_unknown_path' })).rejects.toThrow(
       Groq.NotFoundError,
     );
   });
@@ -44,7 +44,7 @@ describe('resource models', () => {
   });
 
   test('delete', async () => {
-    const responsePromise = groq.models.delete('string');
+    const responsePromise = groq.models.delete('model');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -56,7 +56,7 @@ describe('resource models', () => {
 
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(groq.models.delete('string', { path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(groq.models.delete('model', { path: '/_stainless_unknown_path' })).rejects.toThrow(
       Groq.NotFoundError,
     );
   });

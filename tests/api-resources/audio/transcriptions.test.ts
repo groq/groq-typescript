@@ -28,7 +28,7 @@ describe('resource transcriptions', () => {
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       model: 'whisper-large-v3',
       language: 'string',
-      prompt: 'string',
+      prompt: 'prompt',
       response_format: 'json',
       temperature: 0,
       timestamp_granularities: ['word', 'segment'],
