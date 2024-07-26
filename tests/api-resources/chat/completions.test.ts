@@ -11,7 +11,7 @@ const groq = new Groq({
 describe('resource completions', () => {
   test('create: only required params', async () => {
     const responsePromise = groq.chat.completions.create({
-      messages: [{ content: 'string', role: 'system' }],
+      messages: [{ content: 'content', role: 'system' }],
       model: 'string',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -25,14 +25,14 @@ describe('resource completions', () => {
 
   test('create: required and optional params', async () => {
     const response = await groq.chat.completions.create({
-      messages: [{ content: 'string', role: 'system', name: 'string', tool_call_id: 'string' }],
+      messages: [{ content: 'content', role: 'system', name: 'name', tool_call_id: 'tool_call_id' }],
       model: 'string',
       frequency_penalty: -2,
       function_call: 'none',
       functions: [
-        { description: 'string', name: 'string', parameters: { foo: 'bar' } },
-        { description: 'string', name: 'string', parameters: { foo: 'bar' } },
-        { description: 'string', name: 'string', parameters: { foo: 'bar' } },
+        { description: 'description', name: 'name', parameters: { foo: 'bar' } },
+        { description: 'description', name: 'name', parameters: { foo: 'bar' } },
+        { description: 'description', name: 'name', parameters: { foo: 'bar' } },
       ],
       logit_bias: { foo: 0 },
       logprobs: true,
@@ -48,13 +48,22 @@ describe('resource completions', () => {
       temperature: 1,
       tool_choice: 'none',
       tools: [
-        { type: 'function', function: { description: 'string', name: 'string', parameters: { foo: 'bar' } } },
-        { type: 'function', function: { description: 'string', name: 'string', parameters: { foo: 'bar' } } },
-        { type: 'function', function: { description: 'string', name: 'string', parameters: { foo: 'bar' } } },
+        {
+          type: 'function',
+          function: { description: 'description', name: 'name', parameters: { foo: 'bar' } },
+        },
+        {
+          type: 'function',
+          function: { description: 'description', name: 'name', parameters: { foo: 'bar' } },
+        },
+        {
+          type: 'function',
+          function: { description: 'description', name: 'name', parameters: { foo: 'bar' } },
+        },
       ],
       top_logprobs: 0,
       top_p: 1,
-      user: 'string',
+      user: 'user',
     });
   });
 });
