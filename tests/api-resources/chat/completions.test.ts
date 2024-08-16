@@ -3,14 +3,14 @@
 import Groq from 'groq-sdk';
 import { Response } from 'node-fetch';
 
-const groq = new Groq({
+const client = new Groq({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource completions', () => {
   test('create: only required params', async () => {
-    const responsePromise = groq.chat.completions.create({
+    const responsePromise = client.chat.completions.create({
       messages: [{ content: 'content', role: 'system' }],
       model: 'string',
     });
@@ -24,7 +24,7 @@ describe('resource completions', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await groq.chat.completions.create({
+    const response = await client.chat.completions.create({
       messages: [{ content: 'content', role: 'system', name: 'name', tool_call_id: 'tool_call_id' }],
       model: 'string',
       frequency_penalty: -2,

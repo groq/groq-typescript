@@ -3,14 +3,14 @@
 import Groq from 'groq-sdk';
 import { Response } from 'node-fetch';
 
-const groq = new Groq({
+const client = new Groq({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource embeddings', () => {
   test('create: only required params', async () => {
-    const responsePromise = groq.embeddings.create({
+    const responsePromise = client.embeddings.create({
       input: 'The quick brown fox jumped over the lazy dog',
       model: 'nomic-embed-text-v1_5',
     });
@@ -24,7 +24,7 @@ describe('resource embeddings', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await groq.embeddings.create({
+    const response = await client.embeddings.create({
       input: 'The quick brown fox jumped over the lazy dog',
       model: 'nomic-embed-text-v1_5',
       encoding_format: 'float',
