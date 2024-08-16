@@ -154,6 +154,7 @@ export class Groq extends Core.APIClient {
   }
 
   static Groq = this;
+  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static GroqError = Errors.GroqError;
   static APIError = Errors.APIError;
