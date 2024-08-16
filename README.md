@@ -27,7 +27,7 @@ const client = new Groq({
 });
 
 async function main() {
-  const chatCompletion = await groq.chat.completions.create({
+  const chatCompletion = await client.chat.completions.create({
     messages: [{ role: 'user', content: 'Explain the importance of low latency LLMs' }],
     model: 'llama3-8b-8192',
   });
@@ -58,7 +58,7 @@ async function main() {
     ],
     model: 'llama3-8b-8192',
   };
-  const chatCompletion: Groq.Chat.ChatCompletion = await groq.chat.completions.create(params);
+  const chatCompletion: Groq.Chat.ChatCompletion = await client.chat.completions.create(params);
 }
 
 main();
@@ -75,7 +75,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const chatCompletion = await groq.chat.completions
+  const chatCompletion = await client.chat.completions
     .create({
       messages: [
         { role: 'system', content: 'You are a helpful assistant.' },
@@ -126,7 +126,7 @@ const client = new Groq({
 });
 
 // Or, configure per-request:
-await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
+await client.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
   maxRetries: 5,
 });
 ```
@@ -143,7 +143,7 @@ const client = new Groq({
 });
 
 // Override per-request:
-await groq.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
+await client.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -164,7 +164,7 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new Groq();
 
-const response = await groq.chat.completions
+const response = await client.chat.completions
   .create({
     messages: [
       { role: 'system', content: 'You are a helpful assistant.' },
@@ -176,7 +176,7 @@ const response = await groq.chat.completions
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: chatCompletion, response: raw } = await groq.chat.completions
+const { data: chatCompletion, response: raw } = await client.chat.completions
   .create({
     messages: [
       { role: 'system', content: 'You are a helpful assistant.' },
@@ -290,7 +290,7 @@ const client = new Groq({
 });
 
 // Override per-request:
-await groq.chat.completions.create(
+await client.chat.completions.create(
   {
     messages: [
       { role: 'system', content: 'You are a helpful assistant.' },
