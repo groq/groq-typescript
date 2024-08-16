@@ -30,9 +30,9 @@ describe('resource completions', () => {
       frequency_penalty: -2,
       function_call: 'none',
       functions: [
-        { description: 'description', name: 'name', parameters: { foo: 'bar' } },
-        { description: 'description', name: 'name', parameters: { foo: 'bar' } },
-        { description: 'description', name: 'name', parameters: { foo: 'bar' } },
+        { name: 'name', description: 'description', parameters: { foo: 'bar' } },
+        { name: 'name', description: 'description', parameters: { foo: 'bar' } },
+        { name: 'name', description: 'description', parameters: { foo: 'bar' } },
       ],
       logit_bias: { foo: 0 },
       logprobs: true,
@@ -40,7 +40,7 @@ describe('resource completions', () => {
       n: 1,
       parallel_tool_calls: true,
       presence_penalty: -2,
-      response_format: { type: 'json_object' },
+      response_format: { type: 'text' },
       seed: 0,
       stop: '\n',
       stream: true,
@@ -49,16 +49,16 @@ describe('resource completions', () => {
       tool_choice: 'none',
       tools: [
         {
+          function: { name: 'name', description: 'description', parameters: { foo: 'bar' } },
           type: 'function',
-          function: { description: 'description', name: 'name', parameters: { foo: 'bar' } },
         },
         {
+          function: { name: 'name', description: 'description', parameters: { foo: 'bar' } },
           type: 'function',
-          function: { description: 'description', name: 'name', parameters: { foo: 'bar' } },
         },
         {
+          function: { name: 'name', description: 'description', parameters: { foo: 'bar' } },
           type: 'function',
-          function: { description: 'description', name: 'name', parameters: { foo: 'bar' } },
         },
       ],
       top_logprobs: 0,
