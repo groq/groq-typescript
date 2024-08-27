@@ -25,7 +25,7 @@ describe('resource completions', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.chat.completions.create({
-      messages: [{ content: 'content', role: 'system', name: 'name', tool_call_id: 'tool_call_id' }],
+      messages: [{ content: 'content', role: 'system', name: 'name' }],
       model: 'string',
       frequency_penalty: -2,
       function_call: 'none',
@@ -44,7 +44,6 @@ describe('resource completions', () => {
       seed: 0,
       stop: '\n',
       stream: true,
-      stream_options: { include_usage: true },
       temperature: 1,
       tool_choice: 'none',
       tools: [
