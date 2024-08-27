@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.6.0 (2024-08-27)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/groq/groq-typescript/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#101](https://github.com/groq/groq-typescript/issues/101)) ([e2db04a](https://github.com/groq/groq-typescript/commit/e2db04a02b60bdf26a9590916f446250742cef8c))
+* **api:** OpenAPI spec update via Stainless API ([#104](https://github.com/groq/groq-typescript/issues/104)) ([c08717b](https://github.com/groq/groq-typescript/commit/c08717ba3bbae8ea713f70672da295261fc26a28))
+* **api:** OpenAPI spec update via Stainless API ([#110](https://github.com/groq/groq-typescript/issues/110)) ([c194ccd](https://github.com/groq/groq-typescript/commit/c194ccd2b3f2a5814892046af653a428fb3b1cfb))
+* **api:** OpenAPI spec update via Stainless API ([#112](https://github.com/groq/groq-typescript/issues/112)) ([0b0cb13](https://github.com/groq/groq-typescript/commit/0b0cb138107945607fc3abef23e1ef2e355d748a))
+* **api:** update via SDK Studio ([#99](https://github.com/groq/groq-typescript/issues/99)) ([e96de18](https://github.com/groq/groq-typescript/commit/e96de183786c91172ad59225f32b23265c9a7fb6))
+
+
+### Bug Fixes
+
+* **compat:** remove ReadableStream polyfill redundant since node v16 ([#109](https://github.com/groq/groq-typescript/issues/109)) ([90c2d43](https://github.com/groq/groq-typescript/commit/90c2d4340def37b2ad379ea838e63305e9dd4405))
+
+
+### Chores
+
+* **ci:** limit release doctor target branches ([#107](https://github.com/groq/groq-typescript/issues/107)) ([1409094](https://github.com/groq/groq-typescript/commit/1409094d1e87412fff2615f17783457ef815d088))
+* **deps:** bump braces from 3.0.2 to 3.0.3 ([fedebb4](https://github.com/groq/groq-typescript/commit/fedebb4f2dfa2538db9dfdee47ba0581434ffc84))
+* **docs:** use client instead of package name in Node examples ([#106](https://github.com/groq/groq-typescript/issues/106)) ([7279938](https://github.com/groq/groq-typescript/commit/727993848991d1fde8412a57d7781bdf4bd71641))
+* **internal:** codegen related update ([#105](https://github.com/groq/groq-typescript/issues/105)) ([7b53f7c](https://github.com/groq/groq-typescript/commit/7b53f7cfa86fc0f4fc779bbc3fd112252b9d5260))
+* **internal:** codegen related update ([#111](https://github.com/groq/groq-typescript/issues/111)) ([d81d781](https://github.com/groq/groq-typescript/commit/d81d7817f4c6c69f2ea91ff62c25b9162b4267bd))
+* **tests:** update prism version ([#108](https://github.com/groq/groq-typescript/issues/108)) ([a2528da](https://github.com/groq/groq-typescript/commit/a2528da81262dcba2bd577af3f63166a43092a86))
+
 ## 0.5.0 (2024-06-11)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/groq/groq-typescript/compare/v0.4.0...v0.5.0)
