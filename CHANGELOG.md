@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.1 (2024-08-28)
+
+Full Changelog: [v0.6.0...v0.6.1](https://github.com/groq/groq-typescript/compare/v0.6.0...v0.6.1)
+
+### Chores
+
+* **deps:** bump micromatch from 4.0.5 to 4.0.8 ([8cddd91](https://github.com/groq/groq-typescript/commit/8cddd9177aae4ab6b55b6e6e35ebb31bb074ce1e))
+
 ## 0.6.0 (2024-08-27)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/groq/groq-typescript/compare/v0.5.0...v0.6.0)
