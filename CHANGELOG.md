@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.7.0 (2024-09-03)
+
+Full Changelog: [v0.6.1...v0.7.0](https://github.com/groq/groq-typescript/compare/v0.6.1...v0.7.0)
+
+### Features
+
+* **internal:** handle streaming error ([8f8f4eb](https://github.com/groq/groq-typescript/commit/8f8f4eb29c73229d2ffaa388c5d608291331c731))
+
+
+### Chores
+
+* **ci:** check for build errors ([#118](https://github.com/groq/groq-typescript/issues/118)) ([a784f84](https://github.com/groq/groq-typescript/commit/a784f842dc9785a127925da48c85531832c5d19b))
+
 ## 0.6.1 (2024-08-28)
 
 Full Changelog: [v0.6.0...v0.6.1](https://github.com/groq/groq-typescript/compare/v0.6.0...v0.6.1)
