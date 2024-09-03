@@ -62,7 +62,7 @@ export class Stream<Item> implements AsyncIterable<Item> {
             continue;
           }
 
-          if (sse.event === null) {
+          if (sse.event === null || sse.event === 'error') {
             let data;
 
             try {
@@ -74,7 +74,7 @@ export class Stream<Item> implements AsyncIterable<Item> {
             }
 
             if (data && data.error) {
-              throw new APIError(undefined, data.error, undefined, undefined);
+              throw new APIError(data.error.status_code, data.error, data.error.message, undefined);
             }
 
             yield data;
