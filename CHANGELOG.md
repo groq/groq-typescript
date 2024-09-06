@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.7.1 (2024-09-06)
+
+Full Changelog: [v0.7.0...v0.7.1](https://github.com/groq/groq-typescript/compare/v0.7.0...v0.7.1)
+
+### Bug Fixes
+
+* **client:** correct File construction from node-fetch Responses ([#125](https://github.com/groq/groq-typescript/issues/125)) ([4549dbc](https://github.com/groq/groq-typescript/commit/4549dbc1aa38627a44241f16c9c3a530f7b65de7))
+
+
+### Chores
+
+* **ci:** install deps via ./script/bootstrap ([#124](https://github.com/groq/groq-typescript/issues/124)) ([ac82a05](https://github.com/groq/groq-typescript/commit/ac82a0592c6ef06ad0fa8fb0e0ab99120170a56f))
+* run tsc as part of lint script ([#122](https://github.com/groq/groq-typescript/issues/122)) ([640809c](https://github.com/groq/groq-typescript/commit/640809c9c58a5772c941982e036daa4f7ddd7766))
+
 ## 0.7.0 (2024-09-03)
 
 Full Changelog: [v0.6.1...v0.7.0](https://github.com/groq/groq-typescript/compare/v0.6.1...v0.7.0)
