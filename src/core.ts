@@ -84,8 +84,10 @@ export class APIPromise<T> extends Promise<T> {
     });
   }
 
-  _thenUnwrap<U>(transform: (data: T) => U): APIPromise<U> {
-    return new APIPromise(this.responsePromise, async (props) => transform(await this.parseResponse(props)));
+  _thenUnwrap<U>(transform: (data: T, props: APIResponseProps) => U): APIPromise<U> {
+    return new APIPromise(this.responsePromise, async (props) =>
+      transform(await this.parseResponse(props), props),
+    );
   }
 
   /**
@@ -274,7 +276,10 @@ export abstract class APIClient {
     return null;
   }
 
-  buildRequest<Req>(options: FinalRequestOptions<Req>): { req: RequestInit; url: string; timeout: number } {
+  buildRequest<Req>(
+    options: FinalRequestOptions<Req>,
+    { retryCount = 0 }: { retryCount?: number } = {},
+  ): { req: RequestInit; url: string; timeout: number } {
     const { method, path, query, headers: headers = {} } = options;
 
     const body =
@@ -306,7 +311,7 @@ export abstract class APIClient {
       headers[this.idempotencyHeader] = options.idempotencyKey;
     }
 
-    const reqHeaders = this.buildHeaders({ options, headers, contentLength });
+    const reqHeaders = this.buildHeaders({ options, headers, contentLength, retryCount });
 
     const req: RequestInit = {
       method,
@@ -325,10 +330,12 @@ export abstract class APIClient {
     options,
     headers,
     contentLength,
+    retryCount,
   }: {
     options: FinalRequestOptions;
     headers: Record<string, string | null | undefined>;
     contentLength: string | null | undefined;
+    retryCount: number;
   }): Record<string, string> {
     const reqHeaders: Record<string, string> = {};
     if (contentLength) {
@@ -342,6 +349,16 @@ export abstract class APIClient {
     // let builtin fetch set the Content-Type for multipart bodies
     if (isMultipartBody(options.body) && shimsKind !== 'node') {
       delete reqHeaders['content-type'];
+    }
+
+    // Don't set the retry count header if it was already set or removed through default headers or by the
+    // caller. We check `defaultHeaders` and `headers`, which can contain nulls, instead of `reqHeaders` to
+    // account for the removal case.
+    if (
+      getHeader(defaultHeaders, 'x-stainless-retry-count') === undefined &&
+      getHeader(headers, 'x-stainless-retry-count') === undefined
+    ) {
+      reqHeaders['x-stainless-retry-count'] = String(retryCount);
     }
 
     this.validateHeaders(reqHeaders, headers);
@@ -395,13 +412,14 @@ export abstract class APIClient {
     retriesRemaining: number | null,
   ): Promise<APIResponseProps> {
     const options = await optionsInput;
+    const maxRetries = options.maxRetries ?? this.maxRetries;
     if (retriesRemaining == null) {
-      retriesRemaining = options.maxRetries ?? this.maxRetries;
+      retriesRemaining = maxRetries;
     }
 
     await this.prepareOptions(options);
 
-    const { req, url, timeout } = this.buildRequest(options);
+    const { req, url, timeout } = this.buildRequest(options, { retryCount: maxRetries - retriesRemaining });
 
     await this.prepareRequest(req, { url, options });
 
@@ -978,6 +996,11 @@ const validatePositiveInteger = (name: string, n: unknown): number => {
 
 export const castToError = (err: any): Error => {
   if (err instanceof Error) return err;
+  if (typeof err === 'object' && err !== null) {
+    try {
+      return new Error(JSON.stringify(err));
+    } catch {}
+  }
   return new Error(err);
 };
 
@@ -1115,7 +1138,15 @@ export const isHeadersProtocol = (headers: any): headers is HeadersProtocol => {
   return typeof headers?.get === 'function';
 };
 
-export const getRequiredHeader = (headers: HeadersLike, header: string): string => {
+export const getRequiredHeader = (headers: HeadersLike | Headers, header: string): string => {
+  const foundHeader = getHeader(headers, header);
+  if (foundHeader === undefined) {
+    throw new Error(`Could not find ${header} header`);
+  }
+  return foundHeader;
+};
+
+export const getHeader = (headers: HeadersLike | Headers, header: string): string | undefined => {
   const lowerCasedHeader = header.toLowerCase();
   if (isHeadersProtocol(headers)) {
     // to deal with the case where the header looks like Stainless-Event-Id
@@ -1141,7 +1172,7 @@ export const getRequiredHeader = (headers: HeadersLike, header: string): string 
     }
   }
 
-  throw new Error(`Could not find ${header} header`);
+  return undefined;
 };
 
 /**
