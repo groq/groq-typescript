@@ -5,24 +5,24 @@ Other package managers may work but are not officially supported for development
 
 To set up the repository, run:
 
-```bash
-yarn
-yarn build
+```sh
+$ yarn
+$ yarn build
 ```
 
 This will install all the required dependencies and build output files to `dist/`.
 
 ## Modifying/Adding code
 
-Most of the SDK is generated code, and any modified code will be overridden on the next generation. The
-`src/lib/` and `examples/` directories are exceptions and will never be overridden.
+Most of the SDK is generated code. Modifications to code will be persisted between generations, but may
+result in merge conflicts between manual patches and changes from the generator. The generator will never
+modify the contents of the `src/lib/` and `examples/` directories.
 
 ## Adding and running examples
 
-All files in the `examples/` directory are not modified by the Stainless generator and can be freely edited or
-added to.
+All files in the `examples/` directory are not modified by the generator and can be freely edited or added to.
 
-```bash
+```ts
 // add an example to examples/<your-example>.ts
 
 #!/usr/bin/env -S npm run tsn -T
@@ -41,38 +41,38 @@ If you’d like to use the repository from source, you can either install from g
 
 To install via git:
 
-```bash
-npm install git+ssh://git@github.com:groq/groq-typescript.git
+```sh
+$ npm install git+ssh://git@github.com:groq/groq-typescript.git
 ```
 
 Alternatively, to link a local copy of the repo:
 
-```bash
+```sh
 # Clone
-git clone https://www.github.com/groq/groq-typescript
-cd groq-typescript
+$ git clone https://www.github.com/groq/groq-typescript
+$ cd groq-typescript
 
 # With yarn
-yarn link
-cd ../my-package
-yarn link groq-sdk
+$ yarn link
+$ cd ../my-package
+$ yarn link groq-sdk
 
 # With pnpm
-pnpm link --global
-cd ../my-package
-pnpm link -—global groq-sdk
+$ pnpm link --global
+$ cd ../my-package
+$ pnpm link -—global groq-sdk
 ```
 
 ## Running tests
 
 Most tests require you to [set up a mock server](https://github.com/stoplightio/prism) against the OpenAPI spec to run the tests.
 
-```bash
-npx prism mock path/to/your/openapi.yml
+```sh
+$ npx prism mock path/to/your/openapi.yml
 ```
 
-```bash
-yarn run test
+```sh
+$ yarn run test
 ```
 
 ## Linting and formatting
@@ -82,14 +82,14 @@ This repository uses [prettier](https://www.npmjs.com/package/prettier) and
 
 To lint:
 
-```bash
-yarn lint
+```sh
+$ yarn lint
 ```
 
 To format and fix all lint issues automatically:
 
-```bash
-yarn fix
+```sh
+$ yarn fix
 ```
 
 ## Publishing and releases
