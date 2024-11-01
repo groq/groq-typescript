@@ -3,6 +3,11 @@
 export * from './shared';
 export { Audio } from './audio/audio';
 export { Chat } from './chat/chat';
-export { CompletionUsage, Completions } from './completions';
-export { CreateEmbeddingResponse, Embedding, EmbeddingCreateParams, Embeddings } from './embeddings';
-export { Model, ModelDeleted, ModelListResponse, Models } from './models';
+export { Completions, type CompletionUsage } from './completions';
+export {
+  Embeddings,
+  type CreateEmbeddingResponse,
+  type Embedding,
+  type EmbeddingCreateParams,
+} from './embeddings';
+export { Models, type Model, type ModelDeleted, type ModelListResponse } from './models';

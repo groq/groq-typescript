@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as TranscriptionsAPI from './transcriptions';
 
 export class Transcriptions extends APIResource {
   /**
@@ -178,7 +177,6 @@ export interface TranscriptionCreateParams {
   timestamp_granularities?: Array<'word' | 'segment'>;
 }
 
-export namespace Transcriptions {
-  export import Transcription = TranscriptionsAPI.Transcription;
-  export import TranscriptionCreateParams = TranscriptionsAPI.TranscriptionCreateParams;
+export declare namespace Transcriptions {
+  export { type Transcription as Transcription, type TranscriptionCreateParams as TranscriptionCreateParams };
 }
