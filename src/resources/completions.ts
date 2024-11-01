@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
-import * as CompletionsAPI from './completions';
 
 export class Completions extends APIResource {}
 
@@ -45,6 +44,6 @@ export interface CompletionUsage {
   total_time?: number;
 }
 
-export namespace Completions {
-  export import CompletionUsage = CompletionsAPI.CompletionUsage;
+export declare namespace Completions {
+  export { type CompletionUsage as CompletionUsage };
 }

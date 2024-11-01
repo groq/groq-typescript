@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as TranslationsAPI from './translations';
 
 export class Translations extends APIResource {
   /**
@@ -55,7 +54,6 @@ export interface TranslationCreateParams {
   temperature?: number;
 }
 
-export namespace Translations {
-  export import Translation = TranslationsAPI.Translation;
-  export import TranslationCreateParams = TranslationsAPI.TranslationCreateParams;
+export declare namespace Translations {
+  export { type Translation as Translation, type TranslationCreateParams as TranslationCreateParams };
 }
