@@ -1,5 +1,5 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export { Audio } from './audio';
-export { Transcription, TranscriptionCreateParams, Transcriptions } from './transcriptions';
-export { Translation, TranslationCreateParams, Translations } from './translations';
+export { Transcriptions, type Transcription, type TranscriptionCreateParams } from './transcriptions';
+export { Translations, type Translation, type TranslationCreateParams } from './translations';

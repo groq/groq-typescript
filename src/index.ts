@@ -1,10 +1,20 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import { CompletionUsage, Completions } from './resources/completions';
+import {
+  CreateEmbeddingResponse,
+  Embedding,
+  EmbeddingCreateParams,
+  Embeddings,
+} from './resources/embeddings';
+import { Model, ModelDeleted, ModelListResponse, Models } from './resources/models';
+import { Audio } from './resources/audio/audio';
+import { Chat } from './resources/chat/chat';
 
 export interface ClientOptions {
   /**
@@ -174,7 +184,7 @@ export class Groq extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+export {
   GroqError,
   APIError,
   APIConnectionError,
@@ -188,34 +198,43 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
+} from './error';
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace Groq {
-  export import RequestOptions = Core.RequestOptions;
+Groq.Completions = Completions;
+Groq.Chat = Chat;
+Groq.Embeddings = Embeddings;
+Groq.Audio = Audio;
+Groq.Models = Models;
 
-  export import Completions = API.Completions;
-  export import CompletionUsage = API.CompletionUsage;
+export declare namespace Groq {
+  export type RequestOptions = Core.RequestOptions;
 
-  export import Chat = API.Chat;
+  export { Completions as Completions, type CompletionUsage as CompletionUsage };
 
-  export import Embeddings = API.Embeddings;
-  export import CreateEmbeddingResponse = API.CreateEmbeddingResponse;
-  export import Embedding = API.Embedding;
-  export import EmbeddingCreateParams = API.EmbeddingCreateParams;
+  export { Chat as Chat };
 
-  export import Audio = API.Audio;
+  export {
+    Embeddings as Embeddings,
+    type CreateEmbeddingResponse as CreateEmbeddingResponse,
+    type Embedding as Embedding,
+    type EmbeddingCreateParams as EmbeddingCreateParams,
+  };
 
-  export import Models = API.Models;
-  export import Model = API.Model;
-  export import ModelDeleted = API.ModelDeleted;
-  export import ModelListResponse = API.ModelListResponse;
+  export { Audio as Audio };
 
-  export import ErrorObject = API.ErrorObject;
-  export import FunctionDefinition = API.FunctionDefinition;
-  export import FunctionParameters = API.FunctionParameters;
+  export {
+    Models as Models,
+    type Model as Model,
+    type ModelDeleted as ModelDeleted,
+    type ModelListResponse as ModelListResponse,
+  };
+
+  export type ErrorObject = API.ErrorObject;
+  export type FunctionDefinition = API.FunctionDefinition;
+  export type FunctionParameters = API.FunctionParameters;
 }
 
 export default Groq;

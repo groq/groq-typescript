@@ -892,25 +892,27 @@ export interface ChatCompletionCreateParamsStreaming extends ChatCompletionCreat
   stream: true;
 }
 
-export namespace Completions {
-  export import ChatCompletion = ChatCompletionsAPI.ChatCompletion;
-  export import ChatCompletionAssistantMessageParam = ChatCompletionsAPI.ChatCompletionAssistantMessageParam;
-  export import ChatCompletionChunk = ChatCompletionsAPI.ChatCompletionChunk;
-  export import ChatCompletionContentPart = ChatCompletionsAPI.ChatCompletionContentPart;
-  export import ChatCompletionContentPartImage = ChatCompletionsAPI.ChatCompletionContentPartImage;
-  export import ChatCompletionContentPartText = ChatCompletionsAPI.ChatCompletionContentPartText;
-  export import ChatCompletionFunctionCallOption = ChatCompletionsAPI.ChatCompletionFunctionCallOption;
-  export import ChatCompletionFunctionMessageParam = ChatCompletionsAPI.ChatCompletionFunctionMessageParam;
-  export import ChatCompletionMessage = ChatCompletionsAPI.ChatCompletionMessage;
-  export import ChatCompletionMessageParam = ChatCompletionsAPI.ChatCompletionMessageParam;
-  export import ChatCompletionMessageToolCall = ChatCompletionsAPI.ChatCompletionMessageToolCall;
-  export import ChatCompletionNamedToolChoice = ChatCompletionsAPI.ChatCompletionNamedToolChoice;
-  export import ChatCompletionRole = ChatCompletionsAPI.ChatCompletionRole;
-  export import ChatCompletionSystemMessageParam = ChatCompletionsAPI.ChatCompletionSystemMessageParam;
-  export import ChatCompletionTokenLogprob = ChatCompletionsAPI.ChatCompletionTokenLogprob;
-  export import ChatCompletionTool = ChatCompletionsAPI.ChatCompletionTool;
-  export import ChatCompletionToolChoiceOption = ChatCompletionsAPI.ChatCompletionToolChoiceOption;
-  export import ChatCompletionToolMessageParam = ChatCompletionsAPI.ChatCompletionToolMessageParam;
-  export import ChatCompletionUserMessageParam = ChatCompletionsAPI.ChatCompletionUserMessageParam;
-  export import CompletionCreateParams = ChatCompletionsAPI.CompletionCreateParams;
+export declare namespace Completions {
+  export {
+    type ChatCompletion as ChatCompletion,
+    type ChatCompletionAssistantMessageParam as ChatCompletionAssistantMessageParam,
+    type ChatCompletionChunk as ChatCompletionChunk,
+    type ChatCompletionContentPart as ChatCompletionContentPart,
+    type ChatCompletionContentPartImage as ChatCompletionContentPartImage,
+    type ChatCompletionContentPartText as ChatCompletionContentPartText,
+    type ChatCompletionFunctionCallOption as ChatCompletionFunctionCallOption,
+    type ChatCompletionFunctionMessageParam as ChatCompletionFunctionMessageParam,
+    type ChatCompletionMessage as ChatCompletionMessage,
+    type ChatCompletionMessageParam as ChatCompletionMessageParam,
+    type ChatCompletionMessageToolCall as ChatCompletionMessageToolCall,
+    type ChatCompletionNamedToolChoice as ChatCompletionNamedToolChoice,
+    type ChatCompletionRole as ChatCompletionRole,
+    type ChatCompletionSystemMessageParam as ChatCompletionSystemMessageParam,
+    type ChatCompletionTokenLogprob as ChatCompletionTokenLogprob,
+    type ChatCompletionTool as ChatCompletionTool,
+    type ChatCompletionToolChoiceOption as ChatCompletionToolChoiceOption,
+    type ChatCompletionToolMessageParam as ChatCompletionToolMessageParam,
+    type ChatCompletionUserMessageParam as ChatCompletionUserMessageParam,
+    type CompletionCreateParams as CompletionCreateParams,
+  };
 }
