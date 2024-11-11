@@ -47,9 +47,9 @@ export class APIError extends GroqError {
     errorResponse: Object | undefined,
     message: string | undefined,
     headers: Headers | undefined,
-  ) {
+  ): APIError {
     if (!status) {
-      return new APIConnectionError({ cause: castToError(errorResponse) });
+      return new APIConnectionError({ message, cause: castToError(errorResponse) });
     }
 
     const error = errorResponse as Record<string, any>;
@@ -101,7 +101,7 @@ export class APIUserAbortError extends APIError {
 export class APIConnectionError extends APIError {
   override readonly status: undefined = undefined;
 
-  constructor({ message, cause }: { message?: string; cause?: Error | undefined }) {
+  constructor({ message, cause }: { message?: string | undefined; cause?: Error | undefined }) {
     super(undefined, undefined, message || 'Connection error.', undefined);
     // in some environments the 'cause' property is already declared
     // @ts-ignore

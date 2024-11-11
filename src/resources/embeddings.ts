@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as EmbeddingsAPI from './embeddings';
 
 export class Embeddings extends APIResource {
   /**
@@ -102,8 +101,10 @@ export interface EmbeddingCreateParams {
   user?: string | null;
 }
 
-export namespace Embeddings {
-  export import CreateEmbeddingResponse = EmbeddingsAPI.CreateEmbeddingResponse;
-  export import Embedding = EmbeddingsAPI.Embedding;
-  export import EmbeddingCreateParams = EmbeddingsAPI.EmbeddingCreateParams;
+export declare namespace Embeddings {
+  export {
+    type CreateEmbeddingResponse as CreateEmbeddingResponse,
+    type Embedding as Embedding,
+    type EmbeddingCreateParams as EmbeddingCreateParams,
+  };
 }

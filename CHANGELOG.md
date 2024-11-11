@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.8.0 (2024-11-09)
+
+Full Changelog: [v0.7.0...v0.8.0](https://github.com/groq/groq-typescript/compare/v0.7.0...v0.8.0)
+
+### Features
+
+* **api:** api update ([#127](https://github.com/groq/groq-typescript/issues/127)) ([5d82d2d](https://github.com/groq/groq-typescript/commit/5d82d2dd7119c17fdae3618b06c607b17ee00d67))
+* **api:** api update ([#128](https://github.com/groq/groq-typescript/issues/128)) ([ae555c1](https://github.com/groq/groq-typescript/commit/ae555c1c6934b589e862ebd6b684cede0f09fb18))
+
+
+### Bug Fixes
+
+* **client:** correct File construction from node-fetch Responses ([#125](https://github.com/groq/groq-typescript/issues/125)) ([42a63ac](https://github.com/groq/groq-typescript/commit/42a63ac2bbf51fde1f61d94a61011d9a49822552))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([ab82c0a](https://github.com/groq/groq-typescript/commit/ab82c0a3ba00e63a92a88e24d25e4e41ec090951))
+
+
+### Chores
+
+* **ci:** install deps via ./script/bootstrap ([#124](https://github.com/groq/groq-typescript/issues/124)) ([edc34d0](https://github.com/groq/groq-typescript/commit/edc34d08c51c8cae2ebbc32296dc9069a6547384))
+* rebuild project due to codegen change ([#130](https://github.com/groq/groq-typescript/issues/130)) ([58bc1e8](https://github.com/groq/groq-typescript/commit/58bc1e81f7e89108cada06cf762b8de923849078))
+* run tsc as part of lint script ([#122](https://github.com/groq/groq-typescript/issues/122)) ([85a3a56](https://github.com/groq/groq-typescript/commit/85a3a5617b69f87c8dcb4641e39b7302b7b9cfae))
+
 ## 0.7.0 (2024-09-03)
 
 Full Changelog: [v0.6.1...v0.7.0](https://github.com/groq/groq-typescript/compare/v0.6.1...v0.7.0)
