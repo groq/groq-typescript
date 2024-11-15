@@ -74,6 +74,7 @@ export interface TranscriptionCreateParams {
     | 'da'
     | 'hu'
     | 'ta'
+    | 'no'
     | 'th'
     | 'ur'
     | 'hr'

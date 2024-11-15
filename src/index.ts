@@ -184,31 +184,11 @@ export class Groq extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  GroqError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 Groq.Completions = Completions;
 Groq.Chat = Chat;
 Groq.Embeddings = Embeddings;
 Groq.Audio = Audio;
 Groq.Models = Models;
-
 export declare namespace Groq {
   export type RequestOptions = Core.RequestOptions;
 
@@ -236,5 +216,22 @@ export declare namespace Groq {
   export type FunctionDefinition = API.FunctionDefinition;
   export type FunctionParameters = API.FunctionParameters;
 }
+
+export { toFile, fileFromPath } from './uploads';
+export {
+  GroqError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from './error';
 
 export default Groq;
