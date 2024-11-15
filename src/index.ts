@@ -217,7 +217,7 @@ export declare namespace Groq {
   export type FunctionParameters = API.FunctionParameters;
 }
 
-export { toFile, fileFromPath } from 'groq-sdk/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   GroqError,
   APIError,
@@ -232,6 +232,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from 'groq-sdk/error';
+} from './error';
 
 export default Groq;
