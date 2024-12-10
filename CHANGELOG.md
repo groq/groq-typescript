@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.1 (2024-12-10)
+
+Full Changelog: [v0.9.0...v0.9.1](https://github.com/groq/groq-typescript/compare/v0.9.0...v0.9.1)
+
+### Chores
+
+* **internal:** remove unnecessary getRequestClient function ([#141](https://github.com/groq/groq-typescript/issues/141)) ([05ccf25](https://github.com/groq/groq-typescript/commit/05ccf251bb1e1bf0afc3af5572f4faf20ebd1410))
+
 ## 0.9.0 (2024-12-03)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/groq/groq-typescript/compare/v0.8.0...v0.9.0)
