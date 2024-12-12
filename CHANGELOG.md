@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.9.1 (2024-12-12)
+
+Full Changelog: [v0.9.0...v0.9.1](https://github.com/groq/groq-typescript/compare/v0.9.0...v0.9.1)
+
+### Chores
+
+* **internal:** remove unnecessary getRequestClient function ([#141](https://github.com/groq/groq-typescript/issues/141)) ([05ccf25](https://github.com/groq/groq-typescript/commit/05ccf251bb1e1bf0afc3af5572f4faf20ebd1410))
+* **internal:** update isAbsoluteURL ([#145](https://github.com/groq/groq-typescript/issues/145)) ([18e414e](https://github.com/groq/groq-typescript/commit/18e414ed562876eb1dadff97a79aa2bbe90ff0ab))
+* **types:** nicer error class types + jsdocs ([#144](https://github.com/groq/groq-typescript/issues/144)) ([860655e](https://github.com/groq/groq-typescript/commit/860655eb638047c681ed602002e1de8dfacb7d3d))
+
 ## 0.9.0 (2024-12-03)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/groq/groq-typescript/compare/v0.8.0...v0.9.0)
