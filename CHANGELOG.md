@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.9.2 (2024-12-21)
+
+Full Changelog: [v0.9.1...v0.9.2](https://github.com/groq/groq-typescript/compare/v0.9.1...v0.9.2)
+
+### Bug Fixes
+
+* **client:** normalize method ([#155](https://github.com/groq/groq-typescript/issues/155)) ([c3ba88c](https://github.com/groq/groq-typescript/commit/c3ba88c2f457c057b64331f5153a64d7051a65cf))
+
+
+### Chores
+
+* **internal:** codegen related update ([#149](https://github.com/groq/groq-typescript/issues/149)) ([4b1115b](https://github.com/groq/groq-typescript/commit/4b1115bc7dad629e6cbfd305d1f02c5d83c08cb4))
+* **internal:** codegen related update ([#150](https://github.com/groq/groq-typescript/issues/150)) ([d582c40](https://github.com/groq/groq-typescript/commit/d582c40dfe47d45549a6edd91890ed7822f7af95))
+* **internal:** codegen related update ([#151](https://github.com/groq/groq-typescript/issues/151)) ([e153d84](https://github.com/groq/groq-typescript/commit/e153d84e5b9208acfc5b0a368f2e580900f0958d))
+* **internal:** codegen related update ([#152](https://github.com/groq/groq-typescript/issues/152)) ([33a4d9c](https://github.com/groq/groq-typescript/commit/33a4d9ce6b56a194001da9d75663e8498083d223))
+* **internal:** codegen related update ([#153](https://github.com/groq/groq-typescript/issues/153)) ([dbb9d7f](https://github.com/groq/groq-typescript/commit/dbb9d7fdf457755f2d8a223e667423634ed18cf5))
+* **internal:** codegen related update ([#154](https://github.com/groq/groq-typescript/issues/154)) ([579e30e](https://github.com/groq/groq-typescript/commit/579e30e19daaa9b0aaae2f9d5f268c7983f74376))
+* **internal:** codegen related update ([#156](https://github.com/groq/groq-typescript/issues/156)) ([05f714b](https://github.com/groq/groq-typescript/commit/05f714b65c1251938d4d75a25e319a75907cf9d0))
+* **internal:** fix some typos ([#147](https://github.com/groq/groq-typescript/issues/147)) ([476a620](https://github.com/groq/groq-typescript/commit/476a62017698e9b766d1ac0657e1dbdfd7af0cea))
+
 ## 0.9.1 (2024-12-12)
 
 Full Changelog: [v0.9.0...v0.9.1](https://github.com/groq/groq-typescript/compare/v0.9.0...v0.9.1)

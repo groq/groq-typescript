@@ -177,7 +177,7 @@ export abstract class APIClient {
     maxRetries = 2,
     timeout = 60000, // 1 minute
     httpAgent,
-    fetch: overridenFetch,
+    fetch: overriddenFetch,
   }: {
     baseURL: string;
     maxRetries?: number | undefined;
@@ -190,7 +190,7 @@ export abstract class APIClient {
     this.timeout = validatePositiveInteger('timeout', timeout);
     this.httpAgent = httpAgent;
 
-    this.fetch = overridenFetch ?? fetch;
+    this.fetch = overriddenFetch ?? fetch;
   }
 
   protected authHeaders(opts: FinalRequestOptions): Headers {
@@ -536,9 +536,19 @@ export abstract class APIClient {
 
     const timeout = setTimeout(() => controller.abort(), ms);
 
+    const fetchOptions = {
+      signal: controller.signal as any,
+      ...options,
+    };
+    if (fetchOptions.method) {
+      // Custom methods like 'patch' need to be uppercased
+      // See https://github.com/nodejs/undici/issues/2294
+      fetchOptions.method = fetchOptions.method.toUpperCase();
+    }
+
     return (
       // use undefined this binding; fetch errors if bound to something else in browser/cloudflare
-      this.fetch.call(undefined, url, { signal: controller.signal as any, ...options }).finally(() => {
+      this.fetch.call(undefined, url, fetchOptions).finally(() => {
         clearTimeout(timeout);
       })
     );
