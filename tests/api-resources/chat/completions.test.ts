@@ -38,6 +38,7 @@ describe('resource completions', () => {
       presence_penalty: -2,
       response_format: { type: 'text' },
       seed: 0,
+      service_tier: 'on_demand',
       stop: '\n',
       stream: true,
       temperature: 1,
