@@ -738,7 +738,14 @@ export interface CompletionCreateParams {
    */
   seed?: number | null;
 
-  service_tier?: 'on_demand' | 'flex' | null;
+  /**
+   * The service tier to use for the request. Defaults to `on_demand`.
+   *
+   * - `auto` will automatically select the highest tier available within the rate
+   *   limits of your organization.
+   * - `flex` uses the flex tier, which will succeed or fail quickly.
+   */
+  service_tier?: 'auto' | 'on_demand' | 'flex' | null;
 
   /**
    * Up to 4 sequences where the API will stop generating further tokens. The
