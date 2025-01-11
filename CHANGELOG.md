@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.12.0 (2025-01-11)
+
+Full Changelog: [v0.11.0...v0.12.0](https://github.com/groq/groq-typescript/compare/v0.11.0...v0.12.0)
+
+### Features
+
+* **api:** api update ([#166](https://github.com/groq/groq-typescript/issues/166)) ([003600d](https://github.com/groq/groq-typescript/commit/003600d69f9b7a0171d5bb7a09202800d70875a9))
+
+
+### Chores
+
+* **internal:** codegen related update ([#164](https://github.com/groq/groq-typescript/issues/164)) ([72dfc54](https://github.com/groq/groq-typescript/commit/72dfc54e941be0d385baecd988cc6b0cd2854c19))
+
 ## 0.11.0 (2025-01-09)
 
 Full Changelog: [v0.10.0...v0.11.0](https://github.com/groq/groq-typescript/compare/v0.10.0...v0.11.0)
