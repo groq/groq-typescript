@@ -698,6 +698,13 @@ export interface CompletionCreateParams {
    * total length of input tokens and generated tokens is limited by the model's
    * context length.
    */
+  max_completion_tokens?: number | null;
+
+  /**
+   * Deprecated in favor of `max_completion_tokens`. The maximum number of tokens
+   * that can be generated in the chat completion. The total length of input tokens
+   * and generated tokens is limited by the model's context length.
+   */
   max_tokens?: number | null;
 
   /**
