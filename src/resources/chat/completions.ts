@@ -751,6 +751,11 @@ export interface ChatCompletionCreateParamsBase {
   presence_penalty?: number | null;
 
   /**
+   * Specifies how to output reasoning tokens
+   */
+  reasoning_format?: 'hidden' | 'raw' | 'parsed' | null;
+
+  /**
    * An object specifying the format that the model must output.
    *
    * Setting to `{ "type": "json_object" }` enables JSON mode, which guarantees the
