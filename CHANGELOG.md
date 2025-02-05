@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.0 (2025-02-05)
+
+Full Changelog: [v0.14.0...v0.15.0](https://github.com/groq/groq-typescript/compare/v0.14.0...v0.15.0)
+
+### Features
+
+* **api:** Add batch API ([#177](https://github.com/groq/groq-typescript/issues/177)) ([0b62a9f](https://github.com/groq/groq-typescript/commit/0b62a9f0e3b53285cf4ca3c8884091626821a406))
+
 ## 0.14.0 (2025-02-03)
 
 Full Changelog: [v0.13.0...v0.14.0](https://github.com/groq/groq-typescript/compare/v0.13.0...v0.14.0)
