@@ -5,6 +5,13 @@ import * as Core from './core';
 import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
+import {
+  BatchCreateParams,
+  BatchCreateResponse,
+  BatchListResponse,
+  BatchRetrieveResponse,
+  Batches,
+} from './resources/batches';
 import { CompletionUsage, Completions } from './resources/completions';
 import {
   CreateEmbeddingResponse,
@@ -12,6 +19,15 @@ import {
   EmbeddingCreateParams,
   Embeddings,
 } from './resources/embeddings';
+import {
+  FileContentResponse,
+  FileCreateParams,
+  FileCreateResponse,
+  FileDeleteResponse,
+  FileInfoResponse,
+  FileListResponse,
+  Files,
+} from './resources/files';
 import { Model, ModelDeleted, ModelListResponse, Models } from './resources/models';
 import { Audio } from './resources/audio/audio';
 import { Chat } from './resources/chat/chat';
@@ -147,6 +163,8 @@ export class Groq extends Core.APIClient {
   embeddings: API.Embeddings = new API.Embeddings(this);
   audio: API.Audio = new API.Audio(this);
   models: API.Models = new API.Models(this);
+  batches: API.Batches = new API.Batches(this);
+  files: API.Files = new API.Files(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -189,6 +207,8 @@ Groq.Chat = Chat;
 Groq.Embeddings = Embeddings;
 Groq.Audio = Audio;
 Groq.Models = Models;
+Groq.Batches = Batches;
+Groq.Files = Files;
 export declare namespace Groq {
   export type RequestOptions = Core.RequestOptions;
 
@@ -210,6 +230,24 @@ export declare namespace Groq {
     type Model as Model,
     type ModelDeleted as ModelDeleted,
     type ModelListResponse as ModelListResponse,
+  };
+
+  export {
+    Batches as Batches,
+    type BatchCreateResponse as BatchCreateResponse,
+    type BatchRetrieveResponse as BatchRetrieveResponse,
+    type BatchListResponse as BatchListResponse,
+    type BatchCreateParams as BatchCreateParams,
+  };
+
+  export {
+    Files as Files,
+    type FileCreateResponse as FileCreateResponse,
+    type FileListResponse as FileListResponse,
+    type FileDeleteResponse as FileDeleteResponse,
+    type FileContentResponse as FileContentResponse,
+    type FileInfoResponse as FileInfoResponse,
+    type FileCreateParams as FileCreateParams,
   };
 
   export type ErrorObject = API.ErrorObject;
