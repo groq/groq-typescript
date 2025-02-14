@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.16.0 (2025-02-14)
+
+Full Changelog: [v0.15.0...v0.16.0](https://github.com/groq/groq-typescript/compare/v0.15.0...v0.16.0)
+
+### Features
+
+* **client:** send `X-Stainless-Timeout` header ([#180](https://github.com/groq/groq-typescript/issues/180)) ([e52a8ab](https://github.com/groq/groq-typescript/commit/e52a8ab2f0c7c2d55f98e1305b11925070ab61d8))
+
+
+### Bug Fixes
+
+* **client:** fix export map for index exports ([#182](https://github.com/groq/groq-typescript/issues/182)) ([e115c97](https://github.com/groq/groq-typescript/commit/e115c97ad79e7d3b381930244e68c909199840d1))
+
 ## 0.15.0 (2025-02-05)
 
 Full Changelog: [v0.14.0...v0.15.0](https://github.com/groq/groq-typescript/compare/v0.14.0...v0.15.0)
