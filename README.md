@@ -66,6 +66,48 @@ main();
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
 
+## File uploads
+
+Request parameters that correspond to file uploads can be passed in many different forms:
+
+- `File` (or an object with the same structure)
+- a `fetch` `Response` (or an object with the same structure)
+- an `fs.ReadStream`
+- the return value of our `toFile` helper
+
+```ts
+import fs from 'fs';
+import fetch from 'node-fetch';
+import Groq, { toFile } from 'groq-sdk';
+
+const client = new Groq();
+
+// If you have access to Node `fs` we recommend using `fs.createReadStream()`:
+await client.audio.transcriptions.create({
+  file: fs.createReadStream('/path/to/file'),
+  model: 'whisper-large-v3',
+});
+
+// Or if you have the web `File` API you can pass a `File` instance:
+await client.audio.transcriptions.create({ file: new File(['my bytes'], 'file'), model: 'whisper-large-v3' });
+
+// You can also pass a `fetch` `Response`:
+await client.audio.transcriptions.create({
+  file: await fetch('https://somesite/file'),
+  model: 'whisper-large-v3',
+});
+
+// Finally, if none of the above are convenient, you can use our `toFile` helper:
+await client.audio.transcriptions.create({
+  file: await toFile(Buffer.from('my bytes'), 'file'),
+  model: 'whisper-large-v3',
+});
+await client.audio.transcriptions.create({
+  file: await toFile(new Uint8Array([0, 1, 2]), 'file'),
+  model: 'whisper-large-v3',
+});
+```
+
 ## Handling errors
 
 When the library is unable to connect to the API,
