@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.16.0 (2025-03-05)
+
+Full Changelog: [v0.15.0...v0.16.0](https://github.com/groq/groq-typescript/compare/v0.15.0...v0.16.0)
+
+### Features
+
+* **client:** send `X-Stainless-Timeout` header ([#180](https://github.com/groq/groq-typescript/issues/180)) ([9fbaae9](https://github.com/groq/groq-typescript/commit/9fbaae9daaaa6e819baa5bbd49332d2369d4e43a))
+
+
+### Bug Fixes
+
+* **client:** fix export map for index exports ([#182](https://github.com/groq/groq-typescript/issues/182)) ([c3a257f](https://github.com/groq/groq-typescript/commit/c3a257fcd387523a366a77f7809ec66bc8e7e2ea))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([5fa6983](https://github.com/groq/groq-typescript/commit/5fa6983323ea6376dfa1eb0f39906b721ea757d6))
+
+
+### Chores
+
+* **internal:** codegen related update ([#183](https://github.com/groq/groq-typescript/issues/183)) ([055dfe4](https://github.com/groq/groq-typescript/commit/055dfe4e8989170436fd3dfc4ae2c774ff7c83a6))
+* **internal:** fix devcontainers setup ([#184](https://github.com/groq/groq-typescript/issues/184)) ([56aeb6f](https://github.com/groq/groq-typescript/commit/56aeb6f569bfc741a9c63a2195a8e56fad12d4b2))
+
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#185](https://github.com/groq/groq-typescript/issues/185)) ([fd8d130](https://github.com/groq/groq-typescript/commit/fd8d130a6ea920348cf2b06f8e1afa48fde9147f))
+
 ## 0.15.0 (2025-02-05)
 
 Full Changelog: [v0.14.0...v0.15.0](https://github.com/groq/groq-typescript/compare/v0.14.0...v0.15.0)
