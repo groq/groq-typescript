@@ -1,7 +1,7 @@
-import { ReadableStream, type Response } from 'groq-sdk/_shims/index';
-import { GroqError } from 'groq-sdk/error';
+import { ReadableStream, type Response } from '../_shims/index';
+import { GroqError } from '../error';
 
-import { APIError } from 'groq-sdk/error';
+import { APIError } from '../error';
 
 type Bytes = string | ArrayBuffer | Uint8Array | Buffer | null | undefined;
 
@@ -62,7 +62,7 @@ export class Stream<Item> implements AsyncIterable<Item> {
             continue;
           }
 
-          if (sse.event === null) {
+          if (sse.event === null || sse.event === 'error') {
             let data;
 
             try {
@@ -74,7 +74,7 @@ export class Stream<Item> implements AsyncIterable<Item> {
             }
 
             if (data && data.error) {
-              throw new APIError(undefined, data.error, undefined, undefined);
+              throw new APIError(data.error.status_code, data.error, data.error.message, undefined);
             }
 
             yield data;
