@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.16.0 (2025-03-11)
+
+Full Changelog: [v0.15.0...v0.16.0](https://github.com/groq/groq-typescript/compare/v0.15.0...v0.16.0)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#186](https://github.com/groq/groq-typescript/issues/186)) ([7188745](https://github.com/groq/groq-typescript/commit/71887452485edb042aa49a813ca7295903641c73))
+* **client:** accept RFC6838 JSON content types ([#187](https://github.com/groq/groq-typescript/issues/187)) ([8cb3baa](https://github.com/groq/groq-typescript/commit/8cb3baa9f05b4013ffae5e4199ee65d68d7d9b8c))
+* **client:** send `X-Stainless-Timeout` header ([#180](https://github.com/groq/groq-typescript/issues/180)) ([a3372bc](https://github.com/groq/groq-typescript/commit/a3372bcccd5b68b6f9610a9e2fc5cf1d30c296d7))
+
+
+### Bug Fixes
+
+* **client:** fix export map for index exports ([#182](https://github.com/groq/groq-typescript/issues/182)) ([9537350](https://github.com/groq/groq-typescript/commit/9537350b6e19af0c1213ab85f6f2b697863e163d))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([9d0bb04](https://github.com/groq/groq-typescript/commit/9d0bb04c153ed9584ac936956fa88c94384f8b63))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([5fa6983](https://github.com/groq/groq-typescript/commit/5fa6983323ea6376dfa1eb0f39906b721ea757d6))
+
+
+### Chores
+
+* **internal:** codegen related update ([#183](https://github.com/groq/groq-typescript/issues/183)) ([203e3b1](https://github.com/groq/groq-typescript/commit/203e3b1102db8515143cdf536f1c9d583b85b3e5))
+* **internal:** fix devcontainers setup ([#184](https://github.com/groq/groq-typescript/issues/184)) ([f0df22c](https://github.com/groq/groq-typescript/commit/f0df22cb095ef79933661922c802376f65182fb6))
+
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#185](https://github.com/groq/groq-typescript/issues/185)) ([1c481a6](https://github.com/groq/groq-typescript/commit/1c481a6fa9fbc3bbe8901470022c2789cbe366e1))
+
 ## 0.15.0 (2025-02-05)
 
 Full Changelog: [v0.14.0...v0.15.0](https://github.com/groq/groq-typescript/compare/v0.14.0...v0.15.0)
