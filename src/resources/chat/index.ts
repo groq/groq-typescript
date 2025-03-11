@@ -5,7 +5,6 @@ export {
   Completions,
   type ChatCompletion,
   type ChatCompletionAssistantMessageParam,
-  type ChatCompletionChunk,
   type ChatCompletionContentPart,
   type ChatCompletionContentPartImage,
   type ChatCompletionContentPartText,
