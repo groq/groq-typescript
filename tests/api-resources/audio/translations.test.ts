@@ -10,10 +10,7 @@ const client = new Groq({
 
 describe('resource translations', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.audio.translations.create({
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      model: 'whisper-1',
-    });
+    const responsePromise = client.audio.translations.create({ model: 'whisper-1' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,11 +22,12 @@ describe('resource translations', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.audio.translations.create({
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       model: 'whisper-1',
+      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       prompt: 'prompt',
       response_format: 'json',
       temperature: 0,
+      url: 'url',
     });
   });
 });
