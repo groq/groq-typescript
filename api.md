@@ -55,6 +55,12 @@ Methods:
 
 # Audio
 
+## Speech
+
+Methods:
+
+- <code title="post /openai/v1/audio/speech">client.audio.speech.<a href="./src/resources/audio/speech.ts">create</a>({ ...params }) -> Response</code>
+
 ## Transcriptions
 
 Types:
