@@ -225,7 +225,7 @@ export namespace ChatCompletionChunk {
      * number of tokens specified in the request was reached, `tool_calls` if the model
      * called a tool, or `function_call` (deprecated) if the model called a function.
      */
-    finish_reason: 'stop' | 'length' | 'tool_calls' | 'function_call' | null;
+    finish_reason: 'stop' | 'length' | 'tool_calls' | 'content_filter' | 'function_call' | null;
 
     /**
      * The index of the choice in the list of choices.
@@ -929,6 +929,7 @@ export declare namespace Completions {
   export {
     type ChatCompletion as ChatCompletion,
     type ChatCompletionAssistantMessageParam as ChatCompletionAssistantMessageParam,
+    type ChatCompletionChunk as ChatCompletionChunk,
     type ChatCompletionContentPart as ChatCompletionContentPart,
     type ChatCompletionContentPartImage as ChatCompletionContentPartImage,
     type ChatCompletionContentPartText as ChatCompletionContentPartText,
