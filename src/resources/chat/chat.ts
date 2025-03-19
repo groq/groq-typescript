@@ -5,7 +5,6 @@ import * as CompletionsAPI from './completions';
 import {
   ChatCompletion,
   ChatCompletionAssistantMessageParam,
-  ChatCompletionChunk,
   ChatCompletionContentPart,
   ChatCompletionContentPartImage,
   ChatCompletionContentPartText,
@@ -37,7 +36,6 @@ export declare namespace Chat {
     Completions as Completions,
     type ChatCompletion as ChatCompletion,
     type ChatCompletionAssistantMessageParam as ChatCompletionAssistantMessageParam,
-    type ChatCompletionChunk as ChatCompletionChunk,
     type ChatCompletionContentPart as ChatCompletionContentPart,
     type ChatCompletionContentPartImage as ChatCompletionContentPartImage,
     type ChatCompletionContentPartText as ChatCompletionContentPartText,

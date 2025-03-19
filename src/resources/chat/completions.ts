@@ -929,7 +929,6 @@ export declare namespace Completions {
   export {
     type ChatCompletion as ChatCompletion,
     type ChatCompletionAssistantMessageParam as ChatCompletionAssistantMessageParam,
-    type ChatCompletionChunk as ChatCompletionChunk,
     type ChatCompletionContentPart as ChatCompletionContentPart,
     type ChatCompletionContentPartImage as ChatCompletionContentPartImage,
     type ChatCompletionContentPartText as ChatCompletionContentPartText,
