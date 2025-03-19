@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.17.0 (2025-03-19)
+
+Full Changelog: [v0.16.0...v0.17.0](https://github.com/groq/groq-typescript/compare/v0.16.0...v0.17.0)
+
+### Features
+
+* **api:** Add speech endpoint ([#197](https://github.com/groq/groq-typescript/issues/197)) ([a6c574a](https://github.com/groq/groq-typescript/commit/a6c574ae6d36e0f3932c5fbd509dde1369c9d7e6))
+* **api:** api update ([#196](https://github.com/groq/groq-typescript/issues/196)) ([555d10a](https://github.com/groq/groq-typescript/commit/555d10ae221de301e41c5634bc1459d411bd66b8))
+* **api:** api update ([#198](https://github.com/groq/groq-typescript/issues/198)) ([1b7f534](https://github.com/groq/groq-typescript/commit/1b7f5347e8a8b6f77d11de452f7bf07e291918c8))
+* **api:** manual updates ([#190](https://github.com/groq/groq-typescript/issues/190)) ([2afb5be](https://github.com/groq/groq-typescript/commit/2afb5becd0f489f51c51c0fdd58c09b696b3adab))
+
+
+### Bug Fixes
+
+* **exports:** ensure resource imports don't require /index ([#195](https://github.com/groq/groq-typescript/issues/195)) ([3a54464](https://github.com/groq/groq-typescript/commit/3a544640461fa7e4402ef74181871aa469fc3ad2))
+
+
+### Chores
+
+* **api:** remove chat_completion_chunk to force a rebuild of it ([#188](https://github.com/groq/groq-typescript/issues/188)) ([8d1e9bf](https://github.com/groq/groq-typescript/commit/8d1e9bf99cda884e6c3312c5d6e3491dd3d3fa53))
+* **internal:** remove extra empty newlines ([#194](https://github.com/groq/groq-typescript/issues/194)) ([f054a17](https://github.com/groq/groq-typescript/commit/f054a17f7f8fbbadb8e04d558d71b8967f216156))
+
 ## 0.16.0 (2025-03-11)
 
 Full Changelog: [v0.15.0...v0.16.0](https://github.com/groq/groq-typescript/compare/v0.15.0...v0.16.0)

@@ -21,15 +21,15 @@ export interface Translation {
 
 export interface TranslationCreateParams {
   /**
-   * The audio file object (not file name) translate, in one of these formats: flac,
-   * mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
-   */
-  file: Core.Uploadable;
-
-  /**
    * ID of the model to use. Only `whisper-large-v3` is currently available.
    */
   model: (string & {}) | 'whisper-large-v3';
+
+  /**
+   * The audio file object (not file name) translate, in one of these formats: flac,
+   * mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
+   */
+  file?: Core.Uploadable;
 
   /**
    * An optional text to guide the model's style or continue a previous audio
@@ -52,6 +52,12 @@ export interface TranslationCreateParams {
    * automatically increase the temperature until certain thresholds are hit.
    */
   temperature?: number;
+
+  /**
+   * The audio URL to translate/transcribe (supports Base64URL). Either file of url
+   * must be provided.
+   */
+  url?: string;
 }
 
 export declare namespace Translations {
