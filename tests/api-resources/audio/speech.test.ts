@@ -13,8 +13,8 @@ describe('resource speech', () => {
       input: 'input',
       model: 'model',
       voice: 'voice',
-      response_format: 'mp3',
-      speed: 0.25,
+      response_format: 'wav',
+      speed: 1,
     });
   });
 });

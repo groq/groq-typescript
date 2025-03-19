@@ -35,14 +35,12 @@ export interface SpeechCreateParams {
   voice: string;
 
   /**
-   * The format to audio in. Supported formats are `mp3`, `opus`, `aac`, `flac`,
-   * `wav`, and `pcm`.
+   * The format to audio in. Supported formats are `wav`.
    */
-  response_format?: 'mp3' | 'opus' | 'aac' | 'flac' | 'wav' | 'pcm';
+  response_format?: 'wav';
 
   /**
-   * The speed of the generated audio. Select a value from `0.25` to `4.0`. `1.0` is
-   * the default.
+   * The speed of the generated audio. 1.0 is the only supported value.
    */
   speed?: number;
 }
