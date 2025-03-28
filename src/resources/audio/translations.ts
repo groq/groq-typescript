@@ -54,8 +54,8 @@ export interface TranslationCreateParams {
   temperature?: number;
 
   /**
-   * The audio URL to translate/transcribe (supports Base64URL). Either file of url
-   * must be provided.
+   * The audio URL to translate/transcribe (supports Base64URL). Either file or url
+   * must be provided. When using the Batch API only url is supported.
    */
   url?: string;
 }
