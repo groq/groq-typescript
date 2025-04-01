@@ -7,6 +7,7 @@ export {
   type BatchCreateResponse,
   type BatchRetrieveResponse,
   type BatchListResponse,
+  type BatchCancelResponse,
   type BatchCreateParams,
 } from './batches';
 export { Chat } from './chat/chat';
