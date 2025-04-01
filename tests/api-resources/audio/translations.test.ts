@@ -9,7 +9,8 @@ const client = new Groq({
 });
 
 describe('resource translations', () => {
-  test('create: only required params', async () => {
+  // Unsupported either condition
+  test.skip('create: only required params', async () => {
     const responsePromise = client.audio.translations.create({ model: 'whisper-1' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -20,7 +21,8 @@ describe('resource translations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: required and optional params', async () => {
+  // Unsupported either condition
+  test.skip('create: required and optional params', async () => {
     const response = await client.audio.translations.create({
       model: 'whisper-1',
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),

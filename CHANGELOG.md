@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.18.0 (2025-04-01)
+
+Full Changelog: [v0.17.0...v0.18.0](https://github.com/groq/groq-typescript/compare/v0.17.0...v0.18.0)
+
+### Features
+
+* **api:** api update ([#208](https://github.com/groq/groq-typescript/issues/208)) ([13e4080](https://github.com/groq/groq-typescript/commit/13e4080afb4a376d9c877cff2b95d3a3d5778b2a))
+* **api:** api update ([#209](https://github.com/groq/groq-typescript/issues/209)) ([3b7ed98](https://github.com/groq/groq-typescript/commit/3b7ed98ce896b292f714611424707cc433962ea5))
+* **api:** manual updates ([#210](https://github.com/groq/groq-typescript/issues/210)) ([01313a7](https://github.com/groq/groq-typescript/commit/01313a7b71e3127fd1cc1956e9062e4a155c4785))
+
+
+### Bug Fixes
+
+* avoid type error in certain environments ([#206](https://github.com/groq/groq-typescript/issues/206)) ([e75e67f](https://github.com/groq/groq-typescript/commit/e75e67f4cb8e4d243f78c221fcc58fda3d31b2b3))
+* **internal:** work around https://github.com/vercel/next.js/issues/76881 ([#207](https://github.com/groq/groq-typescript/issues/207)) ([4c88261](https://github.com/groq/groq-typescript/commit/4c88261d1a96f255bece611f02cbbc2aec188dc3))
+
+
+### Chores
+
+* **exports:** cleaner resource index imports ([#204](https://github.com/groq/groq-typescript/issues/204)) ([ddf6d7e](https://github.com/groq/groq-typescript/commit/ddf6d7e0cec0785b100545b9cce44a961b830823))
+* **exports:** stop using path fallbacks ([#205](https://github.com/groq/groq-typescript/issues/205)) ([3cad69e](https://github.com/groq/groq-typescript/commit/3cad69e475fa04129276dc3eaea30523df287054))
+* **internal:** codegen related update ([#202](https://github.com/groq/groq-typescript/issues/202)) ([870089b](https://github.com/groq/groq-typescript/commit/870089b59e37b6dd34d6a60e37d4da2c980b07cf))
+
 ## 0.17.0 (2025-03-19)
 
 Full Changelog: [v0.16.0...v0.17.0](https://github.com/groq/groq-typescript/compare/v0.16.0...v0.17.0)
