@@ -6,6 +6,7 @@ import * as Errors from './error';
 import * as Uploads from './uploads';
 import * as API from './resources/index';
 import {
+  BatchCancelResponse,
   BatchCreateParams,
   BatchCreateResponse,
   BatchListResponse,
@@ -237,6 +238,7 @@ export declare namespace Groq {
     type BatchCreateResponse as BatchCreateResponse,
     type BatchRetrieveResponse as BatchRetrieveResponse,
     type BatchListResponse as BatchListResponse,
+    type BatchCancelResponse as BatchCancelResponse,
     type BatchCreateParams as BatchCreateParams,
   };
 
