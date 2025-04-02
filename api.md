@@ -102,12 +102,14 @@ Types:
 - <code><a href="./src/resources/batches.ts">BatchCreateResponse</a></code>
 - <code><a href="./src/resources/batches.ts">BatchRetrieveResponse</a></code>
 - <code><a href="./src/resources/batches.ts">BatchListResponse</a></code>
+- <code><a href="./src/resources/batches.ts">BatchCancelResponse</a></code>
 
 Methods:
 
 - <code title="post /openai/v1/batches">client.batches.<a href="./src/resources/batches.ts">create</a>({ ...params }) -> BatchCreateResponse</code>
 - <code title="get /openai/v1/batches/{batch_id}">client.batches.<a href="./src/resources/batches.ts">retrieve</a>(batchId) -> BatchRetrieveResponse</code>
 - <code title="get /openai/v1/batches">client.batches.<a href="./src/resources/batches.ts">list</a>() -> BatchListResponse</code>
+- <code title="post /openai/v1/batches/{batch_id}/cancel">client.batches.<a href="./src/resources/batches.ts">cancel</a>(batchId) -> BatchCancelResponse</code>
 
 # Files
 
