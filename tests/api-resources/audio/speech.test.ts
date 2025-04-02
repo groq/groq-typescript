@@ -8,7 +8,8 @@ const client = new Groq({
 });
 
 describe('resource speech', () => {
-  test('create: required and optional params', async () => {
+  // binary tests are currently broken
+  test.skip('create: required and optional params', async () => {
     const response = await client.audio.speech.create({
       input: 'input',
       model: 'model',

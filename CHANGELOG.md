@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.19.0 (2025-04-02)
+
+Full Changelog: [v0.18.0...v0.19.0](https://github.com/groq/groq-typescript/compare/v0.18.0...v0.19.0)
+
+### Features
+
+* **api:** add batch cancel ([0b0681f](https://github.com/groq/groq-typescript/commit/0b0681ff484dadce7a3f9ab8b5205683e96297fa))
+
+
+### Chores
+
+* **internal:** skip broken binary tests ([#217](https://github.com/groq/groq-typescript/issues/217)) ([6ad103f](https://github.com/groq/groq-typescript/commit/6ad103f2207357f876734b423c8224d48162c1f6))
+
 ## 0.18.0 (2025-04-01)
 
 Full Changelog: [v0.17.0...v0.18.0](https://github.com/groq/groq-typescript/compare/v0.17.0...v0.18.0)
