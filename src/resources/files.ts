@@ -34,10 +34,7 @@ export class Files extends APIResource {
    * Returns the contents of the specified file.
    */
   content(fileId: string, options?: Core.RequestOptions): Core.APIPromise<string> {
-    return this._client.get(`/openai/v1/files/${fileId}/content`, {
-      ...options,
-      headers: { Accept: 'text/plain', ...options?.headers },
-    });
+    return this._client.get(`/openai/v1/files/${fileId}/content`, options);
   }
 
   /**
