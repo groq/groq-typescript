@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.19.1 (2025-04-05)
+
+Full Changelog: [v0.19.0...v0.19.1](https://github.com/groq/groq-typescript/compare/v0.19.0...v0.19.1)
+
+### Bug Fixes
+
+* **api:** improve type resolution when importing as a package ([#222](https://github.com/groq/groq-typescript/issues/222)) ([45bea8e](https://github.com/groq/groq-typescript/commit/45bea8e84f6dfe75e599aec2b4a5268497914923))
+* **client:** send `X-Stainless-Timeout` in seconds ([#219](https://github.com/groq/groq-typescript/issues/219)) ([49bc9d2](https://github.com/groq/groq-typescript/commit/49bc9d2621ff8fe5261c7f22d2283c67ff2883be))
+
+
+### Chores
+
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([1543aeb](https://github.com/groq/groq-typescript/commit/1543aeb885e0938b5289e477b34fb962754fffa0))
+* **internal:** add aliases for Record and Array ([#221](https://github.com/groq/groq-typescript/issues/221)) ([b4d3b51](https://github.com/groq/groq-typescript/commit/b4d3b5143d4cfa6cffd6b2424797feacac3e9229))
+
 ## 0.19.0 (2025-04-02)
 
 Full Changelog: [v0.18.0...v0.19.0](https://github.com/groq/groq-typescript/compare/v0.18.0...v0.19.0)
