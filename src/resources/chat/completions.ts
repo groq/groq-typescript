@@ -840,6 +840,11 @@ export interface CompletionCreateParams {
   max_tokens?: number | null;
 
   /**
+   * This parameter is not currently supported.
+   */
+  metadata?: Record<string, string> | null;
+
+  /**
    * How many chat completion choices to generate for each input message. Note that
    * the current moment, only n=1 is supported. Other values will result in a 400
    * response.
@@ -896,6 +901,11 @@ export interface CompletionCreateParams {
    * returned text will not contain the stop sequence.
    */
   stop?: string | null | Array<string>;
+
+  /**
+   * This parameter is not currently supported.
+   */
+  store?: boolean | null;
 
   /**
    * If set, partial message deltas will be sent. Tokens will be sent as data-only
