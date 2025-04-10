@@ -12,7 +12,7 @@ export class Speech extends APIResource {
     return this._client.post('/openai/v1/audio/speech', {
       body,
       ...options,
-      headers: { Accept: 'application/octet-stream', ...options?.headers },
+      headers: { Accept: 'audio/wav', ...options?.headers },
       __binaryResponse: true,
     });
   }
@@ -25,12 +25,13 @@ export interface SpeechCreateParams {
   input: string;
 
   /**
-   * One of the available TTS models
+   * One of the [available TTS models](/docs/text-to-speech).
    */
   model: string;
 
   /**
-   * The voice to use when generating the audio.
+   * The voice to use when generating the audio. List of voices can be found
+   * [here](/docs/text-to-speech).
    */
   voice: string;
 
