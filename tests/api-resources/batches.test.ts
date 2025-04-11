@@ -11,7 +11,7 @@ const client = new Groq({
 describe('resource batches', () => {
   test('create: only required params', async () => {
     const responsePromise = client.batches.create({
-      completion_window: '24h',
+      completion_window: 'completion_window',
       endpoint: '/v1/chat/completions',
       input_file_id: 'input_file_id',
     });
@@ -26,7 +26,7 @@ describe('resource batches', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.batches.create({
-      completion_window: '24h',
+      completion_window: 'completion_window',
       endpoint: '/v1/chat/completions',
       input_file_id: 'input_file_id',
       metadata: { foo: 'string' },
