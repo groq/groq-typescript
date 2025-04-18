@@ -780,9 +780,16 @@ export interface CompletionCreateParams {
 
   /**
    * ID of the model to use. For details on which models are compatible with the Chat
-   * API, see available [models](/docs/models)
+   * API, see available [models](https://console.groq.com/docs/models)
    */
-  model: (string & {}) | 'gemma-7b-it' | 'llama3-70b-8192' | 'llama3-8b-8192' | 'mixtral-8x7b-32768';
+  model:
+    | (string & {})
+    | 'gemma2-9b-it'
+    | 'llama-3.3-70b-versatile'
+    | 'llama-3.1-8b-instant'
+    | 'llama-guard-3-8b'
+    | 'llama3-70b-8192'
+    | 'llama3-8b-8192';
 
   /**
    * Number between -2.0 and 2.0. Positive values penalize new tokens based on their
