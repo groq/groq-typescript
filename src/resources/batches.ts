@@ -5,7 +5,8 @@ import * as Core from '../core';
 
 export class Batches extends APIResource {
   /**
-   * Creates and executes a batch from an uploaded file of requests
+   * Creates and executes a batch from an uploaded file of requests.
+   * [Learn more](/docs/batch).
    */
   create(body: BatchCreateParams, options?: Core.RequestOptions): Core.APIPromise<BatchCreateResponse> {
     return this._client.post('/openai/v1/batches', { body, ...options });
@@ -683,10 +684,10 @@ export namespace BatchCancelResponse {
 
 export interface BatchCreateParams {
   /**
-   * The time frame within which the batch should be processed. Currently only `24h`
-   * is supported.
+   * The time frame within which the batch should be processed. Durations from `24h`
+   * to `7d` are supported.
    */
-  completion_window: '24h';
+  completion_window: string;
 
   /**
    * The endpoint to be used for all requests in the batch. Currently
