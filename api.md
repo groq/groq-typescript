@@ -118,7 +118,6 @@ Types:
 - <code><a href="./src/resources/files.ts">FileCreateResponse</a></code>
 - <code><a href="./src/resources/files.ts">FileListResponse</a></code>
 - <code><a href="./src/resources/files.ts">FileDeleteResponse</a></code>
-- <code><a href="./src/resources/files.ts">FileContentResponse</a></code>
 - <code><a href="./src/resources/files.ts">FileInfoResponse</a></code>
 
 Methods:
@@ -126,5 +125,5 @@ Methods:
 - <code title="post /openai/v1/files">client.files.<a href="./src/resources/files.ts">create</a>({ ...params }) -> FileCreateResponse</code>
 - <code title="get /openai/v1/files">client.files.<a href="./src/resources/files.ts">list</a>() -> FileListResponse</code>
 - <code title="delete /openai/v1/files/{file_id}">client.files.<a href="./src/resources/files.ts">delete</a>(fileId) -> FileDeleteResponse</code>
-- <code title="get /openai/v1/files/{file_id}/content">client.files.<a href="./src/resources/files.ts">content</a>(fileId) -> string</code>
+- <code title="get /openai/v1/files/{file_id}/content">client.files.<a href="./src/resources/files.ts">content</a>(fileId) -> Response</code>
 - <code title="get /openai/v1/files/{file_id}">client.files.<a href="./src/resources/files.ts">info</a>(fileId) -> FileInfoResponse</code>

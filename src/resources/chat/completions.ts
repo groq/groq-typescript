@@ -256,7 +256,7 @@ export namespace ChatCompletionChunk {
      * number of tokens specified in the request was reached, `tool_calls` if the model
      * called a tool, or `function_call` (deprecated) if the model called a function.
      */
-    finish_reason: 'stop' | 'length' | 'tool_calls' | 'content_filter' | 'function_call' | null;
+    finish_reason: 'stop' | 'length' | 'tool_calls' | 'function_call' | null;
 
     /**
      * The index of the choice in the list of choices.
@@ -804,9 +804,16 @@ export interface ChatCompletionCreateParamsBase {
 
   /**
    * ID of the model to use. For details on which models are compatible with the Chat
-   * API, see available [models](/docs/models)
+   * API, see available [models](https://console.groq.com/docs/models)
    */
-  model: (string & {}) | 'gemma-7b-it' | 'llama3-70b-8192' | 'llama3-8b-8192' | 'mixtral-8x7b-32768';
+  model:
+    | (string & {})
+    | 'gemma2-9b-it'
+    | 'llama-3.3-70b-versatile'
+    | 'llama-3.1-8b-instant'
+    | 'llama-guard-3-8b'
+    | 'llama3-70b-8192'
+    | 'llama3-8b-8192';
 
   /**
    * Number between -2.0 and 2.0. Positive values penalize new tokens based on their
@@ -862,6 +869,11 @@ export interface ChatCompletionCreateParamsBase {
    * and generated tokens is limited by the model's context length.
    */
   max_tokens?: number | null;
+
+  /**
+   * This parameter is not currently supported.
+   */
+  metadata?: Record<string, string> | null;
 
   /**
    * How many chat completion choices to generate for each input message. Note that
@@ -922,6 +934,11 @@ export interface ChatCompletionCreateParamsBase {
   stop?: string | null | Array<string>;
 
   /**
+   * This parameter is not currently supported.
+   */
+  store?: boolean | null;
+
+  /**
    * If set, partial message deltas will be sent. Tokens will be sent as data-only
    * [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
    * as they become available, with the stream terminated by a `data: [DONE]`
@@ -933,7 +950,7 @@ export interface ChatCompletionCreateParamsBase {
    * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will
    * make the output more random, while lower values like 0.2 will make it more
    * focused and deterministic. We generally recommend altering this or top_p but not
-   * both
+   * both.
    */
   temperature?: number | null;
 

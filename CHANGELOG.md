@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.20.0 (2025-04-22)
+
+Full Changelog: [v0.19.0...v0.20.0](https://github.com/groq/groq-typescript/compare/v0.19.0...v0.20.0)
+
+### Features
+
+* **api:** api update ([00b8a36](https://github.com/groq/groq-typescript/commit/00b8a36b9101235badc0a5cf3b19287aaa9e38e3))
+* **api:** api update ([b728dc4](https://github.com/groq/groq-typescript/commit/b728dc48b6a7686982dab67238d746276f223602))
+* **api:** api update ([055b41b](https://github.com/groq/groq-typescript/commit/055b41bb1ca5e9d64833a3bc54c3afa1f0f16faa))
+* **api:** api update ([74fea29](https://github.com/groq/groq-typescript/commit/74fea29aca74cf761a20d0cb4c51b522624a491b))
+* **api:** api update ([970e970](https://github.com/groq/groq-typescript/commit/970e970e959ce756dd5194b9f758c10bed4b0485))
+* **api:** api update ([cc72162](https://github.com/groq/groq-typescript/commit/cc72162da8f83deb1b8f5d65743c91b5f2fbd7d7))
+* **api:** api update ([a945491](https://github.com/groq/groq-typescript/commit/a945491da14e55416dee482f1aac26f1daecfb01))
+
+
+### Bug Fixes
+
+* **api:** improve type resolution when importing as a package ([#222](https://github.com/groq/groq-typescript/issues/222)) ([45bea8e](https://github.com/groq/groq-typescript/commit/45bea8e84f6dfe75e599aec2b4a5268497914923))
+* **client:** send `X-Stainless-Timeout` in seconds ([#219](https://github.com/groq/groq-typescript/issues/219)) ([49bc9d2](https://github.com/groq/groq-typescript/commit/49bc9d2621ff8fe5261c7f22d2283c67ff2883be))
+* **mcp:** remove unused tools.ts ([#223](https://github.com/groq/groq-typescript/issues/223)) ([ac43270](https://github.com/groq/groq-typescript/commit/ac43270a148a19cce434c3c3fe7602fbf1b4eccc))
+
+
+### Chores
+
+* **client:** minor internal fixes ([bfebc04](https://github.com/groq/groq-typescript/commit/bfebc041673e0d23d287601cd694b572aa662b64))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([1543aeb](https://github.com/groq/groq-typescript/commit/1543aeb885e0938b5289e477b34fb962754fffa0))
+* **internal:** add aliases for Record and Array ([#221](https://github.com/groq/groq-typescript/issues/221)) ([b4d3b51](https://github.com/groq/groq-typescript/commit/b4d3b5143d4cfa6cffd6b2424797feacac3e9229))
+* **internal:** reduce CI branch coverage ([48fbdca](https://github.com/groq/groq-typescript/commit/48fbdca40c7127697544df18d6e91bdd52d2ebc9))
+* **internal:** upload builds and expand CI branch coverage ([4bbba67](https://github.com/groq/groq-typescript/commit/4bbba6700d7dc0bd03dfa67940e0cc4b293a0213))
+* **tests:** improve enum examples ([#224](https://github.com/groq/groq-typescript/issues/224)) ([3639c3b](https://github.com/groq/groq-typescript/commit/3639c3b255fa6e7f97c7a8d747297bc06e58f3f6))
+
 ## 0.19.0 (2025-04-02)
 
 Full Changelog: [v0.18.0...v0.19.0](https://github.com/groq/groq-typescript/compare/v0.18.0...v0.19.0)

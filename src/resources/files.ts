@@ -2,6 +2,7 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
+import { type Response } from '../_shims/index';
 
 export class Files extends APIResource {
   /**
@@ -33,8 +34,12 @@ export class Files extends APIResource {
   /**
    * Returns the contents of the specified file.
    */
-  content(fileId: string, options?: Core.RequestOptions): Core.APIPromise<string> {
-    return this._client.get(`/openai/v1/files/${fileId}/content`, options);
+  content(fileId: string, options?: Core.RequestOptions): Core.APIPromise<Response> {
+    return this._client.get(`/openai/v1/files/${fileId}/content`, {
+      ...options,
+      headers: { Accept: 'application/octet-stream', ...options?.headers },
+      __binaryResponse: true,
+    });
   }
 
   /**
@@ -133,8 +138,6 @@ export interface FileDeleteResponse {
   object: 'file';
 }
 
-export type FileContentResponse = string;
-
 /**
  * The `File` object represents a document that has been uploaded.
  */
@@ -189,7 +192,6 @@ export declare namespace Files {
     type FileCreateResponse as FileCreateResponse,
     type FileListResponse as FileListResponse,
     type FileDeleteResponse as FileDeleteResponse,
-    type FileContentResponse as FileContentResponse,
     type FileInfoResponse as FileInfoResponse,
     type FileCreateParams as FileCreateParams,
   };
