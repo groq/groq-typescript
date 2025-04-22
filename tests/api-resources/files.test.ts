@@ -64,17 +64,6 @@ describe('resource files', () => {
     );
   });
 
-  test('content', async () => {
-    const responsePromise = client.files.content('file_id');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
   test('content: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(client.files.content('file_id', { path: '/_stainless_unknown_path' })).rejects.toThrow(

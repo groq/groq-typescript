@@ -20,7 +20,6 @@ import {
   Embeddings,
 } from './resources/embeddings';
 import {
-  FileContentResponse,
   FileCreateParams,
   FileCreateResponse,
   FileDeleteResponse,
@@ -245,7 +244,6 @@ export declare namespace Groq {
     type FileCreateResponse as FileCreateResponse,
     type FileListResponse as FileListResponse,
     type FileDeleteResponse as FileDeleteResponse,
-    type FileContentResponse as FileContentResponse,
     type FileInfoResponse as FileInfoResponse,
     type FileCreateParams as FileCreateParams,
   };
