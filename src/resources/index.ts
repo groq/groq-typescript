@@ -23,7 +23,6 @@ export {
   type FileCreateResponse,
   type FileListResponse,
   type FileDeleteResponse,
-  type FileContentResponse,
   type FileInfoResponse,
   type FileCreateParams,
 } from './files';
