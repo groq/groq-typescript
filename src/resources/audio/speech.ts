@@ -36,9 +36,9 @@ export interface SpeechCreateParams {
   voice: string;
 
   /**
-   * The format to audio in. Supported formats are `wav`.
+   * The format to audio in. Supported formats are `wav, mp3`.
    */
-  response_format?: 'wav';
+  response_format?: 'wav' | 'mp3';
 
   /**
    * The speed of the generated audio. 1.0 is the only supported value.
