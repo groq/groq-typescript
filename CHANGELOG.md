@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.20.1 (2025-04-23)
+
+Full Changelog: [v0.20.0...v0.20.1](https://github.com/groq/groq-typescript/compare/v0.20.0...v0.20.1)
+
+### Bug Fixes
+
+* **docs:** correct chatCompletion response exmaple in README ([399ccf5](https://github.com/groq/groq-typescript/commit/399ccf55ec7c0847bee32c9e214eecea5b8151c6))
+
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([fc2c33e](https://github.com/groq/groq-typescript/commit/fc2c33ef10bb3796501831a7e36c73befadc8306))
+
 ## 0.20.0 (2025-04-22)
 
 Full Changelog: [v0.19.0...v0.20.0](https://github.com/groq/groq-typescript/compare/v0.19.0...v0.20.0)
