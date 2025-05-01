@@ -816,6 +816,12 @@ export interface ChatCompletionCreateParamsBase {
     | 'llama3-8b-8192';
 
   /**
+   * A list of domains to exclude from the search results when the model uses a web
+   * search tool.
+   */
+  exclude_domains?: Array<string> | null;
+
+  /**
    * Number between -2.0 and 2.0. Positive values penalize new tokens based on their
    * existing frequency in the text so far, decreasing the model's likelihood to
    * repeat the same line verbatim.
@@ -842,6 +848,12 @@ export interface ChatCompletionCreateParamsBase {
    * A list of functions the model may generate JSON inputs for.
    */
   functions?: Array<CompletionCreateParams.Function> | null;
+
+  /**
+   * A list of domains to include in the search results when the model uses a web
+   * search tool.
+   */
+  include_domains?: Array<string> | null;
 
   /**
    * This is not yet supported by any of our models. Modify the likelihood of
