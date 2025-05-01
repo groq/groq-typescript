@@ -799,7 +799,7 @@ export interface CompletionCreateParams {
   frequency_penalty?: number | null;
 
   /**
-   * Deprecated in favor of `tool_choice`.
+   * @deprecated Deprecated in favor of `tool_choice`.
    *
    * Controls which (if any) function is called by the model. `none` means the model
    * will not call a function and instead generates a message. `auto` means the model
@@ -813,7 +813,7 @@ export interface CompletionCreateParams {
   function_call?: 'none' | 'auto' | 'required' | ChatCompletionFunctionCallOption | null;
 
   /**
-   * Deprecated in favor of `tools`.
+   * @deprecated Deprecated in favor of `tools`.
    *
    * A list of functions the model may generate JSON inputs for.
    */
@@ -840,9 +840,9 @@ export interface CompletionCreateParams {
   max_completion_tokens?: number | null;
 
   /**
-   * Deprecated in favor of `max_completion_tokens`. The maximum number of tokens
-   * that can be generated in the chat completion. The total length of input tokens
-   * and generated tokens is limited by the model's context length.
+   * @deprecated Deprecated in favor of `max_completion_tokens`. The maximum number
+   * of tokens that can be generated in the chat completion. The total length of
+   * input tokens and generated tokens is limited by the model's context length.
    */
   max_tokens?: number | null;
 
