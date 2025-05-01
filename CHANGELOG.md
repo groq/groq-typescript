@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.21.0 (2025-05-01)
+
+Full Changelog: [v0.20.1...v0.21.0](https://github.com/groq/groq-typescript/compare/v0.20.1...v0.21.0)
+
+### Features
+
+* **api:** api update ([d6447d8](https://github.com/groq/groq-typescript/commit/d6447d84e2996341008bb77860aa2b1a1893654f))
+
+
+### Chores
+
+* **ci:** only use depot for staging repos ([65bbde4](https://github.com/groq/groq-typescript/commit/65bbde447ced600f07cffe4dfeafb975d0d90246))
+* **docs:** add missing deprecation warnings ([4fda471](https://github.com/groq/groq-typescript/commit/4fda471aa895a74b17671fabe59566fd17a9a0a4))
+* **internal:** codegen related update ([83848bd](https://github.com/groq/groq-typescript/commit/83848bdf4dcb8ce3c8c5bdee11d14d648b7172f4))
+
+
+### Documentation
+
+* **readme:** fix typo ([7e506b6](https://github.com/groq/groq-typescript/commit/7e506b675dc84636715ad8314118525667e90bb5))
+
 ## 0.20.1 (2025-04-23)
 
 Full Changelog: [v0.20.0...v0.20.1](https://github.com/groq/groq-typescript/compare/v0.20.0...v0.20.1)
