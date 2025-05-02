@@ -27,9 +27,11 @@ describe('resource completions', () => {
     const response = await client.chat.completions.create({
       messages: [{ content: 'content', role: 'system', name: 'name' }],
       model: 'string',
+      exclude_domains: ['string'],
       frequency_penalty: -2,
       function_call: 'none',
       functions: [{ name: 'name', description: 'description', parameters: { foo: 'bar' } }],
+      include_domains: ['string'],
       logit_bias: { foo: 0 },
       logprobs: true,
       max_completion_tokens: 0,
