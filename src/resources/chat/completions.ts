@@ -9,6 +9,16 @@ import * as Shared from '../shared';
 export class Completions extends APIResource {
   /**
    * Creates a model response for the given chat conversation.
+   *
+   * @example
+   * ```ts
+   * const chatCompletion = await client.chat.completions.create(
+   *   {
+   *     messages: [{ content: 'content', role: 'system' }],
+   *     model: 'string',
+   *   },
+   * );
+   * ```
    */
   create(body: CompletionCreateParams, options?: Core.RequestOptions): Core.APIPromise<ChatCompletion> {
     return this._client.post('/openai/v1/chat/completions', { body, ...options });
