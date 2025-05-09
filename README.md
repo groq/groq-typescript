@@ -32,7 +32,7 @@ async function main() {
     model: 'llama3-8b-8192',
   });
 
-  console.log(chatCompletion[choices[0].message.content]);
+  console.log(chatCompletion.id);
 }
 
 main();
