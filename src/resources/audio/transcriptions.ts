@@ -6,6 +6,14 @@ import * as Core from '../../core';
 export class Transcriptions extends APIResource {
   /**
    * Transcribes audio into the input language.
+   *
+   * @example
+   * ```ts
+   * const transcription =
+   *   await client.audio.transcriptions.create({
+   *     model: 'whisper-large-v3',
+   *   });
+   * ```
    */
   create(body: TranscriptionCreateParams, options?: Core.RequestOptions): Core.APIPromise<Transcription> {
     return this._client.post(

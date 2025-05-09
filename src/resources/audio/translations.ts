@@ -6,6 +6,13 @@ import * as Core from '../../core';
 export class Translations extends APIResource {
   /**
    * Translates audio into English.
+   *
+   * @example
+   * ```ts
+   * const translation = await client.audio.translations.create({
+   *   model: 'whisper-1',
+   * });
+   * ```
    */
   create(body: TranslationCreateParams, options?: Core.RequestOptions): Core.APIPromise<Translation> {
     return this._client.post(
