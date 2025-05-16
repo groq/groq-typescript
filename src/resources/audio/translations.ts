@@ -10,7 +10,7 @@ export class Translations extends APIResource {
    * @example
    * ```ts
    * const translation = await client.audio.translations.create({
-   *   model: 'whisper-1',
+   *   model: 'whisper-large-v3-turbo',
    * });
    * ```
    */
@@ -28,9 +28,10 @@ export interface Translation {
 
 export interface TranslationCreateParams {
   /**
-   * ID of the model to use. Only `whisper-large-v3` is currently available.
+   * ID of the model to use. `whisper-large-v3` and `whisper-large-v3-turbo` are
+   * currently available.
    */
-  model: (string & {}) | 'whisper-large-v3';
+  model: (string & {}) | 'whisper-large-v3' | 'whisper-large-v3-turbo';
 
   /**
    * The audio file object (not file name) translate, in one of these formats: flac,

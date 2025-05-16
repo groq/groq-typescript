@@ -11,9 +11,9 @@ export class Speech extends APIResource {
    * @example
    * ```ts
    * const speech = await client.audio.speech.create({
-   *   input: 'input',
-   *   model: 'model',
-   *   voice: 'voice',
+   *   input: 'The quick brown fox jumped over the lazy dog',
+   *   model: 'playai-tts',
+   *   voice: 'Fritz-PlayAI',
    * });
    *
    * const content = await speech.blob();
@@ -39,7 +39,7 @@ export interface SpeechCreateParams {
   /**
    * One of the [available TTS models](/docs/text-to-speech).
    */
-  model: string;
+  model: (string & {}) | 'playai-tts' | 'playai-tts-arabic';
 
   /**
    * The voice to use when generating the audio. List of voices can be found
