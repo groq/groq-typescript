@@ -42,6 +42,7 @@ describe('resource completions', () => {
       presence_penalty: -2,
       reasoning_format: 'hidden',
       response_format: { type: 'text' },
+      search_settings: { exclude_domains: ['string'], include_domains: ['string'], include_images: true },
       seed: 0,
       service_tier: 'auto',
       stop: '\n',

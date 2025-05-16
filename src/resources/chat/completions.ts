@@ -336,6 +336,52 @@ export namespace ChatCompletionChunk {
          * The output returned by the tool.
          */
         output?: string | null;
+
+        /**
+         * The search results returned by the tool, if applicable.
+         */
+        search_results?: ExecutedTool.SearchResults | null;
+      }
+
+      export namespace ExecutedTool {
+        /**
+         * The search results returned by the tool, if applicable.
+         */
+        export interface SearchResults {
+          /**
+           * List of image URLs returned by the search
+           */
+          images?: Array<string>;
+
+          /**
+           * List of search results
+           */
+          results?: Array<SearchResults.Result>;
+        }
+
+        export namespace SearchResults {
+          export interface Result {
+            /**
+             * The content of the search result
+             */
+            content?: string;
+
+            /**
+             * The relevance score of the search result
+             */
+            score?: number;
+
+            /**
+             * The title of the search result
+             */
+            title?: string;
+
+            /**
+             * The URL of the search result
+             */
+            url?: string;
+          }
+        }
       }
 
       /**
@@ -581,6 +627,52 @@ export namespace ChatCompletionMessage {
      * The output returned by the tool.
      */
     output?: string | null;
+
+    /**
+     * The search results returned by the tool, if applicable.
+     */
+    search_results?: ExecutedTool.SearchResults | null;
+  }
+
+  export namespace ExecutedTool {
+    /**
+     * The search results returned by the tool, if applicable.
+     */
+    export interface SearchResults {
+      /**
+       * List of image URLs returned by the search
+       */
+      images?: Array<string>;
+
+      /**
+       * List of search results
+       */
+      results?: Array<SearchResults.Result>;
+    }
+
+    export namespace SearchResults {
+      export interface Result {
+        /**
+         * The content of the search result
+         */
+        content?: string;
+
+        /**
+         * The relevance score of the search result
+         */
+        score?: number;
+
+        /**
+         * The title of the search result
+         */
+        title?: string;
+
+        /**
+         * The URL of the search result
+         */
+        url?: string;
+      }
+    }
   }
 
   /**
@@ -826,8 +918,9 @@ export interface ChatCompletionCreateParamsBase {
     | 'llama3-8b-8192';
 
   /**
-   * A list of domains to exclude from the search results when the model uses a web
-   * search tool.
+   * @deprecated Deprecated: Use search_settings.exclude_domains instead. A list of
+   * domains to exclude from the search results when the model uses a web search
+   * tool.
    */
   exclude_domains?: Array<string> | null;
 
@@ -860,8 +953,8 @@ export interface ChatCompletionCreateParamsBase {
   functions?: Array<CompletionCreateParams.Function> | null;
 
   /**
-   * A list of domains to include in the search results when the model uses a web
-   * search tool.
+   * @deprecated Deprecated: Use search_settings.include_domains instead. A list of
+   * domains to include in the search results when the model uses a web search tool.
    */
   include_domains?: Array<string> | null;
 
@@ -935,6 +1028,11 @@ export interface ChatCompletionCreateParamsBase {
     | CompletionCreateParams.ResponseFormatJsonSchema
     | CompletionCreateParams.ResponseFormatJsonObject
     | null;
+
+  /**
+   * Settings for web search functionality when the model uses a web search tool.
+   */
+  search_settings?: CompletionCreateParams.SearchSettings | null;
 
   /**
    * If specified, our system will make a best effort to sample deterministically,
@@ -1120,6 +1218,26 @@ export namespace CompletionCreateParams {
      * The type of response format being defined. Always `json_object`.
      */
     type: 'json_object';
+  }
+
+  /**
+   * Settings for web search functionality when the model uses a web search tool.
+   */
+  export interface SearchSettings {
+    /**
+     * A list of domains to exclude from the search results.
+     */
+    exclude_domains?: Array<string> | null;
+
+    /**
+     * A list of domains to include in the search results.
+     */
+    include_domains?: Array<string> | null;
+
+    /**
+     * Whether to include images in the search results.
+     */
+    include_images?: boolean | null;
   }
 }
 
