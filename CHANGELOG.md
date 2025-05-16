@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.22.0 (2025-05-16)
+
+Full Changelog: [v0.21.0...v0.22.0](https://github.com/groq/groq-typescript/compare/v0.21.0...v0.22.0)
+
+### Features
+
+* **api:** api update ([5899599](https://github.com/groq/groq-typescript/commit/58995997a4cd86506f1fab48aa6436e3aa64a9de))
+* **api:** api update ([b346b49](https://github.com/groq/groq-typescript/commit/b346b4955a9f26006b701366083207fce52a7892))
+* **api:** api update ([8da1401](https://github.com/groq/groq-typescript/commit/8da1401f0bab59e5df69e862b690ce84c30a2bf8))
+* **api:** api update ([c742ce8](https://github.com/groq/groq-typescript/commit/c742ce8c0523590be3a6d38645448caefcfba125))
+
+
+### Chores
+
+* **ci:** bump node version for release workflows ([b11d937](https://github.com/groq/groq-typescript/commit/b11d937f5ac50f5098d0cae44b2838196c4d5e18))
+* fix README example ([13533da](https://github.com/groq/groq-typescript/commit/13533da65012800adf7fa1be76828574ff042ea5))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([6ec8975](https://github.com/groq/groq-typescript/commit/6ec8975f7f6c2e5337d08fc74631c0968f979213))
+
+
+### Documentation
+
+* add examples to tsdocs ([a79829e](https://github.com/groq/groq-typescript/commit/a79829e38f1b585afb1e2b6e3de314226afaffde))
+* remove or fix invalid readme examples ([934e30e](https://github.com/groq/groq-typescript/commit/934e30e30879f947cac6245f711b01eb90f63432))
+
 ## 0.21.0 (2025-05-01)
 
 Full Changelog: [v0.20.1...v0.21.0](https://github.com/groq/groq-typescript/compare/v0.20.1...v0.21.0)
