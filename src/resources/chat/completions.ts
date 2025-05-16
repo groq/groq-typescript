@@ -10,6 +10,16 @@ import { Stream } from '../../lib/streaming';
 export class Completions extends APIResource {
   /**
    * Creates a model response for the given chat conversation.
+   *
+   * @example
+   * ```ts
+   * const chatCompletion = await client.chat.completions.create(
+   *   {
+   *     messages: [{ content: 'content', role: 'system' }],
+   *     model: 'meta-llama/llama-4-scout-17b-16e-instruct',
+   *   },
+   * );
+   * ```
    */
   create(
     body: ChatCompletionCreateParamsNonStreaming,
@@ -326,6 +336,52 @@ export namespace ChatCompletionChunk {
          * The output returned by the tool.
          */
         output?: string | null;
+
+        /**
+         * The search results returned by the tool, if applicable.
+         */
+        search_results?: ExecutedTool.SearchResults | null;
+      }
+
+      export namespace ExecutedTool {
+        /**
+         * The search results returned by the tool, if applicable.
+         */
+        export interface SearchResults {
+          /**
+           * List of image URLs returned by the search
+           */
+          images?: Array<string>;
+
+          /**
+           * List of search results
+           */
+          results?: Array<SearchResults.Result>;
+        }
+
+        export namespace SearchResults {
+          export interface Result {
+            /**
+             * The content of the search result
+             */
+            content?: string;
+
+            /**
+             * The relevance score of the search result
+             */
+            score?: number;
+
+            /**
+             * The title of the search result
+             */
+            title?: string;
+
+            /**
+             * The URL of the search result
+             */
+            url?: string;
+          }
+        }
       }
 
       /**
@@ -571,6 +627,52 @@ export namespace ChatCompletionMessage {
      * The output returned by the tool.
      */
     output?: string | null;
+
+    /**
+     * The search results returned by the tool, if applicable.
+     */
+    search_results?: ExecutedTool.SearchResults | null;
+  }
+
+  export namespace ExecutedTool {
+    /**
+     * The search results returned by the tool, if applicable.
+     */
+    export interface SearchResults {
+      /**
+       * List of image URLs returned by the search
+       */
+      images?: Array<string>;
+
+      /**
+       * List of search results
+       */
+      results?: Array<SearchResults.Result>;
+    }
+
+    export namespace SearchResults {
+      export interface Result {
+        /**
+         * The content of the search result
+         */
+        content?: string;
+
+        /**
+         * The relevance score of the search result
+         */
+        score?: number;
+
+        /**
+         * The title of the search result
+         */
+        title?: string;
+
+        /**
+         * The URL of the search result
+         */
+        url?: string;
+      }
+    }
   }
 
   /**
@@ -816,8 +918,9 @@ export interface ChatCompletionCreateParamsBase {
     | 'llama3-8b-8192';
 
   /**
-   * A list of domains to exclude from the search results when the model uses a web
-   * search tool.
+   * @deprecated Deprecated: Use search_settings.exclude_domains instead. A list of
+   * domains to exclude from the search results when the model uses a web search
+   * tool.
    */
   exclude_domains?: Array<string> | null;
 
@@ -850,8 +953,8 @@ export interface ChatCompletionCreateParamsBase {
   functions?: Array<CompletionCreateParams.Function> | null;
 
   /**
-   * A list of domains to include in the search results when the model uses a web
-   * search tool.
+   * @deprecated Deprecated: Use search_settings.include_domains instead. A list of
+   * domains to include in the search results when the model uses a web search tool.
    */
   include_domains?: Array<string> | null;
 
@@ -912,15 +1015,24 @@ export interface ChatCompletionCreateParamsBase {
   reasoning_format?: 'hidden' | 'raw' | 'parsed' | null;
 
   /**
-   * An object specifying the format that the model must output.
-   *
-   * Setting to `{ "type": "json_object" }` enables JSON mode, which guarantees the
-   * message the model generates is valid JSON.
-   *
-   * **Important:** when using JSON mode, you **must** also instruct the model to
-   * produce JSON yourself via a system or user message.
+   * An object specifying the format that the model must output. Setting to
+   * `{ "type": "json_schema", "json_schema": {...} }` enables Structured Outputs
+   * which ensures the model will match your supplied JSON schema. json_schema
+   * response format is only supported on llama 4 models. Setting to
+   * `{ "type": "json_object" }` enables the older JSON mode, which ensures the
+   * message the model generates is valid JSON. Using `json_schema` is preferred for
+   * models that support it.
    */
-  response_format?: CompletionCreateParams.ResponseFormat | null;
+  response_format?:
+    | CompletionCreateParams.ResponseFormatText
+    | CompletionCreateParams.ResponseFormatJsonSchema
+    | CompletionCreateParams.ResponseFormatJsonObject
+    | null;
+
+  /**
+   * Settings for web search functionality when the model uses a web search tool.
+   */
+  search_settings?: CompletionCreateParams.SearchSettings | null;
 
   /**
    * If specified, our system will make a best effort to sample deterministically,
@@ -1038,19 +1150,94 @@ export namespace CompletionCreateParams {
   }
 
   /**
-   * An object specifying the format that the model must output.
-   *
-   * Setting to `{ "type": "json_object" }` enables JSON mode, which guarantees the
-   * message the model generates is valid JSON.
-   *
-   * **Important:** when using JSON mode, you **must** also instruct the model to
-   * produce JSON yourself via a system or user message.
+   * Default response format. Used to generate text responses.
    */
-  export interface ResponseFormat {
+  export interface ResponseFormatText {
     /**
-     * Must be one of `text` or `json_object`.
+     * The type of response format being defined. Always `text`.
      */
-    type?: 'text' | 'json_object';
+    type: 'text';
+  }
+
+  /**
+   * JSON Schema response format. Used to generate structured JSON responses.
+   */
+  export interface ResponseFormatJsonSchema {
+    /**
+     * Structured Outputs configuration options, including a JSON Schema.
+     */
+    json_schema: ResponseFormatJsonSchema.JsonSchema;
+
+    /**
+     * The type of response format being defined. Always `json_schema`.
+     */
+    type: 'json_schema';
+  }
+
+  export namespace ResponseFormatJsonSchema {
+    /**
+     * Structured Outputs configuration options, including a JSON Schema.
+     */
+    export interface JsonSchema {
+      /**
+       * The name of the response format. Must be a-z, A-Z, 0-9, or contain underscores
+       * and dashes, with a maximum length of 64.
+       */
+      name: string;
+
+      /**
+       * A description of what the response format is for, used by the model to determine
+       * how to respond in the format.
+       */
+      description?: string;
+
+      /**
+       * The schema for the response format, described as a JSON Schema object. Learn how
+       * to build JSON schemas [here](https://json-schema.org/).
+       */
+      schema?: Record<string, unknown>;
+
+      /**
+       * Whether to enable strict schema adherence when generating the output. If set to
+       * true, the model will always follow the exact schema defined in the `schema`
+       * field. Only a subset of JSON Schema is supported when `strict` is `true`. To
+       * learn more, read the
+       * [Structured Outputs guide](/docs/guides/structured-outputs).
+       */
+      strict?: boolean | null;
+    }
+  }
+
+  /**
+   * JSON object response format. An older method of generating JSON responses. Using
+   * `json_schema` is recommended for models that support it. Note that the model
+   * will not generate JSON without a system or user message instructing it to do so.
+   */
+  export interface ResponseFormatJsonObject {
+    /**
+     * The type of response format being defined. Always `json_object`.
+     */
+    type: 'json_object';
+  }
+
+  /**
+   * Settings for web search functionality when the model uses a web search tool.
+   */
+  export interface SearchSettings {
+    /**
+     * A list of domains to exclude from the search results.
+     */
+    exclude_domains?: Array<string> | null;
+
+    /**
+     * A list of domains to include in the search results.
+     */
+    include_domains?: Array<string> | null;
+
+    /**
+     * Whether to include images in the search results.
+     */
+    include_images?: boolean | null;
   }
 }
 

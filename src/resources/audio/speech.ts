@@ -7,6 +7,18 @@ import { type Response } from '../../_shims/index';
 export class Speech extends APIResource {
   /**
    * Generates audio from the input text.
+   *
+   * @example
+   * ```ts
+   * const speech = await client.audio.speech.create({
+   *   input: 'The quick brown fox jumped over the lazy dog',
+   *   model: 'playai-tts',
+   *   voice: 'Fritz-PlayAI',
+   * });
+   *
+   * const content = await speech.blob();
+   * console.log(content);
+   * ```
    */
   create(body: SpeechCreateParams, options?: Core.RequestOptions): Core.APIPromise<Response> {
     return this._client.post('/openai/v1/audio/speech', {
@@ -27,7 +39,7 @@ export interface SpeechCreateParams {
   /**
    * One of the [available TTS models](/docs/text-to-speech).
    */
-  model: string;
+  model: (string & {}) | 'playai-tts' | 'playai-tts-arabic';
 
   /**
    * The voice to use when generating the audio. List of voices can be found
