@@ -11,9 +11,9 @@ describe('resource speech', () => {
   // binary tests are currently broken
   test.skip('create: required and optional params', async () => {
     const response = await client.audio.speech.create({
-      input: 'input',
-      model: 'model',
-      voice: 'voice',
+      input: 'The quick brown fox jumped over the lazy dog',
+      model: 'playai-tts',
+      voice: 'Fritz-PlayAI',
       response_format: 'wav',
       speed: 1,
     });

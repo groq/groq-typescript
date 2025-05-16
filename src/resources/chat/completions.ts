@@ -16,7 +16,7 @@ export class Completions extends APIResource {
    * const chatCompletion = await client.chat.completions.create(
    *   {
    *     messages: [{ content: 'content', role: 'system' }],
-   *     model: 'string',
+   *     model: 'meta-llama/llama-4-scout-17b-16e-instruct',
    *   },
    * );
    * ```
