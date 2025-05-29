@@ -48,12 +48,18 @@ export interface SpeechCreateParams {
   voice: string;
 
   /**
-   * The format to audio in. Supported formats are `wav, mp3`.
+   * The format of the generated audio. Supported formats are
+   * `flac, mp3, mulaw, ogg, wav`.
    */
-  response_format?: 'wav' | 'mp3';
+  response_format?: 'flac' | 'mp3' | 'mulaw' | 'ogg' | 'wav';
 
   /**
-   * The speed of the generated audio. 1.0 is the only supported value.
+   * The sample rate for generated audio
+   */
+  sample_rate?: 8000 | 16000 | 22050 | 24000 | 32000 | 44100 | 48000;
+
+  /**
+   * The speed of the generated audio.
    */
   speed?: number;
 }

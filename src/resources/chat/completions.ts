@@ -333,6 +333,11 @@ export namespace ChatCompletionChunk {
         type: string;
 
         /**
+         * Array of code execution results
+         */
+        code_results?: Array<ExecutedTool.CodeResult>;
+
+        /**
          * The output returned by the tool.
          */
         output?: string | null;
@@ -344,6 +349,18 @@ export namespace ChatCompletionChunk {
       }
 
       export namespace ExecutedTool {
+        export interface CodeResult {
+          /**
+           * Base64 encoded PNG image output from code execution
+           */
+          png?: string;
+
+          /**
+           * The text version of the code execution result
+           */
+          text?: string;
+        }
+
         /**
          * The search results returned by the tool, if applicable.
          */
@@ -624,6 +641,11 @@ export namespace ChatCompletionMessage {
     type: string;
 
     /**
+     * Array of code execution results
+     */
+    code_results?: Array<ExecutedTool.CodeResult>;
+
+    /**
      * The output returned by the tool.
      */
     output?: string | null;
@@ -635,6 +657,18 @@ export namespace ChatCompletionMessage {
   }
 
   export namespace ExecutedTool {
+    export interface CodeResult {
+      /**
+       * Base64 encoded PNG image output from code execution
+       */
+      png?: string;
+
+      /**
+       * The text version of the code execution result
+       */
+      text?: string;
+    }
+
     /**
      * The search results returned by the tool, if applicable.
      */
@@ -1200,9 +1234,7 @@ export namespace CompletionCreateParams {
       /**
        * Whether to enable strict schema adherence when generating the output. If set to
        * true, the model will always follow the exact schema defined in the `schema`
-       * field. Only a subset of JSON Schema is supported when `strict` is `true`. To
-       * learn more, read the
-       * [Structured Outputs guide](/docs/guides/structured-outputs).
+       * field. Only a subset of JSON Schema is supported when `strict` is `true`.
        */
       strict?: boolean | null;
     }
