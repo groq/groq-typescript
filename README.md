@@ -26,16 +26,12 @@ const client = new Groq({
   apiKey: process.env['GROQ_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const chatCompletion = await client.chat.completions.create({
-    messages: [{ role: 'user', content: 'Explain the importance of low latency LLMs' }],
-    model: 'llama3-8b-8192',
-  });
+const chatCompletion = await client.chat.completions.create({
+  messages: [{ role: 'user', content: 'Explain the importance of low latency LLMs' }],
+  model: 'llama3-8b-8192',
+});
 
-  console.log(chatCompletion.id);
-}
-
-main();
+console.log(chatCompletion.id);
 ```
 
 ### Request & Response types
@@ -50,18 +46,14 @@ const client = new Groq({
   apiKey: process.env['GROQ_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const params: Groq.Chat.CompletionCreateParams = {
-    messages: [
-      { role: 'system', content: 'You are a helpful assistant.' },
-      { role: 'user', content: 'Explain the importance of low latency LLMs' },
-    ],
-    model: 'llama3-8b-8192',
-  };
-  const chatCompletion: Groq.Chat.ChatCompletion = await client.chat.completions.create(params);
-}
-
-main();
+const params: Groq.Chat.CompletionCreateParams = {
+  messages: [
+    { role: 'system', content: 'You are a helpful assistant.' },
+    { role: 'user', content: 'Explain the importance of low latency LLMs' },
+  ],
+  model: 'llama3-8b-8192',
+};
+const chatCompletion: Groq.Chat.ChatCompletion = await client.chat.completions.create(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -119,27 +111,23 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const chatCompletion = await client.chat.completions
-    .create({
-      messages: [
-        { role: 'system', content: 'You are a helpful assistant.' },
-        { role: 'user', content: 'Explain the importance of low latency LLMs' },
-      ],
-      model: 'llama3-8b-8192',
-    })
-    .catch(async (err) => {
-      if (err instanceof Groq.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
-}
-
-main();
+const chatCompletion = await client.chat.completions
+  .create({
+    messages: [
+      { role: 'system', content: 'You are a helpful assistant.' },
+      { role: 'user', content: 'Explain the importance of low latency LLMs' },
+    ],
+    model: 'llama3-8b-8192',
+  })
+  .catch(async (err) => {
+    if (err instanceof Groq.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
