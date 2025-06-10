@@ -330,6 +330,13 @@ export namespace ChatCompletionChunk {
 
       export namespace ExecutedTool {
         export interface CodeResult {
+          chart?: CodeResult.Chart;
+
+          /**
+           * Array of charts from a superchart
+           */
+          charts?: Array<CodeResult.Chart>;
+
           /**
            * Base64 encoded PNG image output from code execution
            */
@@ -339,6 +346,210 @@ export namespace ChatCompletionChunk {
            * The text version of the code execution result
            */
           text?: string;
+        }
+
+        export namespace CodeResult {
+          export interface Chart {
+            /**
+             * The chart elements (data series, points, etc.)
+             */
+            elements: Array<Chart.Element>;
+
+            /**
+             * The type of chart
+             */
+            type: 'bar' | 'box_and_whisker' | 'line' | 'pie' | 'scatter' | 'superchart' | 'unknown';
+
+            /**
+             * The title of the chart
+             */
+            title?: string;
+
+            /**
+             * The label for the x-axis
+             */
+            x_label?: string;
+
+            /**
+             * The scale type for the x-axis
+             */
+            x_scale?: string;
+
+            /**
+             * The labels for the x-axis ticks
+             */
+            x_tick_labels?: Array<string>;
+
+            /**
+             * The tick values for the x-axis
+             */
+            x_ticks?: Array<number>;
+
+            /**
+             * The unit for the x-axis
+             */
+            x_unit?: string;
+
+            /**
+             * The label for the y-axis
+             */
+            y_label?: string;
+
+            /**
+             * The scale type for the y-axis
+             */
+            y_scale?: string;
+
+            /**
+             * The labels for the y-axis ticks
+             */
+            y_tick_labels?: Array<string>;
+
+            /**
+             * The tick values for the y-axis
+             */
+            y_ticks?: Array<number>;
+
+            /**
+             * The unit for the y-axis
+             */
+            y_unit?: string;
+          }
+
+          export namespace Chart {
+            export interface Element {
+              /**
+               * The label for this chart element
+               */
+              label: string;
+
+              /**
+               * The angle for this element
+               */
+              angle?: number;
+
+              /**
+               * The group this element belongs to
+               */
+              group?: string;
+
+              /**
+               * The points for this element
+               */
+              points?: Array<Array<number>>;
+
+              /**
+               * The radius for this element
+               */
+              radius?: number;
+
+              /**
+               * The value for this element
+               */
+              value?: number;
+            }
+          }
+
+          export interface Chart {
+            /**
+             * The chart elements (data series, points, etc.)
+             */
+            elements: Array<Chart.Element>;
+
+            /**
+             * The type of chart
+             */
+            type: 'bar' | 'box_and_whisker' | 'line' | 'pie' | 'scatter' | 'superchart' | 'unknown';
+
+            /**
+             * The title of the chart
+             */
+            title?: string;
+
+            /**
+             * The label for the x-axis
+             */
+            x_label?: string;
+
+            /**
+             * The scale type for the x-axis
+             */
+            x_scale?: string;
+
+            /**
+             * The labels for the x-axis ticks
+             */
+            x_tick_labels?: Array<string>;
+
+            /**
+             * The tick values for the x-axis
+             */
+            x_ticks?: Array<number>;
+
+            /**
+             * The unit for the x-axis
+             */
+            x_unit?: string;
+
+            /**
+             * The label for the y-axis
+             */
+            y_label?: string;
+
+            /**
+             * The scale type for the y-axis
+             */
+            y_scale?: string;
+
+            /**
+             * The labels for the y-axis ticks
+             */
+            y_tick_labels?: Array<string>;
+
+            /**
+             * The tick values for the y-axis
+             */
+            y_ticks?: Array<number>;
+
+            /**
+             * The unit for the y-axis
+             */
+            y_unit?: string;
+          }
+
+          export namespace Chart {
+            export interface Element {
+              /**
+               * The label for this chart element
+               */
+              label: string;
+
+              /**
+               * The angle for this element
+               */
+              angle?: number;
+
+              /**
+               * The group this element belongs to
+               */
+              group?: string;
+
+              /**
+               * The points for this element
+               */
+              points?: Array<Array<number>>;
+
+              /**
+               * The radius for this element
+               */
+              radius?: number;
+
+              /**
+               * The value for this element
+               */
+              value?: number;
+            }
+          }
         }
 
         /**
@@ -638,6 +849,13 @@ export namespace ChatCompletionMessage {
 
   export namespace ExecutedTool {
     export interface CodeResult {
+      chart?: CodeResult.Chart;
+
+      /**
+       * Array of charts from a superchart
+       */
+      charts?: Array<CodeResult.Chart>;
+
       /**
        * Base64 encoded PNG image output from code execution
        */
@@ -647,6 +865,210 @@ export namespace ChatCompletionMessage {
        * The text version of the code execution result
        */
       text?: string;
+    }
+
+    export namespace CodeResult {
+      export interface Chart {
+        /**
+         * The chart elements (data series, points, etc.)
+         */
+        elements: Array<Chart.Element>;
+
+        /**
+         * The type of chart
+         */
+        type: 'bar' | 'box_and_whisker' | 'line' | 'pie' | 'scatter' | 'superchart' | 'unknown';
+
+        /**
+         * The title of the chart
+         */
+        title?: string;
+
+        /**
+         * The label for the x-axis
+         */
+        x_label?: string;
+
+        /**
+         * The scale type for the x-axis
+         */
+        x_scale?: string;
+
+        /**
+         * The labels for the x-axis ticks
+         */
+        x_tick_labels?: Array<string>;
+
+        /**
+         * The tick values for the x-axis
+         */
+        x_ticks?: Array<number>;
+
+        /**
+         * The unit for the x-axis
+         */
+        x_unit?: string;
+
+        /**
+         * The label for the y-axis
+         */
+        y_label?: string;
+
+        /**
+         * The scale type for the y-axis
+         */
+        y_scale?: string;
+
+        /**
+         * The labels for the y-axis ticks
+         */
+        y_tick_labels?: Array<string>;
+
+        /**
+         * The tick values for the y-axis
+         */
+        y_ticks?: Array<number>;
+
+        /**
+         * The unit for the y-axis
+         */
+        y_unit?: string;
+      }
+
+      export namespace Chart {
+        export interface Element {
+          /**
+           * The label for this chart element
+           */
+          label: string;
+
+          /**
+           * The angle for this element
+           */
+          angle?: number;
+
+          /**
+           * The group this element belongs to
+           */
+          group?: string;
+
+          /**
+           * The points for this element
+           */
+          points?: Array<Array<number>>;
+
+          /**
+           * The radius for this element
+           */
+          radius?: number;
+
+          /**
+           * The value for this element
+           */
+          value?: number;
+        }
+      }
+
+      export interface Chart {
+        /**
+         * The chart elements (data series, points, etc.)
+         */
+        elements: Array<Chart.Element>;
+
+        /**
+         * The type of chart
+         */
+        type: 'bar' | 'box_and_whisker' | 'line' | 'pie' | 'scatter' | 'superchart' | 'unknown';
+
+        /**
+         * The title of the chart
+         */
+        title?: string;
+
+        /**
+         * The label for the x-axis
+         */
+        x_label?: string;
+
+        /**
+         * The scale type for the x-axis
+         */
+        x_scale?: string;
+
+        /**
+         * The labels for the x-axis ticks
+         */
+        x_tick_labels?: Array<string>;
+
+        /**
+         * The tick values for the x-axis
+         */
+        x_ticks?: Array<number>;
+
+        /**
+         * The unit for the x-axis
+         */
+        x_unit?: string;
+
+        /**
+         * The label for the y-axis
+         */
+        y_label?: string;
+
+        /**
+         * The scale type for the y-axis
+         */
+        y_scale?: string;
+
+        /**
+         * The labels for the y-axis ticks
+         */
+        y_tick_labels?: Array<string>;
+
+        /**
+         * The tick values for the y-axis
+         */
+        y_ticks?: Array<number>;
+
+        /**
+         * The unit for the y-axis
+         */
+        y_unit?: string;
+      }
+
+      export namespace Chart {
+        export interface Element {
+          /**
+           * The label for this chart element
+           */
+          label: string;
+
+          /**
+           * The angle for this element
+           */
+          angle?: number;
+
+          /**
+           * The group this element belongs to
+           */
+          group?: string;
+
+          /**
+           * The points for this element
+           */
+          points?: Array<Array<number>>;
+
+          /**
+           * The radius for this element
+           */
+          radius?: number;
+
+          /**
+           * The value for this element
+           */
+          value?: number;
+        }
+      }
     }
 
     /**
