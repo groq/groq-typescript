@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.24.0 (2025-06-11)
+
+Full Changelog: [v0.23.0...v0.24.0](https://github.com/groq/groq-typescript/compare/v0.23.0...v0.24.0)
+
+### Features
+
+* **api:** api update ([79a02be](https://github.com/groq/groq-typescript/commit/79a02beec00f9daf920f8e9a4cf341904ac083c5))
+
+
+### Chores
+
+* **docs:** use top-level-await in example snippets ([9277f5d](https://github.com/groq/groq-typescript/commit/9277f5da347d88d7236c2a5b2e57fee95727d186))
+
 ## 0.23.0 (2025-05-29)
 
 Full Changelog: [v0.22.0...v0.23.0](https://github.com/groq/groq-typescript/compare/v0.22.0...v0.23.0)
