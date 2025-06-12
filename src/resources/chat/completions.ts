@@ -449,9 +449,31 @@ export namespace ChatCompletionChunk {
               angle?: number;
 
               /**
+               * The first quartile value for this element
+               */
+              first_quartile?: number;
+
+              /**
                * The group this element belongs to
                */
               group?: string;
+
+              max?: number;
+
+              /**
+               * The median value for this element
+               */
+              median?: number;
+
+              /**
+               * The minimum value for this element
+               */
+              min?: number;
+
+              /**
+               * The outliers for this element
+               */
+              outliers?: Array<number>;
 
               /**
                * The points for this element
@@ -462,6 +484,11 @@ export namespace ChatCompletionChunk {
                * The radius for this element
                */
               radius?: number;
+
+              /**
+               * The third quartile value for this element
+               */
+              third_quartile?: number;
 
               /**
                * The value for this element
@@ -550,9 +577,31 @@ export namespace ChatCompletionChunk {
               angle?: number;
 
               /**
+               * The first quartile value for this element
+               */
+              first_quartile?: number;
+
+              /**
                * The group this element belongs to
                */
               group?: string;
+
+              max?: number;
+
+              /**
+               * The median value for this element
+               */
+              median?: number;
+
+              /**
+               * The minimum value for this element
+               */
+              min?: number;
+
+              /**
+               * The outliers for this element
+               */
+              outliers?: Array<number>;
 
               /**
                * The points for this element
@@ -563,6 +612,11 @@ export namespace ChatCompletionChunk {
                * The radius for this element
                */
               radius?: number;
+
+              /**
+               * The third quartile value for this element
+               */
+              third_quartile?: number;
 
               /**
                * The value for this element
@@ -968,9 +1022,31 @@ export namespace ChatCompletionMessage {
           angle?: number;
 
           /**
+           * The first quartile value for this element
+           */
+          first_quartile?: number;
+
+          /**
            * The group this element belongs to
            */
           group?: string;
+
+          max?: number;
+
+          /**
+           * The median value for this element
+           */
+          median?: number;
+
+          /**
+           * The minimum value for this element
+           */
+          min?: number;
+
+          /**
+           * The outliers for this element
+           */
+          outliers?: Array<number>;
 
           /**
            * The points for this element
@@ -981,6 +1057,11 @@ export namespace ChatCompletionMessage {
            * The radius for this element
            */
           radius?: number;
+
+          /**
+           * The third quartile value for this element
+           */
+          third_quartile?: number;
 
           /**
            * The value for this element
@@ -1069,9 +1150,31 @@ export namespace ChatCompletionMessage {
           angle?: number;
 
           /**
+           * The first quartile value for this element
+           */
+          first_quartile?: number;
+
+          /**
            * The group this element belongs to
            */
           group?: string;
+
+          max?: number;
+
+          /**
+           * The median value for this element
+           */
+          median?: number;
+
+          /**
+           * The minimum value for this element
+           */
+          min?: number;
+
+          /**
+           * The outliers for this element
+           */
+          outliers?: Array<number>;
 
           /**
            * The points for this element
@@ -1082,6 +1185,11 @@ export namespace ChatCompletionMessage {
            * The radius for this element
            */
           radius?: number;
+
+          /**
+           * The third quartile value for this element
+           */
+          third_quartile?: number;
 
           /**
            * The value for this element
