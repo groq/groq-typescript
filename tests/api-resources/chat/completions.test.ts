@@ -40,6 +40,7 @@ describe('resource completions', () => {
       n: 1,
       parallel_tool_calls: true,
       presence_penalty: -2,
+      reasoning_effort: 'none',
       reasoning_format: 'hidden',
       response_format: { type: 'text' },
       search_settings: { exclude_domains: ['string'], include_domains: ['string'], include_images: true },

@@ -1574,6 +1574,12 @@ export interface ChatCompletionCreateParamsBase {
   presence_penalty?: number | null;
 
   /**
+   * this field is only available for qwen3 models. Set to 'none' to disable
+   * reasoning. Set to 'default' or null to let Qwen reason.
+   */
+  reasoning_effort?: 'none' | 'default' | null;
+
+  /**
    * Specifies how to output reasoning tokens
    */
   reasoning_format?: 'hidden' | 'raw' | 'parsed' | null;
