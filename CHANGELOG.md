@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.25.1 (2025-06-14)
+
+Full Changelog: [v0.25.0...v0.25.1](https://github.com/groq/groq-typescript/compare/v0.25.0...v0.25.1)
+
+### Bug Fixes
+
+* publish script — handle NPM errors correctly ([d21aca8](https://github.com/groq/groq-typescript/commit/d21aca8397f197388bd8db033a448d7b0d74068d))
+
+
+### Chores
+
+* **internal:** make base APIResource abstract ([f575770](https://github.com/groq/groq-typescript/commit/f57577082abbe103a4cb5102bd7fa9f230193983))
+
 ## 0.25.0 (2025-06-12)
 
 Full Changelog: [v0.24.0...v0.25.0](https://github.com/groq/groq-typescript/compare/v0.24.0...v0.25.0)
