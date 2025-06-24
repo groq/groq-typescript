@@ -1508,7 +1508,7 @@ export interface CompletionCreateParams {
    * This is not yet supported by any of our models. Modify the likelihood of
    * specified tokens appearing in the completion.
    */
-  logit_bias?: Record<string, number> | null;
+  logit_bias?: { [key: string]: number } | null;
 
   /**
    * This is not yet supported by any of our models. Whether to return log
@@ -1534,7 +1534,7 @@ export interface CompletionCreateParams {
   /**
    * This parameter is not currently supported.
    */
-  metadata?: Record<string, string> | null;
+  metadata?: { [key: string]: string } | null;
 
   /**
    * How many chat completion choices to generate for each input message. Note that
@@ -1747,7 +1747,7 @@ export namespace CompletionCreateParams {
        * The schema for the response format, described as a JSON Schema object. Learn how
        * to build JSON schemas [here](https://json-schema.org/).
        */
-      schema?: Record<string, unknown>;
+      schema?: { [key: string]: unknown };
 
       /**
        * Whether to enable strict schema adherence when generating the output. If set to
