@@ -708,7 +708,7 @@ export interface BatchCreateParams {
   /**
    * Optional custom metadata for the batch.
    */
-  metadata?: Record<string, string> | null;
+  metadata?: { [key: string]: string } | null;
 }
 
 export declare namespace Batches {

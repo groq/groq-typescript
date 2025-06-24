@@ -42,4 +42,4 @@ export interface FunctionDefinition {
  *
  * Omitting `parameters` defines a function with an empty parameter list.
  */
-export type FunctionParameters = Record<string, unknown>;
+export type FunctionParameters = { [key: string]: unknown };
