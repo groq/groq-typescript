@@ -1799,6 +1799,12 @@ export namespace CompletionCreateParams {
    */
   export interface SearchSettings {
     /**
+     * Name of country to prioritize search results from (e.g., "united states",
+     * "germany", "france").
+     */
+    country?: string | null;
+
+    /**
      * A list of domains to exclude from the search results.
      */
     exclude_domains?: Array<string> | null;
