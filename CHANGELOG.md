@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.26.1 (2025-06-28)
+
+Full Changelog: [v0.26.0...v0.26.1](https://github.com/groq/groq-typescript/compare/v0.26.0...v0.26.1)
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([180bbac](https://github.com/groq/groq-typescript/commit/180bbac9a1d4446f660eabceb585df5ddcd1f1f9))
+
+
+### Chores
+
+* add bklieger-groq CODEOWNERS ([64cf3cc](https://github.com/groq/groq-typescript/commit/64cf3cc9cabd4388491cd6132e595e31dbb2e22e))
+* **ci:** only run for pushes and fork pull requests ([60238bf](https://github.com/groq/groq-typescript/commit/60238bf24277ba543d84ddcc0267d93794f3a39b))
+
 ## 0.26.0 (2025-06-25)
 
 Full Changelog: [v0.25.0...v0.26.0](https://github.com/groq/groq-typescript/compare/v0.25.0...v0.26.0)
