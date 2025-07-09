@@ -1625,7 +1625,7 @@ export interface ChatCompletionCreateParamsBase {
    *   limits of your organization.
    * - `flex` uses the flex tier, which will succeed or fail quickly.
    */
-  service_tier?: 'auto' | 'on_demand' | 'flex' | null;
+  service_tier?: 'auto' | 'on_demand' | 'flex' | 'performance' | null;
 
   /**
    * Up to 4 sequences where the API will stop generating further tokens. The
