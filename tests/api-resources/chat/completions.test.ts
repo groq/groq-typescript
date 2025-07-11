@@ -11,7 +11,7 @@ const client = new Groq({
 describe('resource completions', () => {
   test('create: only required params', async () => {
     const responsePromise = client.chat.completions.create({
-      messages: [{ content: 'content', role: 'system' }],
+      messages: [{ content: 'string', role: 'system' }],
       model: 'meta-llama/llama-4-scout-17b-16e-instruct',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -25,7 +25,7 @@ describe('resource completions', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.chat.completions.create({
-      messages: [{ content: 'content', role: 'system', name: 'name' }],
+      messages: [{ content: 'string', role: 'system', name: 'name' }],
       model: 'meta-llama/llama-4-scout-17b-16e-instruct',
       exclude_domains: ['string'],
       frequency_penalty: -2,
