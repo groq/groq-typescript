@@ -15,7 +15,7 @@ export class Completions extends APIResource {
    * ```ts
    * const chatCompletion = await client.chat.completions.create(
    *   {
-   *     messages: [{ content: 'content', role: 'system' }],
+   *     messages: [{ content: 'string', role: 'system' }],
    *     model: 'meta-llama/llama-4-scout-17b-16e-instruct',
    *   },
    * );
@@ -170,7 +170,7 @@ export interface ChatCompletionAssistantMessageParam {
    * The contents of the assistant message. Required unless `tool_calls` or
    * `function_call` is specified.
    */
-  content?: string | null;
+  content?: string | Array<ChatCompletionContentPartText> | null;
 
   /**
    * @deprecated Deprecated and replaced by `tool_calls`. The name and arguments of a
@@ -1340,7 +1340,7 @@ export interface ChatCompletionSystemMessageParam {
   /**
    * The contents of the system message.
    */
-  content: string;
+  content: string | Array<ChatCompletionContentPartText>;
 
   /**
    * The role of the messages author, in this case `system`.
@@ -1433,7 +1433,7 @@ export interface ChatCompletionToolMessageParam {
   /**
    * The contents of the tool message.
    */
-  content: string;
+  content: string | Array<ChatCompletionContentPart>;
 
   /**
    * The role of the messages author, in this case `tool`.
@@ -1625,7 +1625,7 @@ export interface ChatCompletionCreateParamsBase {
    *   limits of your organization.
    * - `flex` uses the flex tier, which will succeed or fail quickly.
    */
-  service_tier?: 'auto' | 'on_demand' | 'flex' | null;
+  service_tier?: 'auto' | 'on_demand' | 'flex' | 'performance' | null;
 
   /**
    * Up to 4 sequences where the API will stop generating further tokens. The

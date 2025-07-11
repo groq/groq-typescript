@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.27.0 (2025-07-11)
+
+Full Changelog: [v0.26.0...v0.27.0](https://github.com/groq/groq-typescript/compare/v0.26.0...v0.27.0)
+
+### Features
+
+* **api:** api update ([1b32d00](https://github.com/groq/groq-typescript/commit/1b32d0026809d6f8ceeb898a2aa28bb6f4eb5819))
+* **api:** api update ([5b76c71](https://github.com/groq/groq-typescript/commit/5b76c71097834901d37968967c45ba9371481686))
+
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([71f8629](https://github.com/groq/groq-typescript/commit/71f8629117963e69a2281d9a88eb784f765f78a8))
+* **client:** don't send `Content-Type` for bodyless methods ([1e47c02](https://github.com/groq/groq-typescript/commit/1e47c02aa11b71739940e1ae8e7de1bf7d45c635))
+
+
+### Chores
+
+* add bklieger-groq CODEOWNERS ([64cf3cc](https://github.com/groq/groq-typescript/commit/64cf3cc9cabd4388491cd6132e595e31dbb2e22e))
+* **ci:** only run for pushes and fork pull requests ([d64811d](https://github.com/groq/groq-typescript/commit/d64811dba9a5c298e9b5f974faa71666775f32c5))
+* fix code owners ([4297164](https://github.com/groq/groq-typescript/commit/42971644d5c8eebd50484eaadd978ae2e9f540e1))
+* make some internal functions async ([3abac30](https://github.com/groq/groq-typescript/commit/3abac30531d2e53db673af4527cee02c708e35f9))
+* mention unit type in timeout docs ([7442523](https://github.com/groq/groq-typescript/commit/7442523935028d10afa5795aa5d9347b37aaa2ec))
+
 ## 0.26.0 (2025-06-25)
 
 Full Changelog: [v0.25.0...v0.26.0](https://github.com/groq/groq-typescript/compare/v0.25.0...v0.26.0)
