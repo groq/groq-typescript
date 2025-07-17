@@ -57,6 +57,11 @@ export interface ChatCompletion {
   object: 'chat.completion';
 
   /**
+   * List of tools discovered from MCP servers during the request.
+   */
+  mcp_list_tools?: Array<ChatCompletion.McpListTool>;
+
+  /**
    * This fingerprint represents the backend configuration that the model runs with.
    *
    * Can be used in conjunction with the `seed` request parameter to understand when
@@ -111,6 +116,53 @@ export namespace ChatCompletion {
        * A list of message content tokens with log probability information.
        */
       content: Array<ChatCompletionsAPI.ChatCompletionTokenLogprob> | null;
+    }
+  }
+
+  /**
+   * Output for MCP tool discovery
+   */
+  export interface McpListTool {
+    /**
+     * Unique identifier for the MCP discovery operation
+     */
+    id: string;
+
+    /**
+     * Label or identifier for the MCP server
+     */
+    server_label: string;
+
+    /**
+     * List of tools discovered from the MCP server
+     */
+    tools: Array<McpListTool.Tool>;
+
+    /**
+     * The type of output, always "mcp_list_tools"
+     */
+    type: 'mcp_list_tools';
+  }
+
+  export namespace McpListTool {
+    /**
+     * A tool discovered from an MCP server
+     */
+    export interface Tool {
+      /**
+       * The description of the discovered tool
+       */
+      description: string;
+
+      /**
+       * JSON schema describing the tool's input parameters
+       */
+      input_schema: { [key: string]: unknown };
+
+      /**
+       * The name of the discovered tool
+       */
+      name: string;
     }
   }
 
@@ -682,9 +734,9 @@ export namespace ChatCompletionChunk {
         function?: ToolCall.Function;
 
         /**
-         * The type of the tool. Currently, only `function` is supported.
+         * The type of the tool. Currently, `function` and `mcp` are supported.
          */
-        type?: 'function';
+        type?: 'function' | 'mcp';
       }
 
       export namespace ToolCall {
@@ -1264,9 +1316,9 @@ export interface ChatCompletionMessageToolCall {
   function: ChatCompletionMessageToolCall.Function;
 
   /**
-   * The type of the tool. Currently, only `function` is supported.
+   * The type of the tool. Currently, `function` and `mcp` are supported.
    */
-  type: 'function';
+  type: 'function' | 'mcp';
 }
 
 export namespace ChatCompletionMessageToolCall {
@@ -1297,9 +1349,9 @@ export interface ChatCompletionNamedToolChoice {
   function: ChatCompletionNamedToolChoice.Function;
 
   /**
-   * The type of the tool. Currently, only `function` is supported.
+   * The type of the tool. Currently, `function` and `mcp` are supported.
    */
-  type: 'function';
+  type: 'function' | 'mcp';
 }
 
 export namespace ChatCompletionNamedToolChoice {
@@ -1387,13 +1439,30 @@ export namespace ChatCompletionTokenLogprob {
   }
 }
 
-export interface ChatCompletionTool {
-  function: Shared.FunctionDefinition;
+export type ChatCompletionTool = ChatCompletionTool.UnionMember0 | ChatCompletionTool.UnionMember1;
 
-  /**
-   * The type of the tool. Currently, only `function` is supported.
-   */
-  type: 'function';
+export namespace ChatCompletionTool {
+  export interface UnionMember0 {
+    function: Shared.FunctionDefinition;
+
+    /**
+     * The URL of the MCP server to connect to (required for MCP tools).
+     */
+    server_url?: string;
+
+    type?: 'function';
+  }
+
+  export interface UnionMember1 {
+    /**
+     * The URL of the MCP server to connect to (required for MCP tools).
+     */
+    server_url: string;
+
+    function?: Shared.FunctionDefinition;
+
+    type?: 'mcp';
+  }
 }
 
 /**
