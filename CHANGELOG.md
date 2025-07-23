@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.28.0 (2025-07-23)
+
+Full Changelog: [v0.27.0...v0.28.0](https://github.com/groq/groq-typescript/compare/v0.27.0...v0.28.0)
+
+### Features
+
+* **api:** api update ([ed9852b](https://github.com/groq/groq-typescript/commit/ed9852bbdbc91edc31011ef51b955fec67579138))
+* **api:** api update ([230fa27](https://github.com/groq/groq-typescript/commit/230fa272f60d2a5de08fbd3487d0ffdc152ea823))
+* **api:** api update ([e07b23b](https://github.com/groq/groq-typescript/commit/e07b23b0cc79f3182b57be960e9cd34774bf2fd3))
+
 ## 0.27.0 (2025-07-11)
 
 Full Changelog: [v0.26.0...v0.27.0](https://github.com/groq/groq-typescript/compare/v0.26.0...v0.27.0)
