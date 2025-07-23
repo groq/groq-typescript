@@ -58,8 +58,8 @@ describe('resource completions', () => {
       tool_choice: 'none',
       tools: [
         {
-          function: { name: 'name', description: 'description', parameters: { foo: 'bar' } },
           type: 'function',
+          function: { name: 'name', description: 'description', parameters: { foo: 'bar' } },
         },
       ],
       top_logprobs: 0,
