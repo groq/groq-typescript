@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.29.1 (2025-07-24)
+
+Full Changelog: [v0.29.0...v0.29.1](https://github.com/groq/groq-typescript/compare/v0.29.0...v0.29.1)
+
+### Bug Fixes
+
+* correct syntax error on readme ([#236](https://github.com/groq/groq-typescript/issues/236)) ([1a7534b](https://github.com/groq/groq-typescript/commit/1a7534baaded306cb7c99f0fb5ddcbe915dae9b3))
+
 ## 0.29.0 (2025-07-23)
 
 Full Changelog: [v0.28.0...v0.29.0](https://github.com/groq/groq-typescript/compare/v0.28.0...v0.29.0)
