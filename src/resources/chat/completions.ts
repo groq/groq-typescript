@@ -1529,6 +1529,13 @@ export interface ChatCompletionCreateParamsBase {
   include_domains?: Array<string> | null;
 
   /**
+   * Whether to include reasoning in the response. If true, the response will include
+   * a `reasoning` field. If false, the model's reasoning will not be included in the
+   * response. This field is mutually exclusive with `reasoning_format`.
+   */
+  include_reasoning?: boolean | null;
+
+  /**
    * This is not yet supported by any of our models. Modify the likelihood of
    * specified tokens appearing in the completion.
    */
@@ -1586,7 +1593,8 @@ export interface ChatCompletionCreateParamsBase {
   reasoning_effort?: 'none' | 'default' | null;
 
   /**
-   * Specifies how to output reasoning tokens
+   * Specifies how to output reasoning tokens This field is mutually exclusive with
+   * `include_reasoning`.
    */
   reasoning_format?: 'hidden' | 'raw' | 'parsed' | null;
 
