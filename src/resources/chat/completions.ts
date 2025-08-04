@@ -1391,7 +1391,7 @@ export interface ChatCompletionTool {
   /**
    * The type of the tool. Currently, only `function` is supported.
    */
-  type: 'function';
+  type: 'function' | 'browser_search' | 'code_interpreter';
 
   function?: Shared.FunctionDefinition;
 }
