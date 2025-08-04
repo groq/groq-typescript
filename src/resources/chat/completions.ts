@@ -1345,7 +1345,7 @@ export interface ChatCompletionSystemMessageParam {
   /**
    * The role of the messages author, in this case `system`.
    */
-  role: 'system';
+  role: 'system' | 'developer';
 
   /**
    * An optional name for the participant. Provides the model information to
