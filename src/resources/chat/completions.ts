@@ -1566,7 +1566,7 @@ export interface CompletionCreateParams {
    * this field is only available for qwen3 models. Set to 'none' to disable
    * reasoning. Set to 'default' or null to let Qwen reason.
    */
-  reasoning_effort?: 'none' | 'default' | null;
+  reasoning_effort?: 'none' | 'default' | 'low' | 'medium' | 'high' | null;
 
   /**
    * Specifies how to output reasoning tokens This field is mutually exclusive with
