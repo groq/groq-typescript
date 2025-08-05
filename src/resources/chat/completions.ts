@@ -1345,7 +1345,7 @@ export interface ChatCompletionSystemMessageParam {
   /**
    * The role of the messages author, in this case `system`.
    */
-  role: 'system';
+  role: 'system' | 'developer';
 
   /**
    * An optional name for the participant. Provides the model information to
@@ -1411,7 +1411,7 @@ export interface ChatCompletionTool {
   /**
    * The type of the tool. Currently, only `function` is supported.
    */
-  type: 'function';
+  type: 'function' | 'browser_search' | 'code_interpreter';
 
   function?: Shared.FunctionDefinition;
 }
@@ -1529,6 +1529,13 @@ export interface ChatCompletionCreateParamsBase {
   include_domains?: Array<string> | null;
 
   /**
+   * Whether to include reasoning in the response. If true, the response will include
+   * a `reasoning` field. If false, the model's reasoning will not be included in the
+   * response. This field is mutually exclusive with `reasoning_format`.
+   */
+  include_reasoning?: boolean | null;
+
+  /**
    * This is not yet supported by any of our models. Modify the likelihood of
    * specified tokens appearing in the completion.
    */
@@ -1583,10 +1590,11 @@ export interface ChatCompletionCreateParamsBase {
    * this field is only available for qwen3 models. Set to 'none' to disable
    * reasoning. Set to 'default' or null to let Qwen reason.
    */
-  reasoning_effort?: 'none' | 'default' | null;
+  reasoning_effort?: 'none' | 'default' | 'low' | 'medium' | 'high' | null;
 
   /**
-   * Specifies how to output reasoning tokens
+   * Specifies how to output reasoning tokens This field is mutually exclusive with
+   * `include_reasoning`.
    */
   reasoning_format?: 'hidden' | 'raw' | 'parsed' | null;
 
@@ -1716,12 +1724,8 @@ export namespace CompletionCreateParams {
     description?: string;
 
     /**
-     * The parameters the functions accepts, described as a JSON Schema object. See the
-     * docs on [tool use](/docs/tool-use) for examples, and the
-     * [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for
-     * documentation about the format.
-     *
-     * Omitting `parameters` defines a function with an empty parameter list.
+     * Function parameters defined as a JSON Schema object. Refer to
+     * https://json-schema.org/understanding-json-schema/ for schema documentation.
      */
     parameters?: Shared.FunctionParameters;
   }
