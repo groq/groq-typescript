@@ -1721,36 +1721,14 @@ export namespace CompletionCreateParams {
    */
   export interface ResponseFormatJsonSchema {
     /**
-     * The name of the response format. Must be a-z, A-Z, 0-9, or contain underscores
-     * and dashes, with a maximum length of 64.
+     * Structured Outputs configuration options, including a JSON Schema.
      */
-    name: string;
-
-    /**
-     * The schema for the response format, described as a JSON Schema object.
-     */
-    schema: { [key: string]: unknown };
+    json_schema: ResponseFormatJsonSchema.JsonSchema;
 
     /**
      * The type of response format being defined. Always `json_schema`.
      */
     type: 'json_schema';
-
-    /**
-     * A description of what the response format is for, used by the model to determine
-     * how to respond in the format.
-     */
-    description?: string;
-
-    /**
-     * Structured Outputs configuration options, including a JSON Schema.
-     */
-    json_schema?: ResponseFormatJsonSchema.JsonSchema;
-
-    /**
-     * Whether to enable strict schema adherence when generating the output.
-     */
-    strict?: boolean | null;
   }
 
   export namespace ResponseFormatJsonSchema {
@@ -1786,8 +1764,9 @@ export namespace CompletionCreateParams {
   }
 
   /**
-   * JSON object response format. Ensures valid JSON output. For structured output
-   * with schema validation, use `json_schema` format.
+   * JSON object response format. An older method of generating JSON responses. Using
+   * `json_schema` is recommended for models that support it. Note that the model
+   * will not generate JSON without a system or user message instructing it to do so.
    */
   export interface ResponseFormatJsonObject {
     /**
