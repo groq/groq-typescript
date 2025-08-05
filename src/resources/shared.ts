@@ -24,22 +24,14 @@ export interface FunctionDefinition {
   description?: string;
 
   /**
-   * The parameters the functions accepts, described as a JSON Schema object. See the
-   * docs on [tool use](/docs/tool-use) for examples, and the
-   * [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for
-   * documentation about the format.
-   *
-   * Omitting `parameters` defines a function with an empty parameter list.
+   * Function parameters defined as a JSON Schema object. Refer to
+   * https://json-schema.org/understanding-json-schema/ for schema documentation.
    */
   parameters?: FunctionParameters;
 }
 
 /**
- * The parameters the functions accepts, described as a JSON Schema object. See the
- * docs on [tool use](/docs/tool-use) for examples, and the
- * [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for
- * documentation about the format.
- *
- * Omitting `parameters` defines a function with an empty parameter list.
+ * Function parameters defined as a JSON Schema object. Refer to
+ * https://json-schema.org/understanding-json-schema/ for schema documentation.
  */
 export type FunctionParameters = { [key: string]: unknown };

@@ -1700,12 +1700,8 @@ export namespace CompletionCreateParams {
     description?: string;
 
     /**
-     * The parameters the functions accepts, described as a JSON Schema object. See the
-     * docs on [tool use](/docs/tool-use) for examples, and the
-     * [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for
-     * documentation about the format.
-     *
-     * Omitting `parameters` defines a function with an empty parameter list.
+     * Function parameters defined as a JSON Schema object. Refer to
+     * https://json-schema.org/understanding-json-schema/ for schema documentation.
      */
     parameters?: Shared.FunctionParameters;
   }
@@ -1725,14 +1721,36 @@ export namespace CompletionCreateParams {
    */
   export interface ResponseFormatJsonSchema {
     /**
-     * Structured Outputs configuration options, including a JSON Schema.
+     * The name of the response format. Must be a-z, A-Z, 0-9, or contain underscores
+     * and dashes, with a maximum length of 64.
      */
-    json_schema: ResponseFormatJsonSchema.JsonSchema;
+    name: string;
+
+    /**
+     * The schema for the response format, described as a JSON Schema object.
+     */
+    schema: { [key: string]: unknown };
 
     /**
      * The type of response format being defined. Always `json_schema`.
      */
     type: 'json_schema';
+
+    /**
+     * A description of what the response format is for, used by the model to determine
+     * how to respond in the format.
+     */
+    description?: string;
+
+    /**
+     * Structured Outputs configuration options, including a JSON Schema.
+     */
+    json_schema?: ResponseFormatJsonSchema.JsonSchema;
+
+    /**
+     * Whether to enable strict schema adherence when generating the output.
+     */
+    strict?: boolean | null;
   }
 
   export namespace ResponseFormatJsonSchema {
@@ -1768,9 +1786,8 @@ export namespace CompletionCreateParams {
   }
 
   /**
-   * JSON object response format. An older method of generating JSON responses. Using
-   * `json_schema` is recommended for models that support it. Note that the model
-   * will not generate JSON without a system or user message instructing it to do so.
+   * JSON object response format. Ensures valid JSON output. For structured output
+   * with schema validation, use `json_schema` format.
    */
   export interface ResponseFormatJsonObject {
     /**
