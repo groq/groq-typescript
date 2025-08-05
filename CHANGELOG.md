@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.30.0 (2025-08-05)
+
+Full Changelog: [v0.29.0...v0.30.0](https://github.com/groq/groq-typescript/compare/v0.29.0...v0.30.0)
+
+### Features
+
+* **api:** api update ([eeeabc3](https://github.com/groq/groq-typescript/commit/eeeabc31656b0a694d6dd792e1543da5b112e222))
+* **api:** api update ([f4d1f1e](https://github.com/groq/groq-typescript/commit/f4d1f1e1ac0758af0241455a350e3006b43f9c92))
+* **api:** api update ([fa21dc1](https://github.com/groq/groq-typescript/commit/fa21dc163c1de01e59e024e4bd6c6814c240b440))
+* **api:** api update ([d7f2dd5](https://github.com/groq/groq-typescript/commit/d7f2dd57cd260f0549029dac955103dbe8ac649b))
+* **api:** api update ([7f524c7](https://github.com/groq/groq-typescript/commit/7f524c70cdac5fcc301c3b87c2c90b2b49446395))
+* **api:** api update ([60e7655](https://github.com/groq/groq-typescript/commit/60e76555b02e2b53a9893d2b72ae0ed95ece37b9))
+
+
+### Bug Fixes
+
+* correct syntax error on readme ([#236](https://github.com/groq/groq-typescript/issues/236)) ([1a7534b](https://github.com/groq/groq-typescript/commit/1a7534baaded306cb7c99f0fb5ddcbe915dae9b3))
+
+
+### Chores
+
+* **internal:** remove redundant imports config ([72ac77d](https://github.com/groq/groq-typescript/commit/72ac77d93649ab4753e5820385ae994b60d40c6f))
+
 ## 0.29.0 (2025-07-23)
 
 Full Changelog: [v0.28.0...v0.29.0](https://github.com/groq/groq-typescript/compare/v0.28.0...v0.29.0)
