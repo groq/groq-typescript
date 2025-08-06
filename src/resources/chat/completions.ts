@@ -1409,9 +1409,10 @@ export namespace ChatCompletionTokenLogprob {
 
 export interface ChatCompletionTool {
   /**
-   * The type of the tool. Currently, only `function` is supported.
+   * The type of the tool. `function`, `browser_search`, and `code_interpreter` are
+   * supported.
    */
-  type: 'function' | 'browser_search' | 'code_interpreter';
+  type: 'function' | 'browser_search' | 'code_interpreter' | (string & {});
 
   function?: Shared.FunctionDefinition;
 }
