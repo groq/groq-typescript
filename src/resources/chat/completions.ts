@@ -1472,9 +1472,9 @@ export interface CompletionCreateParams {
   exclude_domains?: Array<string> | null;
 
   /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on their
-   * existing frequency in the text so far, decreasing the model's likelihood to
-   * repeat the same line verbatim.
+   * This is not yet supported by any of our models. Number between -2.0 and 2.0.
+   * Positive values penalize new tokens based on their existing frequency in the
+   * text so far, decreasing the model's likelihood to repeat the same line verbatim.
    */
   frequency_penalty?: number | null;
 
@@ -1557,9 +1557,9 @@ export interface CompletionCreateParams {
   parallel_tool_calls?: boolean | null;
 
   /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on
-   * whether they appear in the text so far, increasing the model's likelihood to
-   * talk about new topics.
+   * This is not yet supported by any of our models. Number between -2.0 and 2.0.
+   * Positive values penalize new tokens based on whether they appear in the text so
+   * far, increasing the model's likelihood to talk about new topics.
    */
   presence_penalty?: number | null;
 
