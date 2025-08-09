@@ -1,5 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { schemaBasedCompletion, type SchemaBasedCompletionParams } from './lib/schema';
+import type { StandardSchemaV1 } from '@standard-schema/spec';
+
 import { type Agent } from './_shims/index';
 import * as Core from './core';
 import * as Errors from './error';
@@ -188,6 +191,12 @@ export class Groq extends Core.APIClient {
 
   protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
     return { Authorization: `Bearer ${this.apiKey}` };
+  }
+
+  buildSchemaBasedCompletion<I, O, S extends StandardSchemaV1<I, O>>(
+    schema: S,
+  ): (params: SchemaBasedCompletionParams) => Promise<O> {
+    return schemaBasedCompletion.bind(undefined, this, schema);
   }
 
   static Groq = this;
