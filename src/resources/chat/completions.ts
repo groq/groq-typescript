@@ -1489,6 +1489,11 @@ export interface ChatCompletionCreateParamsBase {
     | 'llama3-8b-8192';
 
   /**
+   * Custom configuration of models and tools for Compound.
+   */
+  compound_custom?: CompletionCreateParams.CompoundCustom | null;
+
+  /**
    * @deprecated Deprecated: Use search_settings.exclude_domains instead. A list of
    * domains to exclude from the search results when the model uses a web search
    * tool.
@@ -1711,6 +1716,27 @@ export interface ChatCompletionCreateParamsBase {
 }
 
 export namespace CompletionCreateParams {
+  /**
+   * Custom configuration of models and tools for Compound.
+   */
+  export interface CompoundCustom {
+    models?: CompoundCustom.Models | null;
+  }
+
+  export namespace CompoundCustom {
+    export interface Models {
+      /**
+       * Custom model to use for answering.
+       */
+      answering_model?: string | null;
+
+      /**
+       * Custom model to use for reasoning.
+       */
+      reasoning_model?: string | null;
+    }
+  }
+
   /**
    * @deprecated
    */
