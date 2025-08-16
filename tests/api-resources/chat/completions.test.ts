@@ -27,6 +27,7 @@ describe('resource completions', () => {
     const response = await client.chat.completions.create({
       messages: [{ content: 'string', role: 'system', name: 'name' }],
       model: 'meta-llama/llama-4-scout-17b-16e-instruct',
+      compound_custom: { models: { answering_model: 'answering_model', reasoning_model: 'reasoning_model' } },
       exclude_domains: ['string'],
       frequency_penalty: -2,
       function_call: 'none',
