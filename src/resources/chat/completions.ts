@@ -1494,6 +1494,12 @@ export interface ChatCompletionCreateParamsBase {
   compound_custom?: CompletionCreateParams.CompoundCustom | null;
 
   /**
+   * A list of documents to provide context for the conversation. Each document
+   * contains text that can be referenced by the model.
+   */
+  documents?: Array<CompletionCreateParams.Document> | null;
+
+  /**
    * @deprecated Deprecated: Use search_settings.exclude_domains instead. A list of
    * domains to exclude from the search results when the model uses a web search
    * tool.
@@ -1735,6 +1741,13 @@ export namespace CompletionCreateParams {
        */
       reasoning_model?: string | null;
     }
+  }
+
+  export interface Document {
+    /**
+     * The text content of the document.
+     */
+    text: string;
   }
 
   /**
