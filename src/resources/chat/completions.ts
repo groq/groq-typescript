@@ -1409,9 +1409,10 @@ export namespace ChatCompletionTokenLogprob {
 
 export interface ChatCompletionTool {
   /**
-   * The type of the tool. Currently, only `function` is supported.
+   * The type of the tool. `function`, `browser_search`, and `code_interpreter` are
+   * supported.
    */
-  type: 'function' | 'browser_search' | 'code_interpreter';
+  type: 'function' | 'browser_search' | 'code_interpreter' | (string & {});
 
   function?: Shared.FunctionDefinition;
 }
@@ -1488,6 +1489,17 @@ export interface ChatCompletionCreateParamsBase {
     | 'llama3-8b-8192';
 
   /**
+   * Custom configuration of models and tools for Compound.
+   */
+  compound_custom?: CompletionCreateParams.CompoundCustom | null;
+
+  /**
+   * A list of documents to provide context for the conversation. Each document
+   * contains text that can be referenced by the model.
+   */
+  documents?: Array<CompletionCreateParams.Document> | null;
+
+  /**
    * @deprecated Deprecated: Use search_settings.exclude_domains instead. A list of
    * domains to exclude from the search results when the model uses a web search
    * tool.
@@ -1495,9 +1507,9 @@ export interface ChatCompletionCreateParamsBase {
   exclude_domains?: Array<string> | null;
 
   /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on their
-   * existing frequency in the text so far, decreasing the model's likelihood to
-   * repeat the same line verbatim.
+   * This is not yet supported by any of our models. Number between -2.0 and 2.0.
+   * Positive values penalize new tokens based on their existing frequency in the
+   * text so far, decreasing the model's likelihood to repeat the same line verbatim.
    */
   frequency_penalty?: number | null;
 
@@ -1580,15 +1592,18 @@ export interface ChatCompletionCreateParamsBase {
   parallel_tool_calls?: boolean | null;
 
   /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on
-   * whether they appear in the text so far, increasing the model's likelihood to
-   * talk about new topics.
+   * This is not yet supported by any of our models. Number between -2.0 and 2.0.
+   * Positive values penalize new tokens based on whether they appear in the text so
+   * far, increasing the model's likelihood to talk about new topics.
    */
   presence_penalty?: number | null;
 
   /**
-   * this field is only available for qwen3 models. Set to 'none' to disable
-   * reasoning. Set to 'default' or null to let Qwen reason.
+   * qwen3 models support the following values Set to 'none' to disable reasoning.
+   * Set to 'default' or null to let Qwen reason.
+   *
+   * openai/gpt-oss-20b and openai/gpt-oss-120b support 'low', 'medium', or 'high'.
+   * 'medium' is the default value.
    */
   reasoning_effort?: 'none' | 'default' | 'low' | 'medium' | 'high' | null;
 
@@ -1707,6 +1722,34 @@ export interface ChatCompletionCreateParamsBase {
 }
 
 export namespace CompletionCreateParams {
+  /**
+   * Custom configuration of models and tools for Compound.
+   */
+  export interface CompoundCustom {
+    models?: CompoundCustom.Models | null;
+  }
+
+  export namespace CompoundCustom {
+    export interface Models {
+      /**
+       * Custom model to use for answering.
+       */
+      answering_model?: string | null;
+
+      /**
+       * Custom model to use for reasoning.
+       */
+      reasoning_model?: string | null;
+    }
+  }
+
+  export interface Document {
+    /**
+     * The text content of the document.
+     */
+    text: string;
+  }
+
   /**
    * @deprecated
    */

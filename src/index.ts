@@ -218,6 +218,7 @@ Groq.Audio = Audio;
 Groq.Models = Models;
 Groq.Batches = Batches;
 Groq.Files = Files;
+
 export declare namespace Groq {
   export type RequestOptions = Core.RequestOptions;
 
