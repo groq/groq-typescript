@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.31.0 (2025-09-02)
+
+Full Changelog: [v0.30.0...v0.31.0](https://github.com/groq/groq-typescript/compare/v0.30.0...v0.31.0)
+
+### Features
+
+* **api:** api update ([be48d38](https://github.com/groq/groq-typescript/commit/be48d38f749dc4599ab71633ff226583f6e74b02))
+* **api:** api update ([44424c2](https://github.com/groq/groq-typescript/commit/44424c26018f43b69682bebca7e9c734b5d0f1e0))
+* **api:** api update ([f772446](https://github.com/groq/groq-typescript/commit/f772446f655ff905c14f40f45cafc4109ef7f912))
+* **api:** api update ([2e12bd1](https://github.com/groq/groq-typescript/commit/2e12bd1022f8cd168d41b62d753615b3900ee1f1))
+* **api:** api update ([61a9e99](https://github.com/groq/groq-typescript/commit/61a9e99c984e43432d823388435893408d84ce0f))
+
+
+### Bug Fixes
+
+* update example model from decommissioned models to gpt-oss-20b ([1c69897](https://github.com/groq/groq-typescript/commit/1c69897c7fe09a0d0df5f041749a17a95ed878cd))
+
+
+### Chores
+
+* **deps:** update dependency node-fetch to v2.6.13 ([4938496](https://github.com/groq/groq-typescript/commit/49384963049a83b196e87595046e7686fcdfcca0))
+* **internal:** formatting change ([a287d5e](https://github.com/groq/groq-typescript/commit/a287d5e41f1b6bba338b0cc3e1b9212a35b4e824))
+* **internal:** move publish config ([5fe1890](https://github.com/groq/groq-typescript/commit/5fe1890402075a67d6ea4472b6196273cd0b0f9e))
+* **internal:** update comment in script ([2a69a41](https://github.com/groq/groq-typescript/commit/2a69a4195d773bd0c6c1dcc0e49824ed6f50b24d))
+* update @stainless-api/prism-cli to v5.15.0 ([35cd683](https://github.com/groq/groq-typescript/commit/35cd68309611e5e77f04974ce18b516116f3346d))
+* update CI script ([e863bc0](https://github.com/groq/groq-typescript/commit/e863bc04c0324e2b5cdf2fab8abe36e2c4469907))
+
 ## 0.30.0 (2025-08-05)
 
 Full Changelog: [v0.29.0...v0.30.0](https://github.com/groq/groq-typescript/compare/v0.29.0...v0.30.0)
