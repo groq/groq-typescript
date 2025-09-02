@@ -28,7 +28,7 @@ const client = new Groq({
 
 const chatCompletion = await client.chat.completions.create({
   messages: [{ role: 'user', content: 'Explain the importance of low latency LLMs' }],
-  model: 'llama3-8b-8192',
+  model: 'openai/gpt-oss-20b',
 });
 
 console.log(chatCompletion.id);
@@ -51,7 +51,7 @@ const params: Groq.Chat.CompletionCreateParams = {
     { role: 'system', content: 'You are a helpful assistant.' },
     { role: 'user', content: 'Explain the importance of low latency LLMs' },
   ],
-  model: 'llama3-8b-8192',
+  model: 'openai/gpt-oss-20b',
 };
 const chatCompletion: Groq.Chat.ChatCompletion = await client.chat.completions.create(params);
 ```
@@ -117,7 +117,7 @@ const chatCompletion = await client.chat.completions
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'llama3-8b-8192',
+    model: 'openai/gpt-oss-20b',
   })
   .catch(async (err) => {
     if (err instanceof Groq.APIError) {
@@ -159,7 +159,7 @@ const client = new Groq({
 });
 
 // Or, configure per-request:
-await client.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
+await client.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'openai/gpt-oss-20b' }, {
   maxRetries: 5,
 });
 ```
@@ -176,7 +176,7 @@ const client = new Groq({
 });
 
 // Override per-request:
-await client.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'llama3-8b-8192' }, {
+await client.chat.completions.create({ messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: 'Explain the importance of low latency LLMs' }], model: 'openai/gpt-oss-20b' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -203,7 +203,7 @@ const response = await client.chat.completions
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'llama3-8b-8192',
+    model: 'openai/gpt-oss-20b',
   })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -215,7 +215,7 @@ const { data: chatCompletion, response: raw } = await client.chat.completions
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'llama3-8b-8192',
+    model: 'openai/gpt-oss-20b',
   })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
@@ -329,7 +329,7 @@ await client.chat.completions.create(
       { role: 'system', content: 'You are a helpful assistant.' },
       { role: 'user', content: 'Explain the importance of low latency LLMs' },
     ],
-    model: 'llama3-8b-8192',
+    model: 'openai/gpt-oss-20b',
   },
   {
     httpAgent: new http.Agent({ keepAlive: false }),
