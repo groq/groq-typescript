@@ -1481,12 +1481,18 @@ export interface ChatCompletionCreateParamsBase {
    */
   model:
     | (string & {})
+    | 'compound-beta'
+    | 'compound-beta-mini'
     | 'gemma2-9b-it'
-    | 'llama-3.3-70b-versatile'
     | 'llama-3.1-8b-instant'
-    | 'llama-guard-3-8b'
-    | 'llama3-70b-8192'
-    | 'llama3-8b-8192';
+    | 'llama-3.3-70b-versatile'
+    | 'meta-llama/llama-4-maverick-17b-128e-instruct'
+    | 'meta-llama/llama-4-scout-17b-16e-instruct'
+    | 'meta-llama/llama-guard-4-12b'
+    | 'moonshotai/kimi-k2-instruct'
+    | 'openai/gpt-oss-120b'
+    | 'openai/gpt-oss-20b'
+    | 'qwen/qwen3-32b';
 
   /**
    * Custom configuration of models and tools for Compound.
@@ -1727,6 +1733,11 @@ export namespace CompletionCreateParams {
    */
   export interface CompoundCustom {
     models?: CompoundCustom.Models | null;
+
+    /**
+     * Configuration options for tools available to Compound.
+     */
+    tools?: CompoundCustom.Tools | null;
   }
 
   export namespace CompoundCustom {
@@ -1740,6 +1751,33 @@ export namespace CompletionCreateParams {
        * Custom model to use for reasoning.
        */
       reasoning_model?: string | null;
+    }
+
+    /**
+     * Configuration options for tools available to Compound.
+     */
+    export interface Tools {
+      /**
+       * A list of tool names that are enabled for the request.
+       */
+      enabled_tools?: Array<string> | null;
+
+      /**
+       * Configuration for the Wolfram tool integration.
+       */
+      wolfram_settings?: Tools.WolframSettings | null;
+    }
+
+    export namespace Tools {
+      /**
+       * Configuration for the Wolfram tool integration.
+       */
+      export interface WolframSettings {
+        /**
+         * API key used to authorize requests to Wolfram services.
+         */
+        authorization?: string | null;
+      }
     }
   }
 
