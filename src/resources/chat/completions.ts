@@ -1709,6 +1709,11 @@ export namespace CompletionCreateParams {
    */
   export interface CompoundCustom {
     models?: CompoundCustom.Models | null;
+
+    /**
+     * Configuration options for tools available to Compound.
+     */
+    tools?: CompoundCustom.Tools | null;
   }
 
   export namespace CompoundCustom {
@@ -1722,6 +1727,33 @@ export namespace CompletionCreateParams {
        * Custom model to use for reasoning.
        */
       reasoning_model?: string | null;
+    }
+
+    /**
+     * Configuration options for tools available to Compound.
+     */
+    export interface Tools {
+      /**
+       * A list of tool names that are enabled for the request.
+       */
+      enabled_tools?: Array<string> | null;
+
+      /**
+       * Configuration for the Wolfram tool integration.
+       */
+      wolfram_settings?: Tools.WolframSettings | null;
+    }
+
+    export namespace Tools {
+      /**
+       * Configuration for the Wolfram tool integration.
+       */
+      export interface WolframSettings {
+        /**
+         * API key used to authorize requests to Wolfram services.
+         */
+        authorization?: string | null;
+      }
     }
   }
 
