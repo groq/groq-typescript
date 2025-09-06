@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.32.1 (2025-09-06)
+
+Full Changelog: [v0.32.0...v0.32.1](https://github.com/groq/groq-typescript/compare/v0.32.0...v0.32.1)
+
+### Chores
+
+* ci build action ([5af2e0a](https://github.com/groq/groq-typescript/commit/5af2e0a3ebd2d8c22a3d66431f62a0bd4c0199d1))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([bb94e1a](https://github.com/groq/groq-typescript/commit/bb94e1a9ff39ea9294d5eb265de30708e58704e7))
+
 ## 0.32.0 (2025-09-04)
 
 Full Changelog: [v0.31.0...v0.32.0](https://github.com/groq/groq-typescript/compare/v0.31.0...v0.32.0)
