@@ -1500,6 +1500,13 @@ export interface ChatCompletionCreateParamsBase {
   compound_custom?: CompletionCreateParams.CompoundCustom | null;
 
   /**
+   * If set to true, groq will return called tools without validating that the tool
+   * is present in request.tools. tool_choice=required/none will still be enforced,
+   * but the request cannot require a specific tool be used.
+   */
+  disable_tool_validation?: boolean;
+
+  /**
    * A list of documents to provide context for the conversation. Each document
    * contains text that can be referenced by the model.
    */
