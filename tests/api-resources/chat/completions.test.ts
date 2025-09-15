@@ -31,6 +31,7 @@ describe('resource completions', () => {
         models: { answering_model: 'answering_model', reasoning_model: 'reasoning_model' },
         tools: { enabled_tools: ['string'], wolfram_settings: { authorization: 'authorization' } },
       },
+      disable_tool_validation: true,
       documents: [{ text: 'text' }],
       exclude_domains: ['string'],
       frequency_penalty: -2,
