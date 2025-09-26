@@ -33,6 +33,7 @@ describe('resource completions', () => {
       },
       disable_tool_validation: true,
       documents: [{ text: 'text' }],
+      enable_citations: true,
       exclude_domains: ['string'],
       frequency_penalty: -2,
       function_call: 'none',
