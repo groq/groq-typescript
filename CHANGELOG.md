@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.33.0 (2025-09-27)
+
+Full Changelog: [v0.32.0...v0.33.0](https://github.com/groq/groq-typescript/compare/v0.32.0...v0.33.0)
+
+### Features
+
+* **api:** api update ([dccea3c](https://github.com/groq/groq-typescript/commit/dccea3cec34a025cdc6e64cc7cc4ffb447b50bc2))
+* **api:** api update ([b49768a](https://github.com/groq/groq-typescript/commit/b49768aaa9e6b8b53465123f70c7a82b11796477))
+* **api:** api update ([8503aad](https://github.com/groq/groq-typescript/commit/8503aad989dd79de025e87e3c2b61aa04761bbe0))
+
+
+### Bug Fixes
+
+* coerce nullable values to undefined ([3db69ea](https://github.com/groq/groq-typescript/commit/3db69ea6ba7383252214fd1ba95ea2328b894951))
+
+
+### Performance Improvements
+
+* faster formatting ([cbafd4d](https://github.com/groq/groq-typescript/commit/cbafd4dd6ef6f44be42ca483b81ce738f0e30f28))
+
+
+### Chores
+
+* ci build action ([5af2e0a](https://github.com/groq/groq-typescript/commit/5af2e0a3ebd2d8c22a3d66431f62a0bd4c0199d1))
+* do not install brew dependencies in ./scripts/bootstrap by default ([2c0a297](https://github.com/groq/groq-typescript/commit/2c0a297aae0116895fc4a2cae4c1c28867cee5f2))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([bb94e1a](https://github.com/groq/groq-typescript/commit/bb94e1a9ff39ea9294d5eb265de30708e58704e7))
+* **internal:** codegen related update ([cb92d34](https://github.com/groq/groq-typescript/commit/cb92d34a7ef4cb330f20c49ce1dd76beaee89993))
+* **internal:** fix incremental formatting in some cases ([6747e14](https://github.com/groq/groq-typescript/commit/6747e14297f502f1033e387ff581c82d4c401813))
+* **internal:** ignore .eslintcache ([3444425](https://github.com/groq/groq-typescript/commit/3444425c4066e9ec1b61a3a8037303ff46a64867))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([bcd4d20](https://github.com/groq/groq-typescript/commit/bcd4d2003c092e8ac2663cb121c5405d3db14bc1))
+
 ## 0.32.0 (2025-09-04)
 
 Full Changelog: [v0.31.0...v0.32.0](https://github.com/groq/groq-typescript/compare/v0.31.0...v0.32.0)
