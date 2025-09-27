@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "groq-sdk/*": ["dist/src/*"],
-      "groq-sdk": ["dist/src/index.ts"],
+      "groq-sdk/*": ["./dist/src/*"],
+      "groq-sdk": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
