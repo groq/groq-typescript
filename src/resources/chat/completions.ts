@@ -339,6 +339,11 @@ export namespace ChatCompletionChunk {
         type: string;
 
         /**
+         * Array of browser results
+         */
+        browser_results?: Array<ExecutedTool.BrowserResult>;
+
+        /**
          * Array of code execution results
          */
         code_results?: Array<ExecutedTool.CodeResult>;
@@ -355,6 +360,28 @@ export namespace ChatCompletionChunk {
       }
 
       export namespace ExecutedTool {
+        export interface BrowserResult {
+          /**
+           * The title of the browser window
+           */
+          title: string;
+
+          /**
+           * The URL of the browser window
+           */
+          url: string;
+
+          /**
+           * The content of the browser result
+           */
+          content?: string;
+
+          /**
+           * The live view URL for the browser window
+           */
+          live_view_url?: string;
+        }
+
         export interface CodeResult {
           chart?: CodeResult.Chart;
 
@@ -912,6 +939,11 @@ export namespace ChatCompletionMessage {
     type: string;
 
     /**
+     * Array of browser results
+     */
+    browser_results?: Array<ExecutedTool.BrowserResult>;
+
+    /**
      * Array of code execution results
      */
     code_results?: Array<ExecutedTool.CodeResult>;
@@ -928,6 +960,28 @@ export namespace ChatCompletionMessage {
   }
 
   export namespace ExecutedTool {
+    export interface BrowserResult {
+      /**
+       * The title of the browser window
+       */
+      title: string;
+
+      /**
+       * The URL of the browser window
+       */
+      url: string;
+
+      /**
+       * The content of the browser result
+       */
+      content?: string;
+
+      /**
+       * The live view URL for the browser window
+       */
+      live_view_url?: string;
+    }
+
     export interface CodeResult {
       chart?: CodeResult.Chart;
 
