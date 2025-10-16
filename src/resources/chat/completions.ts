@@ -1549,6 +1549,13 @@ export interface ChatCompletionCreateParamsBase {
     | 'qwen/qwen3-32b';
 
   /**
+   * Whether to enable citations in the response. When enabled, the model will
+   * include citations for information retrieved from provided documents or web
+   * searches.
+   */
+  citation_options?: 'enabled' | 'disabled' | null;
+
+  /**
    * Custom configuration of models and tools for Compound.
    */
   compound_custom?: CompletionCreateParams.CompoundCustom | null;
@@ -1565,13 +1572,6 @@ export interface ChatCompletionCreateParamsBase {
    * contains text that can be referenced by the model.
    */
   documents?: Array<CompletionCreateParams.Document> | null;
-
-  /**
-   * Whether to enable citations in the response. When enabled, the model will
-   * include citations for information retrieved from provided documents or web
-   * searches.
-   */
-  enable_citations?: boolean | null;
 
   /**
    * @deprecated Deprecated: Use search_settings.exclude_domains instead. A list of
