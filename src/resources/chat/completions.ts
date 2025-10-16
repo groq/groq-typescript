@@ -1849,11 +1849,51 @@ export namespace CompletionCreateParams {
     }
   }
 
+  /**
+   * A document that can be referenced by the model while generating responses.
+   */
   export interface Document {
     /**
-     * The text content of the document.
+     * The source of the document. Only text and JSON sources are currently supported.
      */
-    text: string;
+    source: Document.ChatCompletionDocumentSourceText | Document.ChatCompletionDocumentSourceJson;
+
+    /**
+     * Optional unique identifier that can be used for citations in responses.
+     */
+    id?: string | null;
+  }
+
+  export namespace Document {
+    /**
+     * A document whose contents are provided inline as text.
+     */
+    export interface ChatCompletionDocumentSourceText {
+      /**
+       * The document contents.
+       */
+      text: string;
+
+      /**
+       * Identifies this document source as inline text.
+       */
+      type: 'text';
+    }
+
+    /**
+     * A document whose contents are provided inline as JSON data.
+     */
+    export interface ChatCompletionDocumentSourceJson {
+      /**
+       * The JSON payload associated with the document.
+       */
+      data: { [key: string]: unknown };
+
+      /**
+       * Identifies this document source as JSON data.
+       */
+      type: 'json';
+    }
   }
 
   /**

@@ -33,7 +33,7 @@ describe('resource completions', () => {
         tools: { enabled_tools: ['string'], wolfram_settings: { authorization: 'authorization' } },
       },
       disable_tool_validation: true,
-      documents: [{ text: 'text' }],
+      documents: [{ source: { text: 'text', type: 'text' }, id: 'id' }],
       exclude_domains: ['string'],
       frequency_penalty: -2,
       function_call: 'none',
