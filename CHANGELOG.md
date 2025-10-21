@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.34.0 (2025-10-16)
+
+Full Changelog: [v0.33.0...v0.34.0](https://github.com/groq/groq-typescript/compare/v0.33.0...v0.34.0)
+
+### Features
+
+* **api:** api update ([21bbd36](https://github.com/groq/groq-typescript/commit/21bbd3642282719170a3588c7472420672c84cc9))
+* **api:** api update ([94af9cd](https://github.com/groq/groq-typescript/commit/94af9cd04d746ac24a462b07d3e2d3be9b252c25))
+* **api:** api update ([c1565a8](https://github.com/groq/groq-typescript/commit/c1565a81fcba330d9fe808a424ea778105453afc))
+
+
+### Chores
+
+* **internal:** remove .eslintcache ([5023bb0](https://github.com/groq/groq-typescript/commit/5023bb0dd6544118385c20b0f6ff1157c9c64535))
+* **internal:** use npm pack for build uploads ([fba1e53](https://github.com/groq/groq-typescript/commit/fba1e5321921f883660c5153abaf28382f25c671))
+
 ## 0.33.0 (2025-09-27)
 
 Full Changelog: [v0.32.0...v0.33.0](https://github.com/groq/groq-typescript/compare/v0.32.0...v0.33.0)

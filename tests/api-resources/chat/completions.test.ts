@@ -27,13 +27,13 @@ describe('resource completions', () => {
     const response = await client.chat.completions.create({
       messages: [{ content: 'string', role: 'system', name: 'name' }],
       model: 'meta-llama/llama-4-scout-17b-16e-instruct',
+      citation_options: 'enabled',
       compound_custom: {
         models: { answering_model: 'answering_model', reasoning_model: 'reasoning_model' },
         tools: { enabled_tools: ['string'], wolfram_settings: { authorization: 'authorization' } },
       },
       disable_tool_validation: true,
-      documents: [{ text: 'text' }],
-      enable_citations: true,
+      documents: [{ source: { text: 'text', type: 'text' }, id: 'id' }],
       exclude_domains: ['string'],
       frequency_penalty: -2,
       function_call: 'none',

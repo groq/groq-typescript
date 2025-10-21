@@ -339,6 +339,11 @@ export namespace ChatCompletionChunk {
         type: string;
 
         /**
+         * Array of browser results
+         */
+        browser_results?: Array<ExecutedTool.BrowserResult>;
+
+        /**
          * Array of code execution results
          */
         code_results?: Array<ExecutedTool.CodeResult>;
@@ -355,6 +360,28 @@ export namespace ChatCompletionChunk {
       }
 
       export namespace ExecutedTool {
+        export interface BrowserResult {
+          /**
+           * The title of the browser window
+           */
+          title: string;
+
+          /**
+           * The URL of the browser window
+           */
+          url: string;
+
+          /**
+           * The content of the browser result
+           */
+          content?: string;
+
+          /**
+           * The live view URL for the browser window
+           */
+          live_view_url?: string;
+        }
+
         export interface CodeResult {
           chart?: CodeResult.Chart;
 
@@ -912,6 +939,11 @@ export namespace ChatCompletionMessage {
     type: string;
 
     /**
+     * Array of browser results
+     */
+    browser_results?: Array<ExecutedTool.BrowserResult>;
+
+    /**
      * Array of code execution results
      */
     code_results?: Array<ExecutedTool.CodeResult>;
@@ -928,6 +960,28 @@ export namespace ChatCompletionMessage {
   }
 
   export namespace ExecutedTool {
+    export interface BrowserResult {
+      /**
+       * The title of the browser window
+       */
+      title: string;
+
+      /**
+       * The URL of the browser window
+       */
+      url: string;
+
+      /**
+       * The content of the browser result
+       */
+      content?: string;
+
+      /**
+       * The live view URL for the browser window
+       */
+      live_view_url?: string;
+    }
+
     export interface CodeResult {
       chart?: CodeResult.Chart;
 
@@ -1495,6 +1549,13 @@ export interface ChatCompletionCreateParamsBase {
     | 'qwen/qwen3-32b';
 
   /**
+   * Whether to enable citations in the response. When enabled, the model will
+   * include citations for information retrieved from provided documents or web
+   * searches.
+   */
+  citation_options?: 'enabled' | 'disabled' | null;
+
+  /**
    * Custom configuration of models and tools for Compound.
    */
   compound_custom?: CompletionCreateParams.CompoundCustom | null;
@@ -1511,13 +1572,6 @@ export interface ChatCompletionCreateParamsBase {
    * contains text that can be referenced by the model.
    */
   documents?: Array<CompletionCreateParams.Document> | null;
-
-  /**
-   * Whether to enable citations in the response. When enabled, the model will
-   * include citations for information retrieved from provided documents or web
-   * searches.
-   */
-  enable_citations?: boolean | null;
 
   /**
    * @deprecated Deprecated: Use search_settings.exclude_domains instead. A list of
@@ -1795,11 +1849,51 @@ export namespace CompletionCreateParams {
     }
   }
 
+  /**
+   * A document that can be referenced by the model while generating responses.
+   */
   export interface Document {
     /**
-     * The text content of the document.
+     * The source of the document. Only text and JSON sources are currently supported.
      */
-    text: string;
+    source: Document.ChatCompletionDocumentSourceText | Document.ChatCompletionDocumentSourceJson;
+
+    /**
+     * Optional unique identifier that can be used for citations in responses.
+     */
+    id?: string | null;
+  }
+
+  export namespace Document {
+    /**
+     * A document whose contents are provided inline as text.
+     */
+    export interface ChatCompletionDocumentSourceText {
+      /**
+       * The document contents.
+       */
+      text: string;
+
+      /**
+       * Identifies this document source as inline text.
+       */
+      type: 'text';
+    }
+
+    /**
+     * A document whose contents are provided inline as JSON data.
+     */
+    export interface ChatCompletionDocumentSourceJson {
+      /**
+       * The JSON payload associated with the document.
+       */
+      data: { [key: string]: unknown };
+
+      /**
+       * Identifies this document source as JSON data.
+       */
+      type: 'json';
+    }
   }
 
   /**
