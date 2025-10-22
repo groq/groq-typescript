@@ -271,6 +271,12 @@ export namespace ChatCompletionChunk {
      */
     export interface Delta {
       /**
+       * A list of annotations providing citations and references for the content in the
+       * message.
+       */
+      annotations?: Array<Delta.Annotation>;
+
+      /**
        * The contents of the chunk message.
        */
       content?: string | null;
@@ -302,6 +308,70 @@ export namespace ChatCompletionChunk {
     }
 
     export namespace Delta {
+      /**
+       * An annotation that provides citations or references for content in a message.
+       */
+      export interface Annotation {
+        /**
+         * The type of annotation.
+         */
+        type: 'document_citation' | 'function_citation';
+
+        /**
+         * A citation referencing a specific document that was provided in the request.
+         */
+        document_citation?: Annotation.DocumentCitation;
+
+        /**
+         * A citation referencing the result of a function or tool call.
+         */
+        function_citation?: Annotation.FunctionCitation;
+      }
+
+      export namespace Annotation {
+        /**
+         * A citation referencing a specific document that was provided in the request.
+         */
+        export interface DocumentCitation {
+          /**
+           * The ID of the document being cited, corresponding to a document provided in the
+           * request.
+           */
+          document_id: string;
+
+          /**
+           * The character index in the message content where this citation ends.
+           */
+          end_index: number;
+
+          /**
+           * The character index in the message content where this citation begins.
+           */
+          start_index: number;
+        }
+
+        /**
+         * A citation referencing the result of a function or tool call.
+         */
+        export interface FunctionCitation {
+          /**
+           * The character index in the message content where this citation ends.
+           */
+          end_index: number;
+
+          /**
+           * The character index in the message content where this citation begins.
+           */
+          start_index: number;
+
+          /**
+           * The ID of the tool call being cited, corresponding to a tool call made during
+           * the conversation.
+           */
+          tool_call_id: string;
+        }
+      }
+
       export interface ExecutedTool {
         /**
          * The arguments passed to the tool in JSON format.
@@ -878,6 +948,12 @@ export interface ChatCompletionMessage {
   role: 'assistant';
 
   /**
+   * A list of annotations providing citations and references for the content in the
+   * message.
+   */
+  annotations?: Array<ChatCompletionMessage.Annotation>;
+
+  /**
    * A list of tools that were executed during the chat completion for compound AI
    * systems.
    */
@@ -902,6 +978,70 @@ export interface ChatCompletionMessage {
 }
 
 export namespace ChatCompletionMessage {
+  /**
+   * An annotation that provides citations or references for content in a message.
+   */
+  export interface Annotation {
+    /**
+     * The type of annotation.
+     */
+    type: 'document_citation' | 'function_citation';
+
+    /**
+     * A citation referencing a specific document that was provided in the request.
+     */
+    document_citation?: Annotation.DocumentCitation;
+
+    /**
+     * A citation referencing the result of a function or tool call.
+     */
+    function_citation?: Annotation.FunctionCitation;
+  }
+
+  export namespace Annotation {
+    /**
+     * A citation referencing a specific document that was provided in the request.
+     */
+    export interface DocumentCitation {
+      /**
+       * The ID of the document being cited, corresponding to a document provided in the
+       * request.
+       */
+      document_id: string;
+
+      /**
+       * The character index in the message content where this citation ends.
+       */
+      end_index: number;
+
+      /**
+       * The character index in the message content where this citation begins.
+       */
+      start_index: number;
+    }
+
+    /**
+     * A citation referencing the result of a function or tool call.
+     */
+    export interface FunctionCitation {
+      /**
+       * The character index in the message content where this citation ends.
+       */
+      end_index: number;
+
+      /**
+       * The character index in the message content where this citation begins.
+       */
+      start_index: number;
+
+      /**
+       * The ID of the tool call being cited, corresponding to a tool call made during
+       * the conversation.
+       */
+      tool_call_id: string;
+    }
+  }
+
   export interface ExecutedTool {
     /**
      * The arguments passed to the tool in JSON format.
