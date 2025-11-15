@@ -57,6 +57,16 @@ export interface ChatCompletion {
   object: 'chat.completion';
 
   /**
+   * List of discovered MCP tools from connected servers.
+   */
+  mcp_list_tools?: Array<ChatCompletion.McpListTool> | null;
+
+  /**
+   * The service tier used for the request.
+   */
+  service_tier?: 'auto' | 'on_demand' | 'flex' | 'performance' | null;
+
+  /**
    * This fingerprint represents the backend configuration that the model runs with.
    *
    * Can be used in conjunction with the `seed` request parameter to understand when
@@ -74,6 +84,11 @@ export interface ChatCompletion {
    * for compound AI systems.
    */
   usage_breakdown?: ChatCompletion.UsageBreakdown;
+
+  /**
+   * Groq-specific metadata for non-streaming chat completion responses.
+   */
+  x_groq?: ChatCompletion.XGroq;
 }
 
 export namespace ChatCompletion {
@@ -114,6 +129,52 @@ export namespace ChatCompletion {
     }
   }
 
+  export interface McpListTool {
+    /**
+     * Unique identifier for this tool list response.
+     */
+    id?: string;
+
+    /**
+     * Human-readable label for the MCP server.
+     */
+    server_label?: string;
+
+    /**
+     * Array of discovered tools from the server.
+     */
+    tools?: Array<McpListTool.Tool>;
+
+    /**
+     * The type identifier.
+     */
+    type?: string;
+  }
+
+  export namespace McpListTool {
+    export interface Tool {
+      /**
+       * Additional metadata for the tool.
+       */
+      annotations?: unknown;
+
+      /**
+       * Description of what the tool does.
+       */
+      description?: string;
+
+      /**
+       * JSON Schema describing the tool's input parameters.
+       */
+      input_schema?: { [key: string]: unknown };
+
+      /**
+       * The name of the tool.
+       */
+      name?: string;
+    }
+  }
+
   /**
    * Detailed usage breakdown by model when multiple models are used in the request
    * for compound AI systems.
@@ -136,6 +197,71 @@ export namespace ChatCompletion {
        * Usage statistics for the completion request.
        */
       usage: CompletionsAPI.CompletionUsage;
+    }
+  }
+
+  /**
+   * Groq-specific metadata for non-streaming chat completion responses.
+   */
+  export interface XGroq {
+    /**
+     * A groq request ID which can be used to refer to a specific request to groq
+     * support.
+     */
+    id: string;
+
+    /**
+     * Debug information including input and output token IDs and strings. Only present
+     * when debug=true in the request.
+     */
+    debug?: XGroq.Debug | null;
+
+    /**
+     * Additional Groq-specific usage metrics (hardware cache statistics).
+     */
+    usage?: XGroq.Usage | null;
+  }
+
+  export namespace XGroq {
+    /**
+     * Debug information including input and output token IDs and strings. Only present
+     * when debug=true in the request.
+     */
+    export interface Debug {
+      /**
+       * Token IDs for the input.
+       */
+      input_token_ids?: Array<number>;
+
+      /**
+       * Token strings for the input.
+       */
+      input_tokens?: Array<string>;
+
+      /**
+       * Token IDs for the output.
+       */
+      output_token_ids?: Array<number>;
+
+      /**
+       * Token strings for the output.
+       */
+      output_tokens?: Array<string>;
+    }
+
+    /**
+     * Additional Groq-specific usage metrics (hardware cache statistics).
+     */
+    export interface Usage {
+      /**
+       * Number of tokens served from DRAM cache.
+       */
+      dram_cached_tokens?: number;
+
+      /**
+       * Number of tokens served from SRAM cache.
+       */
+      sram_cached_tokens?: number;
     }
   }
 }
@@ -236,6 +362,10 @@ export interface ChatCompletionChunk {
    */
   system_fingerprint?: string;
 
+  /**
+   * Groq-specific metadata for streaming responses. Different fields appear in
+   * different chunks.
+   */
   x_groq?: ChatCompletionChunk.XGroq;
 }
 
@@ -813,34 +943,68 @@ export namespace ChatCompletionChunk {
     }
   }
 
+  /**
+   * Groq-specific metadata for streaming responses. Different fields appear in
+   * different chunks.
+   */
   export interface XGroq {
     /**
-     * A groq request ID which can be used by to refer to a specific request to groq
-     * support Only sent with the first chunk
+     * A groq request ID which can be used to refer to a specific request to groq
+     * support. Sent only in the first and final chunk.
      */
-    id?: string;
+    id?: string | null;
 
     /**
-     * An error string indicating why a stream was stopped early
+     * Debug information including input and output token IDs and strings. Only present
+     * when debug=true in the request.
      */
-    error?: string;
+    debug?: XGroq.Debug | null;
 
     /**
-     * Usage information for the stream. Only sent in the final chunk
+     * An error string indicating why a stream was stopped early.
      */
-    usage?: CompletionsAPI.CompletionUsage;
+    error?: string | null;
 
     /**
-     * Detailed usage breakdown by model when multiple models are used in the request
-     * for compound AI systems. Only sent in the final chunk
+     * Usage statistics for the completion request.
      */
-    usage_breakdown?: XGroq.UsageBreakdown;
+    usage?: CompletionsAPI.CompletionUsage | null;
+
+    /**
+     * Usage statistics for compound AI completion requests.
+     */
+    usage_breakdown?: XGroq.UsageBreakdown | null;
   }
 
   export namespace XGroq {
     /**
-     * Detailed usage breakdown by model when multiple models are used in the request
-     * for compound AI systems. Only sent in the final chunk
+     * Debug information including input and output token IDs and strings. Only present
+     * when debug=true in the request.
+     */
+    export interface Debug {
+      /**
+       * Token IDs for the input.
+       */
+      input_token_ids?: Array<number>;
+
+      /**
+       * Token strings for the input.
+       */
+      input_tokens?: Array<string>;
+
+      /**
+       * Token IDs for the output.
+       */
+      output_token_ids?: Array<number>;
+
+      /**
+       * Token strings for the output.
+       */
+      output_tokens?: Array<string>;
+    }
+
+    /**
+     * Usage statistics for compound AI completion requests.
      */
     export interface UsageBreakdown {
       /**
