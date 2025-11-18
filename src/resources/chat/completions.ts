@@ -217,6 +217,12 @@ export namespace ChatCompletion {
     debug?: XGroq.Debug | null;
 
     /**
+     * The seed used for the request. See the seed property on
+     * CreateChatCompletionRequest for more details.
+     */
+    seed?: number | null;
+
+    /**
      * Additional Groq-specific usage metrics (hardware cache statistics).
      */
     usage?: XGroq.Usage | null;
@@ -964,6 +970,11 @@ export namespace ChatCompletionChunk {
      * An error string indicating why a stream was stopped early.
      */
     error?: string | null;
+
+    /**
+     * The seed used for the request. Sent in the final chunk.
+     */
+    seed?: number | null;
 
     /**
      * Usage statistics for the completion request.
