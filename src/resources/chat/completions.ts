@@ -1060,7 +1060,35 @@ export namespace ChatCompletionChunk {
   }
 }
 
-export type ChatCompletionContentPart = ChatCompletionContentPartText | ChatCompletionContentPartImage;
+export type ChatCompletionContentPart =
+  | ChatCompletionContentPartText
+  | ChatCompletionContentPartImage
+  | ChatCompletionContentPart.ChatCompletionRequestMessageContentPartDocument;
+
+export namespace ChatCompletionContentPart {
+  export interface ChatCompletionRequestMessageContentPartDocument {
+    document: ChatCompletionRequestMessageContentPartDocument.Document;
+
+    /**
+     * The type of the content part.
+     */
+    type: 'document';
+  }
+
+  export namespace ChatCompletionRequestMessageContentPartDocument {
+    export interface Document {
+      /**
+       * The JSON document data.
+       */
+      data: { [key: string]: unknown };
+
+      /**
+       * Optional unique identifier for the document.
+       */
+      id?: string | null;
+    }
+  }
+}
 
 export interface ChatCompletionContentPartImage {
   image_url: ChatCompletionContentPartImage.ImageURL;
