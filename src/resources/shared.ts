@@ -1,13 +1,60 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export interface ErrorObject {
-  code: string | null;
-
   message: string;
 
-  param: string | null;
-
   type: string;
+
+  code?: string | null;
+
+  /**
+   * Debug information including input and output token IDs and strings. Only present
+   * when debug=true in the request.
+   */
+  debug?: ErrorObject.Debug;
+
+  failed_generation?: string | null;
+
+  param?: string | null;
+
+  schema_code?: string | null;
+
+  schema_kind?: string | null;
+
+  schema_path?: string | null;
+
+  /**
+   * Segments of the schema path relevant to validation errors.
+   */
+  schema_path_segments?: Array<string>;
+}
+
+export namespace ErrorObject {
+  /**
+   * Debug information including input and output token IDs and strings. Only present
+   * when debug=true in the request.
+   */
+  export interface Debug {
+    /**
+     * Token IDs for the input.
+     */
+    input_token_ids?: Array<number>;
+
+    /**
+     * Token strings for the input.
+     */
+    input_tokens?: Array<string>;
+
+    /**
+     * Token IDs for the output.
+     */
+    output_token_ids?: Array<number>;
+
+    /**
+     * Token strings for the output.
+     */
+    output_tokens?: Array<string>;
+  }
 }
 
 export interface FunctionDefinition {
