@@ -1,7 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { type Uploadable } from '../../core/uploads';
+import { RequestOptions } from '../../internal/request-options';
+import { multipartFormRequestOptions } from '../../internal/uploads';
 
 export class Translations extends APIResource {
   /**
@@ -14,10 +17,10 @@ export class Translations extends APIResource {
    * });
    * ```
    */
-  create(body: TranslationCreateParams, options?: Core.RequestOptions): Core.APIPromise<Translation> {
+  create(body: TranslationCreateParams, options?: RequestOptions): APIPromise<Translation> {
     return this._client.post(
       '/openai/v1/audio/translations',
-      Core.multipartFormRequestOptions({ body, ...options }),
+      multipartFormRequestOptions({ body, ...options }, this._client),
     );
   }
 }
@@ -37,7 +40,7 @@ export interface TranslationCreateParams {
    * The audio file object (not file name) translate, in one of these formats: flac,
    * mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
    */
-  file?: Core.Uploadable;
+  file?: Uploadable;
 
   /**
    * An optional text to guide the model's style or continue a previous audio

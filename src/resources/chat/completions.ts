@@ -1,10 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as ChatCompletionsAPI from './completions';
 import * as CompletionsAPI from '../completions';
 import * as Shared from '../shared';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Completions extends APIResource {
   /**
@@ -20,7 +21,7 @@ export class Completions extends APIResource {
    * );
    * ```
    */
-  create(body: CompletionCreateParams, options?: Core.RequestOptions): Core.APIPromise<ChatCompletion> {
+  create(body: CompletionCreateParams, options?: RequestOptions): APIPromise<ChatCompletion> {
     return this._client.post('/openai/v1/chat/completions', { body, ...options });
   }
 }

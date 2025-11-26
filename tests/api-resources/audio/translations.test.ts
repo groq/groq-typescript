@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Groq, { toFile } from 'groq-sdk';
-import { Response } from 'node-fetch';
 
 const client = new Groq({
   apiKey: 'My API Key',
