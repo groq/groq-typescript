@@ -107,9 +107,9 @@ Types:
 Methods:
 
 - <code title="post /openai/v1/batches">client.batches.<a href="./src/resources/batches.ts">create</a>({ ...params }) -> BatchCreateResponse</code>
-- <code title="get /openai/v1/batches/{batch_id}">client.batches.<a href="./src/resources/batches.ts">retrieve</a>(batchId) -> BatchRetrieveResponse</code>
+- <code title="get /openai/v1/batches/{batch_id}">client.batches.<a href="./src/resources/batches.ts">retrieve</a>(batchID) -> BatchRetrieveResponse</code>
 - <code title="get /openai/v1/batches">client.batches.<a href="./src/resources/batches.ts">list</a>() -> BatchListResponse</code>
-- <code title="post /openai/v1/batches/{batch_id}/cancel">client.batches.<a href="./src/resources/batches.ts">cancel</a>(batchId) -> BatchCancelResponse</code>
+- <code title="post /openai/v1/batches/{batch_id}/cancel">client.batches.<a href="./src/resources/batches.ts">cancel</a>(batchID) -> BatchCancelResponse</code>
 
 # Files
 
@@ -124,6 +124,6 @@ Methods:
 
 - <code title="post /openai/v1/files">client.files.<a href="./src/resources/files.ts">create</a>({ ...params }) -> FileCreateResponse</code>
 - <code title="get /openai/v1/files">client.files.<a href="./src/resources/files.ts">list</a>() -> FileListResponse</code>
-- <code title="delete /openai/v1/files/{file_id}">client.files.<a href="./src/resources/files.ts">delete</a>(fileId) -> FileDeleteResponse</code>
-- <code title="get /openai/v1/files/{file_id}/content">client.files.<a href="./src/resources/files.ts">content</a>(fileId) -> Response</code>
-- <code title="get /openai/v1/files/{file_id}">client.files.<a href="./src/resources/files.ts">info</a>(fileId) -> FileInfoResponse</code>
+- <code title="delete /openai/v1/files/{file_id}">client.files.<a href="./src/resources/files.ts">delete</a>(fileID) -> FileDeleteResponse</code>
+- <code title="get /openai/v1/files/{file_id}/content">client.files.<a href="./src/resources/files.ts">content</a>(fileID) -> Response</code>
+- <code title="get /openai/v1/files/{file_id}">client.files.<a href="./src/resources/files.ts">info</a>(fileID) -> FileInfoResponse</code>

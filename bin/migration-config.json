@@ -1,0 +1,6 @@
+{
+  "pkg": "groq-sdk",
+  "githubRepo": "https://github.com/stainless-sdks/groqcloud-typescript",
+  "clientClass": "Groq",
+  "methods": []
+}

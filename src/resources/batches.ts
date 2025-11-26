@@ -1,36 +1,38 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Batches extends APIResource {
   /**
    * Creates and executes a batch from an uploaded file of requests.
    * [Learn more](/docs/batch).
    */
-  create(body: BatchCreateParams, options?: Core.RequestOptions): Core.APIPromise<BatchCreateResponse> {
+  create(body: BatchCreateParams, options?: RequestOptions): APIPromise<BatchCreateResponse> {
     return this._client.post('/openai/v1/batches', { body, ...options });
   }
 
   /**
    * Retrieves a batch.
    */
-  retrieve(batchId: string, options?: Core.RequestOptions): Core.APIPromise<BatchRetrieveResponse> {
-    return this._client.get(`/openai/v1/batches/${batchId}`, options);
+  retrieve(batchID: string, options?: RequestOptions): APIPromise<BatchRetrieveResponse> {
+    return this._client.get(path`/openai/v1/batches/${batchID}`, options);
   }
 
   /**
    * List your organization's batches.
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<BatchListResponse> {
+  list(options?: RequestOptions): APIPromise<BatchListResponse> {
     return this._client.get('/openai/v1/batches', options);
   }
 
   /**
    * Cancels a batch.
    */
-  cancel(batchId: string, options?: Core.RequestOptions): Core.APIPromise<BatchCancelResponse> {
-    return this._client.post(`/openai/v1/batches/${batchId}/cancel`, options);
+  cancel(batchID: string, options?: RequestOptions): APIPromise<BatchCancelResponse> {
+    return this._client.post(path`/openai/v1/batches/${batchID}/cancel`, options);
   }
 }
 

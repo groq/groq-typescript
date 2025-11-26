@@ -1,7 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { type Uploadable } from '../../core/uploads';
+import { RequestOptions } from '../../internal/request-options';
+import { multipartFormRequestOptions } from '../../internal/uploads';
 
 export class Transcriptions extends APIResource {
   /**
@@ -15,10 +18,10 @@ export class Transcriptions extends APIResource {
    *   });
    * ```
    */
-  create(body: TranscriptionCreateParams, options?: Core.RequestOptions): Core.APIPromise<Transcription> {
+  create(body: TranscriptionCreateParams, options?: RequestOptions): APIPromise<Transcription> {
     return this._client.post(
       '/openai/v1/audio/transcriptions',
-      Core.multipartFormRequestOptions({ body, ...options }),
+      multipartFormRequestOptions({ body, ...options }, this._client),
     );
   }
 }
@@ -46,7 +49,7 @@ export interface TranscriptionCreateParams {
    * flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. Either a file or a URL must
    * be provided. Note that the file field is not supported in Batch API requests.
    */
-  file?: Core.Uploadable;
+  file?: Uploadable;
 
   /**
    * The language of the input audio. Supplying the input language in
