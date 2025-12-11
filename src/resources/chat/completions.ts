@@ -5,6 +5,7 @@ import * as ChatCompletionsAPI from './completions';
 import * as CompletionsAPI from '../completions';
 import * as Shared from '../shared';
 import { APIPromise } from '../../core/api-promise';
+import { Stream } from '../../core/streaming';
 import { RequestOptions } from '../../internal/request-options';
 
 export class Completions extends APIResource {
@@ -21,8 +22,24 @@ export class Completions extends APIResource {
    * );
    * ```
    */
-  create(body: CompletionCreateParams, options?: RequestOptions): APIPromise<ChatCompletion> {
-    return this._client.post('/openai/v1/chat/completions', { body, ...options });
+  create(body: ChatCompletionCreateParamsNonStreaming, options?: RequestOptions): APIPromise<ChatCompletion>;
+  create(
+    body: ChatCompletionCreateParamsStreaming,
+    options?: RequestOptions,
+  ): APIPromise<Stream<ChatCompletionChunk>>;
+  create(
+    body: ChatCompletionCreateParamsBase,
+    options?: RequestOptions,
+  ): APIPromise<Stream<ChatCompletionChunk> | ChatCompletion>;
+  create(
+    body: ChatCompletionCreateParams,
+    options?: RequestOptions,
+  ): APIPromise<ChatCompletion> | APIPromise<Stream<ChatCompletionChunk>> {
+    return this._client.post('/openai/v1/chat/completions', {
+      body,
+      ...options,
+      stream: body.stream ?? false,
+    }) as APIPromise<ChatCompletion> | APIPromise<Stream<ChatCompletionChunk>>;
   }
 }
 
@@ -1843,7 +1860,11 @@ export interface ChatCompletionUserMessageParam {
   name?: string;
 }
 
-export interface CompletionCreateParams {
+export type ChatCompletionCreateParams =
+  | ChatCompletionCreateParamsNonStreaming
+  | ChatCompletionCreateParamsStreaming;
+
+export interface ChatCompletionCreateParamsBase {
   /**
    * A list of messages comprising the conversation so far.
    */
@@ -2333,6 +2354,26 @@ export namespace CompletionCreateParams {
      */
     include_images?: boolean | null;
   }
+}
+
+export interface ChatCompletionCreateParamsNonStreaming extends ChatCompletionCreateParamsBase {
+  /**
+   * If set, partial message deltas will be sent. Tokens will be sent as data-only
+   * [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
+   * as they become available, with the stream terminated by a `data: [DONE]`
+   * message. [Example code](/docs/text-chat#streaming-a-chat-completion).
+   */
+  stream?: false | null;
+}
+
+export interface ChatCompletionCreateParamsStreaming extends ChatCompletionCreateParamsBase {
+  /**
+   * If set, partial message deltas will be sent. Tokens will be sent as data-only
+   * [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
+   * as they become available, with the stream terminated by a `data: [DONE]`
+   * message. [Example code](/docs/text-chat#streaming-a-chat-completion).
+   */
+  stream: true;
 }
 
 export declare namespace Completions {
