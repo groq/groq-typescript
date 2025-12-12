@@ -43,6 +43,7 @@ import { Model, ModelDeleted, ModelListResponse, Models } from './resources/mode
 import { Audio } from './resources/audio/audio';
 import { Chat } from './resources/chat/chat';
 import { type Fetch } from './internal/builtin-types';
+import { isRunningInBrowser } from './internal/detect-platform';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import { readEnv } from './internal/utils/env';
@@ -116,6 +117,12 @@ export interface ClientOptions {
   defaultQuery?: Record<string, string | undefined> | undefined;
 
   /**
+   * By default, client-side use of this library is not allowed, as it risks exposing your secret API credentials to attackers.
+   * Only set this option to `true` if you understand the risks and have appropriate mitigations in place.
+   */
+  dangerouslyAllowBrowser?: boolean | undefined;
+
+  /**
    * Set the log level.
    *
    * Defaults to process.env['GROQ_LOG'] or 'warn' if it isn't set.
@@ -159,6 +166,7 @@ export class Groq {
    * @param {number} [opts.maxRetries=2] - The maximum number of times the client will retry a request.
    * @param {HeadersLike} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Record<string, string | undefined>} opts.defaultQuery - Default query parameters to include with every request to the API.
+   * @param {boolean} [opts.dangerouslyAllowBrowser=false] - By default, client-side use of this library is not allowed, as it risks exposing your secret API credentials to attackers.
    */
   constructor({
     baseURL = readEnv('GROQ_BASE_URL'),
@@ -176,6 +184,12 @@ export class Groq {
       ...opts,
       baseURL: baseURL || `https://api.groq.com`,
     };
+
+    if (!options.dangerouslyAllowBrowser && isRunningInBrowser()) {
+      throw new Errors.GroqError(
+        "It looks like you're running in a browser-like environment.\n\nThis is disabled by default, as it risks exposing your secret API credentials to attackers.\nIf you understand the risks and have appropriate mitigations in place,\nyou can set the `dangerouslyAllowBrowser` option to `true`, e.g.,\n\nnew Groq({ apiKey, dangerouslyAllowBrowser: true })",
+      );
+    }
 
     this.baseURL = options.baseURL!;
     this.timeout = options.timeout ?? Groq.DEFAULT_TIMEOUT /* 1 minute */;
