@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.37.1 (2025-12-12)
+
+Full Changelog: [v0.37.0...v0.37.1](https://github.com/groq/groq-typescript/compare/v0.37.0...v0.37.1)
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([62a5760](https://github.com/groq/groq-typescript/commit/62a576095aacddfbc98c63eff6294f0635949551))
+* **mcp:** return correct lines on typescript errors ([7957eb7](https://github.com/groq/groq-typescript/commit/7957eb76422e829b498837d096465d07415b5604))
+
+
+### Chores
+
+* **internal:** codegen related update ([8aeaaf6](https://github.com/groq/groq-typescript/commit/8aeaaf664ae1b72b73686871a8fce2d2049de6b0))
+* **internal:** codegen related update ([a3730c0](https://github.com/groq/groq-typescript/commit/a3730c0d242fdfb4aebb3007ddae6d472f3f9eab))
+
 ## 0.37.0 (2025-11-24)
 
 Full Changelog: [v0.36.0...v0.37.0](https://github.com/groq/groq-typescript/compare/v0.36.0...v0.37.0)
