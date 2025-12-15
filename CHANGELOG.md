@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.0.0 (2025-12-15)
+
+Full Changelog: [v0.37.0...v1.0.0](https://github.com/groq/groq-typescript/compare/v0.37.0...v1.0.0)
+
+### Features
+
+* **api:** begin TS migration ([46c2532](https://github.com/groq/groq-typescript/commit/46c25324affbdf3c8c7718491ea830260eb6de67))
+* **api:** manual updates ([bf780a6](https://github.com/groq/groq-typescript/commit/bf780a60b24b589dcdf71ad3b3db6f9a17c9f464))
+* **api:** manual updates ([011f2c5](https://github.com/groq/groq-typescript/commit/011f2c5156fd80df44268d0875390293db8e8627))
+
+
+### Bug Fixes
+
+* Fix streaming support ([94fdb4f](https://github.com/groq/groq-typescript/commit/94fdb4f5dada494ecd7c0c874a3b80e5b4d7792d))
+* **mcp:** correct code tool API endpoint ([fd1e22b](https://github.com/groq/groq-typescript/commit/fd1e22b953c82f50c383b84164c809032380f8b0))
+* **mcp:** return correct lines on typescript errors ([e44cb40](https://github.com/groq/groq-typescript/commit/e44cb40322ba196d6255870669c703c206683045))
+
+
+### Chores
+
+* **client:** fix logger property type ([fdd4efc](https://github.com/groq/groq-typescript/commit/fdd4efcd4af74aa612917b9199d23c0cf16dcbc4))
+* **internal:** codegen related update ([0bdc11a](https://github.com/groq/groq-typescript/commit/0bdc11a1b016cd0f68ea9056d63edbd7c26abcd3))
+* **internal:** codegen related update ([ef2160c](https://github.com/groq/groq-typescript/commit/ef2160c2b85b7ef9efd67a43bf773288d26acd79))
+* **internal:** upgrade eslint ([be69dc6](https://github.com/groq/groq-typescript/commit/be69dc65c492cbd75eea77d26772fe7e04f5521f))
+
 ## 0.18.0 (2025-04-01)
 
 Full Changelog: [v0.17.0...v0.18.0](https://github.com/groq/groq-typescript/compare/v0.17.0...v0.18.0)
