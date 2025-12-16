@@ -1,8 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
-import { type Response } from '../_shims/index';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { type Uploadable } from '../core/uploads';
+import { buildHeaders } from '../internal/headers';
+import { RequestOptions } from '../internal/request-options';
+import { multipartFormRequestOptions } from '../internal/uploads';
+import { path } from '../internal/utils/path';
 
 export class Files extends APIResource {
   /**
@@ -13,31 +17,34 @@ export class Files extends APIResource {
    *
    * Please contact us if you need to increase these storage limits.
    */
-  create(body: FileCreateParams, options?: Core.RequestOptions): Core.APIPromise<FileCreateResponse> {
-    return this._client.post('/openai/v1/files', Core.multipartFormRequestOptions({ body, ...options }));
+  create(body: FileCreateParams, options?: RequestOptions): APIPromise<FileCreateResponse> {
+    return this._client.post(
+      '/openai/v1/files',
+      multipartFormRequestOptions({ body, ...options }, this._client),
+    );
   }
 
   /**
    * Returns a list of files.
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<FileListResponse> {
+  list(options?: RequestOptions): APIPromise<FileListResponse> {
     return this._client.get('/openai/v1/files', options);
   }
 
   /**
    * Delete a file.
    */
-  delete(fileId: string, options?: Core.RequestOptions): Core.APIPromise<FileDeleteResponse> {
-    return this._client.delete(`/openai/v1/files/${fileId}`, options);
+  delete(fileID: string, options?: RequestOptions): APIPromise<FileDeleteResponse> {
+    return this._client.delete(path`/openai/v1/files/${fileID}`, options);
   }
 
   /**
    * Returns the contents of the specified file.
    */
-  content(fileId: string, options?: Core.RequestOptions): Core.APIPromise<Response> {
-    return this._client.get(`/openai/v1/files/${fileId}/content`, {
+  content(fileID: string, options?: RequestOptions): APIPromise<Response> {
+    return this._client.get(path`/openai/v1/files/${fileID}/content`, {
       ...options,
-      headers: { Accept: 'application/octet-stream', ...options?.headers },
+      headers: buildHeaders([{ Accept: 'application/octet-stream' }, options?.headers]),
       __binaryResponse: true,
     });
   }
@@ -45,8 +52,8 @@ export class Files extends APIResource {
   /**
    * Returns information about a file.
    */
-  info(fileId: string, options?: Core.RequestOptions): Core.APIPromise<FileInfoResponse> {
-    return this._client.get(`/openai/v1/files/${fileId}`, options);
+  info(fileID: string, options?: RequestOptions): APIPromise<FileInfoResponse> {
+    return this._client.get(path`/openai/v1/files/${fileID}`, options);
   }
 }
 
@@ -178,7 +185,7 @@ export interface FileCreateParams {
   /**
    * The File object (not file name) to be uploaded.
    */
-  file: Core.Uploadable;
+  file: Uploadable;
 
   /**
    * The intended purpose of the uploaded file. Use "batch" for

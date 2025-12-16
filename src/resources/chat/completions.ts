@@ -1,11 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as ChatCompletionsAPI from './completions';
 import * as CompletionsAPI from '../completions';
 import * as Shared from '../shared';
-import { Stream } from '../../lib/streaming';
+import { APIPromise } from '../../core/api-promise';
+import { Stream } from '../../core/streaming';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Completions extends APIResource {
   /**
@@ -21,27 +22,24 @@ export class Completions extends APIResource {
    * );
    * ```
    */
-  create(
-    body: ChatCompletionCreateParamsNonStreaming,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ChatCompletion>;
+  create(body: ChatCompletionCreateParamsNonStreaming, options?: RequestOptions): APIPromise<ChatCompletion>;
   create(
     body: ChatCompletionCreateParamsStreaming,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Stream<ChatCompletionChunk>>;
+    options?: RequestOptions,
+  ): APIPromise<Stream<ChatCompletionChunk>>;
   create(
     body: ChatCompletionCreateParamsBase,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Stream<ChatCompletionChunk> | ChatCompletion>;
+    options?: RequestOptions,
+  ): APIPromise<Stream<ChatCompletionChunk> | ChatCompletion>;
   create(
     body: ChatCompletionCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ChatCompletion> | Core.APIPromise<Stream<ChatCompletionChunk>> {
+    options?: RequestOptions,
+  ): APIPromise<ChatCompletion> | APIPromise<Stream<ChatCompletionChunk>> {
     return this._client.post('/openai/v1/chat/completions', {
       body,
       ...options,
       stream: body.stream ?? false,
-    }) as Core.APIPromise<ChatCompletion> | Core.APIPromise<Stream<ChatCompletionChunk>>;
+    }) as APIPromise<ChatCompletion> | APIPromise<Stream<ChatCompletionChunk>>;
   }
 }
 
