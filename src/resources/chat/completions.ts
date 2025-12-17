@@ -316,7 +316,8 @@ export interface ChatCompletionAssistantMessageParam {
 
   /**
    * The reasoning output by the assistant if reasoning_format was set to 'parsed'.
-   * This field is only useable with qwen3 models.
+   * This field is supported on
+   * [models that support reasoning](https://console.groq.com/docs/reasoning).
    */
   reasoning?: string | null;
 
@@ -448,8 +449,9 @@ export namespace ChatCompletionChunk {
       function_call?: Delta.FunctionCall;
 
       /**
-       * The model's reasoning for a response. Only available for reasoning models when
-       * requests parameter reasoning_format has value `parsed.
+       * The model's reasoning for a response. Only available for
+       * [models that support reasoning](https://console.groq.com/docs/reasoning) when
+       * request parameter reasoning_format has value `parsed`.
        */
       reasoning?: string | null;
 
@@ -1187,8 +1189,9 @@ export interface ChatCompletionMessage {
   function_call?: ChatCompletionMessage.FunctionCall;
 
   /**
-   * The model's reasoning for a response. Only available for reasoning models when
-   * requests parameter reasoning_format has value `parsed.
+   * The model's reasoning for a response. Only available for
+   * [models that support reasoning](https://console.groq.com/docs/reasoning) when
+   * request parameter reasoning_format has value `parsed`.
    */
   reasoning?: string | null;
 
