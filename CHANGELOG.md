@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.1.0 (2025-12-18)
+
+Full Changelog: [v1.0.0...v1.1.0](https://github.com/groq/groq-typescript/compare/v1.0.0...v1.1.0)
+
+### Features
+
+* **api:** api update ([4f1199d](https://github.com/groq/groq-typescript/commit/4f1199d897500beb6ffd9283e7b6225d8ab6b29f))
+
+
+### Chores
+
+* GitHub Terraform: Create/Update .github/workflows/code-freeze-bypass.yaml [skip ci] ([8526139](https://github.com/groq/groq-typescript/commit/8526139863390717f7755e1ec8714c5eb716dcd1))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([67e6c4d](https://github.com/groq/groq-typescript/commit/67e6c4da108a6646485b7763e83af6bd223a2849))
+* update dependencies ([f425156](https://github.com/groq/groq-typescript/commit/f425156c02d1ab7b54b4993e041b9f35e8c11662))
+
 ## 1.0.0 (2025-12-15)
 
 Full Changelog: [v0.37.0...v1.0.0](https://github.com/groq/groq-typescript/compare/v0.37.0...v1.0.0)
