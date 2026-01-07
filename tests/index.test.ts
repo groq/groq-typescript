@@ -87,7 +87,11 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Groq({ logger: logger, logLevel: 'debug', apiKey: 'My API Key' });
+      const client = new Groq({
+        logger: logger,
+        logLevel: 'debug',
+        apiKey: 'My API Key',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).toHaveBeenCalled();
@@ -107,7 +111,11 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Groq({ logger: logger, logLevel: 'info', apiKey: 'My API Key' });
+      const client = new Groq({
+        logger: logger,
+        logLevel: 'info',
+        apiKey: 'My API Key',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -157,7 +165,11 @@ describe('instantiate client', () => {
       };
 
       process.env['GROQ_LOG'] = 'debug';
-      const client = new Groq({ logger: logger, logLevel: 'off', apiKey: 'My API Key' });
+      const client = new Groq({
+        logger: logger,
+        logLevel: 'off',
+        apiKey: 'My API Key',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -173,7 +185,11 @@ describe('instantiate client', () => {
       };
 
       process.env['GROQ_LOG'] = 'not a log level';
-      const client = new Groq({ logger: logger, logLevel: 'debug', apiKey: 'My API Key' });
+      const client = new Groq({
+        logger: logger,
+        logLevel: 'debug',
+        apiKey: 'My API Key',
+      });
       expect(client.logLevel).toBe('debug');
       expect(warnMock).not.toHaveBeenCalled();
     });
@@ -227,7 +243,11 @@ describe('instantiate client', () => {
 
   test('explicit global fetch', async () => {
     // make sure the global fetch type is assignable to our Fetch type
-    const client = new Groq({ baseURL: 'http://localhost:5000/', apiKey: 'My API Key', fetch: defaultFetch });
+    const client = new Groq({
+      baseURL: 'http://localhost:5000/',
+      apiKey: 'My API Key',
+      fetch: defaultFetch,
+    });
   });
 
   test('custom signal', async () => {
@@ -263,7 +283,11 @@ describe('instantiate client', () => {
       return new Response(JSON.stringify({}), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Groq({ baseURL: 'http://localhost:5000/', apiKey: 'My API Key', fetch: testFetch });
+    const client = new Groq({
+      baseURL: 'http://localhost:5000/',
+      apiKey: 'My API Key',
+      fetch: testFetch,
+    });
 
     await client.patch('/foo');
     expect(capturedRequest?.method).toEqual('PATCH');
@@ -341,7 +365,11 @@ describe('instantiate client', () => {
 
   describe('withOptions', () => {
     test('creates a new client with overridden options', async () => {
-      const client = new Groq({ baseURL: 'http://localhost:5000/', maxRetries: 3, apiKey: 'My API Key' });
+      const client = new Groq({
+        baseURL: 'http://localhost:5000/',
+        maxRetries: 3,
+        apiKey: 'My API Key',
+      });
 
       const newClient = client.withOptions({
         maxRetries: 5,
@@ -381,7 +409,11 @@ describe('instantiate client', () => {
     });
 
     test('respects runtime property changes when creating new client', () => {
-      const client = new Groq({ baseURL: 'http://localhost:5000/', timeout: 1000, apiKey: 'My API Key' });
+      const client = new Groq({
+        baseURL: 'http://localhost:5000/',
+        timeout: 1000,
+        apiKey: 'My API Key',
+      });
 
       // Modify the client properties directly after creation
       client.baseURL = 'http://localhost:6000/';
@@ -527,7 +559,11 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Groq({ apiKey: 'My API Key', timeout: 10, fetch: testFetch });
+    const client = new Groq({
+      apiKey: 'My API Key',
+      timeout: 10,
+      fetch: testFetch,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -557,7 +593,11 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Groq({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
+    const client = new Groq({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -581,7 +621,11 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Groq({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
+    const client = new Groq({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({
@@ -643,7 +687,11 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Groq({ apiKey: 'My API Key', fetch: testFetch, maxRetries: 4 });
+    const client = new Groq({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({
