@@ -60,7 +60,7 @@ $ yarn link groq-sdk
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global groq-sdk
+$ pnpm link --global groq-sdk
 ```
 
 ## Running tests
