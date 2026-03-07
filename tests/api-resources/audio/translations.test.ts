@@ -24,7 +24,7 @@ describe('resource translations', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.audio.translations.create({
       model: 'whisper-large-v3-turbo',
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file: await toFile(Buffer.from('Example data'), 'README.md'),
       prompt: 'prompt',
       response_format: 'json',
       temperature: 0,
