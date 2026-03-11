@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIPromise } from 'groq-sdk/core/api-promise';
+import { Stream } from 'groq-sdk/core/streaming';
 
 import util from 'node:util';
 import Groq from 'groq-sdk';
@@ -541,6 +542,48 @@ describe('default encoder', () => {
     expect(req.headers.get('content-type')).toEqual('text/plain');
     expect(req.body).toBeInstanceOf(ReadableStream);
     expect(await new Response(req.body).text()).toBe('a\nb\nc\n');
+  });
+});
+
+describe('streaming', () => {
+  test('defaultParseResponse returns a Stream for SSE responses when stream: true', async () => {
+    // Simulate an SSE response like Groq's streaming chat completions endpoint
+    const sseBody = [
+      'data: {"id":"1","object":"chat.completion.chunk","choices":[{"index":0,"delta":{"role":"assistant","content":"Hello"},"finish_reason":null}]}\n\n',
+      'data: {"id":"1","object":"chat.completion.chunk","choices":[{"index":0,"delta":{"content":" world"},"finish_reason":null}]}\n\n',
+      'data: {"id":"1","object":"chat.completion.chunk","choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}\n\n',
+      'data: [DONE]\n\n',
+    ].join('');
+
+    const testFetch = async (): Promise<Response> => {
+      return new Response(sseBody, {
+        headers: { 'Content-Type': 'text/event-stream' },
+      });
+    };
+
+    const client = new Groq({
+      apiKey: 'My API Key',
+      fetch: testFetch,
+    });
+
+    const result = await client.chat.completions.create({
+      messages: [{ role: 'user', content: 'Hi' }],
+      model: 'llama-3.3-70b-versatile',
+      stream: true,
+    });
+
+    // The result must be a Stream, not a raw string
+    expect(result).toBeInstanceOf(Stream);
+
+    const chunks: unknown[] = [];
+    for await (const chunk of result) {
+      chunks.push(chunk);
+    }
+
+    expect(chunks).toHaveLength(3);
+    expect((chunks[0] as any).choices[0].delta.content).toBe('Hello');
+    expect((chunks[1] as any).choices[0].delta.content).toBe(' world');
+    expect((chunks[2] as any).choices[0].finish_reason).toBe('stop');
   });
 });
 
