@@ -1,5 +1,38 @@
 # Changelog
 
+## 1.1.1 (2026-03-11)
+
+Full Changelog: [v1.1.0...v1.1.1](https://github.com/groq/groq-typescript/compare/v1.1.0...v1.1.1)
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([fd9418a](https://github.com/groq/groq-typescript/commit/fd9418a3f1f7225e8711508029281d17d41742dc))
+* **client:** avoid removing abort listener too early ([ae8976f](https://github.com/groq/groq-typescript/commit/ae8976f195a8d9e67bb0e9a5bf3cf8426c9e9e9c))
+* **client:** preserve URL params already embedded in path ([6bae9aa](https://github.com/groq/groq-typescript/commit/6bae9aa8bcde8a8e165a841801ce42c70eaab766))
+* **docs/contributing:** correct pnpm link command ([ea938fe](https://github.com/groq/groq-typescript/commit/ea938feab2fb65fe9b6b228c709fb097d7dc8688))
+* pin patched minimatch versions via yarn resolutions (CVE-2026-27… ([#252](https://github.com/groq/groq-typescript/issues/252)) ([fc17abe](https://github.com/groq/groq-typescript/commit/fc17abec2907cc6c9a3488977cee13a5da1e3d2c))
+* restore streaming support in defaultParseResponse ([6795b8b](https://github.com/groq/groq-typescript/commit/6795b8be8b5339d87be581f8f01407de6979abb7))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([f13f15a](https://github.com/groq/groq-typescript/commit/f13f15a4a92237195df4e04e01219aff8c9f5ed8))
+* **ci:** skip uploading artifacts on stainless-internal branches ([1d3116d](https://github.com/groq/groq-typescript/commit/1d3116dff5e61f182d742407ab26bb53d5b45a7b))
+* **ci:** upgrade `actions/github-script` ([633ccf1](https://github.com/groq/groq-typescript/commit/633ccf1cc55aef674ac17bfc4beeb7c438f75ddc))
+* **client:** do not parse responses with empty content-length ([b48d017](https://github.com/groq/groq-typescript/commit/b48d017bde49f039adc358b170429cc569d9a3b4))
+* **client:** restructure abort controller binding ([10a3479](https://github.com/groq/groq-typescript/commit/10a347947d80052f4d663714fdfaaea0bacfcc9d))
+* **internal/client:** fix form-urlencoded requests ([17ef412](https://github.com/groq/groq-typescript/commit/17ef4125a59c57f227f057cd348d162785f618cf))
+* **internal:** avoid type checking errors with ts-reset ([2a6752e](https://github.com/groq/groq-typescript/commit/2a6752ed49a348f6d49ba09215d2fb59d3eddb3a))
+* **internal:** codegen related update ([c9dad6d](https://github.com/groq/groq-typescript/commit/c9dad6ddd27a9057cb1f9b8c242d7f0e18bee555))
+* **internal:** codegen related update ([6488bb3](https://github.com/groq/groq-typescript/commit/6488bb39ddd66c16a25fdf358b488fc2762eefc4))
+* **internal:** move stringifyQuery implementation to internal function ([7629490](https://github.com/groq/groq-typescript/commit/762949058e72f2453d8e6e90b7ae13eb2e85a817))
+* **internal:** update `actions/checkout` version ([e480d86](https://github.com/groq/groq-typescript/commit/e480d869ac87670b1295ea9ea927542dcbfccf16))
+* **internal:** update dependencies to address dependabot vulnerabilities ([22edb8a](https://github.com/groq/groq-typescript/commit/22edb8aafa5c8caa1738a844aac978353f4fc1f0))
+* **internal:** upgrade babel, qs, js-yaml ([26610d6](https://github.com/groq/groq-typescript/commit/26610d66e5114065fe9a93d797349f46b57d0129))
+* **test:** do not count install time for mock server timeout ([4fb4c2a](https://github.com/groq/groq-typescript/commit/4fb4c2a701e1153ae68f0d89c840d34b2e678a8d))
+* update mock server docs ([f4fb792](https://github.com/groq/groq-typescript/commit/f4fb7920d32f4f94a5870cf91ddd1a22b4643d28))
+* update placeholder string ([50f153b](https://github.com/groq/groq-typescript/commit/50f153bcdc2c643724a3f71bde1e23d29f4404ec))
+
 ## 1.1.0 (2025-12-18)
 
 Full Changelog: [v1.0.0...v1.1.0](https://github.com/groq/groq-typescript/compare/v1.0.0...v1.1.0)

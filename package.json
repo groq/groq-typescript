@@ -1,6 +1,6 @@
 {
   "name": "groq-sdk",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The official TypeScript library for the Groq API",
   "author": "Groq <support@groq.com>",
   "types": "dist/index.d.ts",
@@ -58,6 +58,17 @@
   },
   "bin": {
     "groq-sdk": "bin/cli"
+  },
+  "overrides": {
+    "minimatch": "^9.0.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "minimatch": "^9.0.5"
+    }
+  },
+  "resolutions": {
+    "minimatch": "^9.0.5"
   },
   "exports": {
     ".": {

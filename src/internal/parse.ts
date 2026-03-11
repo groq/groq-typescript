@@ -2,6 +2,7 @@
 
 import type { FinalRequestOptions } from './request-options';
 import { type Groq } from '../client';
+import { Stream } from '../core/streaming';
 import { formatRequestDetails, loggerFor } from './utils/log';
 
 export type APIResponseProps = {
@@ -25,10 +26,20 @@ export async function defaultParseResponse<T>(client: Groq, props: APIResponsePr
       return response as unknown as T;
     }
 
+    if (props.options.stream) {
+      return Stream.fromSSEResponse(response, props.controller, client) as unknown as T;
+    }
+
     const contentType = response.headers.get('content-type');
     const mediaType = contentType?.split(';')[0]?.trim();
     const isJSON = mediaType?.includes('application/json') || mediaType?.endsWith('+json');
     if (isJSON) {
+      const contentLength = response.headers.get('content-length');
+      if (contentLength === '0') {
+        // if there is no content we can't do anything
+        return undefined as T;
+      }
+
       const json = await response.json();
       return json as T;
     }

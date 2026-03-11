@@ -24,19 +24,39 @@ describe('resource completions', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.chat.completions.create({
-      messages: [{ content: 'string', role: 'system', name: 'name' }],
+      messages: [
+        {
+          content: 'string',
+          role: 'system',
+          name: 'name',
+        },
+      ],
       model: 'meta-llama/llama-4-scout-17b-16e-instruct',
       citation_options: 'enabled',
       compound_custom: {
         models: { answering_model: 'answering_model', reasoning_model: 'reasoning_model' },
-        tools: { enabled_tools: ['string'], wolfram_settings: { authorization: 'authorization' } },
+        tools: {
+          enabled_tools: ['string'],
+          wolfram_settings: { authorization: 'authorization' },
+        },
       },
       disable_tool_validation: true,
-      documents: [{ source: { text: 'text', type: 'text' }, id: 'id' }],
+      documents: [
+        {
+          source: { text: 'text', type: 'text' },
+          id: 'id',
+        },
+      ],
       exclude_domains: ['string'],
       frequency_penalty: -2,
       function_call: 'none',
-      functions: [{ name: 'name', description: 'description', parameters: { foo: 'bar' } }],
+      functions: [
+        {
+          name: 'name',
+          description: 'description',
+          parameters: { foo: 'bar' },
+        },
+      ],
       include_domains: ['string'],
       include_reasoning: true,
       logit_bias: { foo: 0 },
@@ -66,7 +86,12 @@ describe('resource completions', () => {
       tools: [
         {
           type: 'function',
-          function: { name: 'name', description: 'description', parameters: { foo: 'bar' }, strict: true },
+          function: {
+            name: 'name',
+            description: 'description',
+            parameters: { foo: 'bar' },
+            strict: true,
+          },
         },
       ],
       top_logprobs: 0,
