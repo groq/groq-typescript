@@ -2,6 +2,7 @@
 
 import type { FinalRequestOptions } from './request-options';
 import { type Groq } from '../client';
+import { Stream } from '../core/streaming';
 import { formatRequestDetails, loggerFor } from './utils/log';
 
 export type APIResponseProps = {
@@ -23,6 +24,10 @@ export async function defaultParseResponse<T>(client: Groq, props: APIResponsePr
 
     if (props.options.__binaryResponse) {
       return response as unknown as T;
+    }
+
+    if (props.options.stream) {
+      return Stream.fromSSEResponse(response, props.controller, client) as unknown as T;
     }
 
     const contentType = response.headers.get('content-type');
