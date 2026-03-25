@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.1.2 (2026-03-25)
+
+Full Changelog: [v1.1.1...v1.1.2](https://github.com/groq/groq-typescript/compare/v1.1.1...v1.1.2)
+
+### Bug Fixes
+
+* update GHA to use oidc tokens ([#255](https://github.com/groq/groq-typescript/issues/255)) ([585343c](https://github.com/groq/groq-typescript/commit/585343c764f1a3d7b62276500bf71f30e8da78af))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([5d1dcb6](https://github.com/groq/groq-typescript/commit/5d1dcb68c731eb5b7ea655221ea6a5e3dbcfe601))
+* **deps:** bump flatted from 3.3.2 to 3.4.2 ([#258](https://github.com/groq/groq-typescript/issues/258)) ([3736cf7](https://github.com/groq/groq-typescript/commit/3736cf7b48628212cb24edc7197a2fa68b274f3c))
+* **internal:** tweak CI branches ([117dcbe](https://github.com/groq/groq-typescript/commit/117dcbed5073a7409aa5269aa936b0841df9e1cd))
+* **internal:** update gitignore ([ff61d7b](https://github.com/groq/groq-typescript/commit/ff61d7bf45f4edf58a7d8561598fd0df45d249ac))
+* **tests:** bump steady to v0.19.4 ([e5e6afa](https://github.com/groq/groq-typescript/commit/e5e6afa47ed67aeea99cdf43a5e00efca35758f7))
+* **tests:** bump steady to v0.19.5 ([be08c75](https://github.com/groq/groq-typescript/commit/be08c7546cc33d314007fbe124a99c8add5dae52))
+* **tests:** bump steady to v0.19.6 ([13572c0](https://github.com/groq/groq-typescript/commit/13572c0a115b6df5c08084a49207c03badd310d3))
+* **tests:** bump steady to v0.19.7 ([de421b8](https://github.com/groq/groq-typescript/commit/de421b895798422cd16b736b6d0605dcb3aa6774))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([ae99475](https://github.com/groq/groq-typescript/commit/ae99475976716b19ecf1e3fa9b4cea9e78908016))
+
 ## 1.1.1 (2026-03-11)
 
 Full Changelog: [v1.1.0...v1.1.1](https://github.com/groq/groq-typescript/compare/v1.1.0...v1.1.1)
