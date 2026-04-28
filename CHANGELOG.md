@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.2.0 (2026-04-28)
+
+Full Changelog: [v1.1.2...v1.2.0](https://github.com/groq/groq-typescript/compare/v1.1.2...v1.2.0)
+
+### Features
+
+* support setting headers via env ([4141bb0](https://github.com/groq/groq-typescript/commit/4141bb00f6f8c9da69a9de9bab20dc6228976413))
+
+
+### Bug Fixes
+
+* **ci:** set NODE_AUTH_TOKEN for npm OIDC trusted publisher auth ([#259](https://github.com/groq/groq-typescript/issues/259)) ([67f676b](https://github.com/groq/groq-typescript/commit/67f676bd330d248632b5583404e3e0baa8f5be7a))
+
+
+### Chores
+
+* **internal:** codegen related update ([f4bca6a](https://github.com/groq/groq-typescript/commit/f4bca6a4f8c3daa23f4f37b141fa67cb098ca729))
+* **internal:** codegen related update ([22ebc5e](https://github.com/groq/groq-typescript/commit/22ebc5e7e2bb2cdde159fbcef3241e45f2126181))
+* **internal:** codegen related update ([da82d5d](https://github.com/groq/groq-typescript/commit/da82d5de3f1356789a9b5c8c925478ffdc80f68a))
+* **internal:** codegen related update ([d8648d9](https://github.com/groq/groq-typescript/commit/d8648d99b63a67a9a4b6aef3975182667a8f8143))
+* **internal:** more robust bootstrap script ([991fe2c](https://github.com/groq/groq-typescript/commit/991fe2c1a71529675352dfc8ed3237848d29bbcd))
+* **internal:** update multipart form array serialization ([d0681d2](https://github.com/groq/groq-typescript/commit/d0681d2a4e4f66e428d73c2a20b99dc57b325e48))
+* **tests:** bump steady to v0.20.1 ([4f47a2d](https://github.com/groq/groq-typescript/commit/4f47a2d1e6b241ce01e2c2162f08bbff2baa7366))
+* **tests:** bump steady to v0.20.2 ([ceeeeea](https://github.com/groq/groq-typescript/commit/ceeeeea5a0b7d25c97c8922ab78a3d9ecaa08cb4))
+* **tests:** bump steady to v0.22.1 ([59eabab](https://github.com/groq/groq-typescript/commit/59eabab3a481fc8711f84cf994adadce933d66c0))
+
+
+### Documentation
+
+* improve examples ([d8f62df](https://github.com/groq/groq-typescript/commit/d8f62df1fab02fe0d394917d99b50a0d4abf70e9))
+
 ## 1.1.2 (2026-03-25)
 
 Full Changelog: [v1.1.1...v1.1.2](https://github.com/groq/groq-typescript/compare/v1.1.1...v1.1.2)
