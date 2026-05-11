@@ -25,7 +25,7 @@ describe('resource transcriptions', () => {
     const response = await client.audio.transcriptions.create({
       model: 'whisper-large-v3-turbo',
       file: await toFile(Buffer.from('Example data'), 'README.md'),
-      language: 'string',
+      language: 'en',
       prompt: 'prompt',
       response_format: 'json',
       temperature: 0,
