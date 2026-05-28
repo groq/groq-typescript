@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.2.1 (2026-05-28)
+
+Full Changelog: [v1.2.0...v1.2.1](https://github.com/groq/groq-typescript/compare/v1.2.0...v1.2.1)
+
+### Bug Fixes
+
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([4ab1f54](https://github.com/groq/groq-typescript/commit/4ab1f54e1d84367a93c2bb524f98f782f7cf0313))
+
+
+### Chores
+
+* GitHub Terraform: Create/Update .github/workflows/code-freeze-bypass.yaml [skip ci] ([fa53cca](https://github.com/groq/groq-typescript/commit/fa53cca1f5e097defdc623ef80267c98f2e28dfe))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([07d7e5a](https://github.com/groq/groq-typescript/commit/07d7e5a403f243f41d3ce44fad50d2ea5f490ac2))
+* **internal:** codegen related update ([b9aa6b9](https://github.com/groq/groq-typescript/commit/b9aa6b9ef6bfbedc1ad1b4d8d0f8da24bc68983e))
+* **lint:** ignore Terraform-managed workflow yamls in prettier ([e6d0c51](https://github.com/groq/groq-typescript/commit/e6d0c512999a6e4ac02dd74a8d89c5bdabf11969))
+* **tests:** remove redundant File import ([f978085](https://github.com/groq/groq-typescript/commit/f978085e63d1ae32ba4f56549eabb5857d4e5ae7))
+
 ## 1.2.0 (2026-05-08)
 
 Full Changelog: [v1.1.2...v1.2.0](https://github.com/groq/groq-typescript/compare/v1.1.2...v1.2.0)

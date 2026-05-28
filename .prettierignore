@@ -5,3 +5,7 @@ CHANGELOG.md
 
 # don't format tsc output, will break source maps
 /dist
+
+# managed by Terraform, do not edit
+/.github/workflows/code-freeze-bypass.yaml
+/.github/workflows/stale.yaml
