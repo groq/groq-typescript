@@ -81,8 +81,7 @@ export interface ChatCompletion {
   usage?: CompletionsAPI.CompletionUsage;
 
   /**
-   * Detailed usage breakdown by model when multiple models are used in the request
-   * for compound AI systems.
+   * Usage statistics for compound AI completion requests.
    */
   usage_breakdown?: ChatCompletion.UsageBreakdown;
 
@@ -177,8 +176,7 @@ export namespace ChatCompletion {
   }
 
   /**
-   * Detailed usage breakdown by model when multiple models are used in the request
-   * for compound AI systems.
+   * Usage statistics for compound AI completion requests.
    */
   export interface UsageBreakdown {
     /**
