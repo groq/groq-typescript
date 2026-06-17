@@ -1888,7 +1888,8 @@ export interface ChatCompletionCreateParamsBase {
     | 'moonshotai/kimi-k2-instruct'
     | 'openai/gpt-oss-120b'
     | 'openai/gpt-oss-20b'
-    | 'qwen/qwen3-32b';
+    | 'qwen/qwen3-32b'
+    | 'qwen/qwen3.6-27b';
 
   /**
    * Whether to enable citations in the response. When enabled, the model will
