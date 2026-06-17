@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.3.0 (2026-06-17)
+
+Full Changelog: [v1.2.1...v1.3.0](https://github.com/groq/groq-typescript/compare/v1.2.1...v1.3.0)
+
+### Features
+
+* **api:** api update ([0376bc8](https://github.com/groq/groq-typescript/commit/0376bc821415ebf9469a3f9620c1da7bcdb75d60))
+* **api:** api update ([8908421](https://github.com/groq/groq-typescript/commit/8908421570709d942da827d7b40f4b413db298f6))
+
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([96b775b](https://github.com/groq/groq-typescript/commit/96b775bce6d7ec33ebeaa9abc0578630c37ab0b2))
+
 ## 1.2.1 (2026-05-28)
 
 Full Changelog: [v1.2.0...v1.2.1](https://github.com/groq/groq-typescript/compare/v1.2.0...v1.2.1)
