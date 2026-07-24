@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.4.0 (2026-07-24)
+
+Full Changelog: [v1.3.0...v1.4.0](https://github.com/groq/groq-typescript/compare/v1.3.0...v1.4.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([21fa0b8](https://github.com/groq/groq-typescript/commit/21fa0b8b34c3f81b1d501744c4c3ba6dbb7e6bd2))
+
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([4f98c9b](https://github.com/groq/groq-typescript/commit/4f98c9bb1e51c3e53e7307aa4fed74cd540912e7))
+
+
+### Chores
+
+* **deps:** bump @babel/core from 7.28.6 to 7.29.7 ([#264](https://github.com/groq/groq-typescript/issues/264)) ([1f9ce2f](https://github.com/groq/groq-typescript/commit/1f9ce2f4a2def0122a2accb4ec2d4a8750231a1d))
+* **deps:** bump brace-expansion from 2.1.1 to 2.1.2 ([#268](https://github.com/groq/groq-typescript/issues/268)) ([c6029f3](https://github.com/groq/groq-typescript/commit/c6029f3e3a6dea03564f0d6813b57b0a49aae14f))
+* **deps:** bump picomatch from 2.3.1 to 2.3.2 ([#261](https://github.com/groq/groq-typescript/issues/261)) ([1ddeb6d](https://github.com/groq/groq-typescript/commit/1ddeb6df945fc50aaa3a6127b0d1bf9209cc6ddd))
+* update CODEOWNERS (add [@pmichalina-groq](https://github.com/pmichalina-groq), remove [@gradenr](https://github.com/gradenr)) ([#267](https://github.com/groq/groq-typescript/issues/267)) ([c6800fd](https://github.com/groq/groq-typescript/commit/c6800fd655d786379c039075a4104b7eb8bf343d))
+
 ## 1.3.0 (2026-06-17)
 
 Full Changelog: [v1.2.1...v1.3.0](https://github.com/groq/groq-typescript/compare/v1.2.1...v1.3.0)
