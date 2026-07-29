@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.1 (2026-07-29)
+
+Full Changelog: [v1.4.0...v1.4.1](https://github.com/groq/groq-typescript/compare/v1.4.0...v1.4.1)
+
+### Chores
+
+* **internal:** codegen related update ([873736d](https://github.com/groq/groq-typescript/commit/873736df8e227ac515b0813e50093b6489bf6fb3))
+
 ## 1.4.0 (2026-07-24)
 
 Full Changelog: [v1.3.0...v1.4.0](https://github.com/groq/groq-typescript/compare/v1.3.0...v1.4.0)
