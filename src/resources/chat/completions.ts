@@ -1862,7 +1862,8 @@ export interface ChatCompletionUserMessageParam {
 }
 
 export type ChatCompletionCreateParams =
-  ChatCompletionCreateParamsNonStreaming | ChatCompletionCreateParamsStreaming;
+  | ChatCompletionCreateParamsNonStreaming
+  | ChatCompletionCreateParamsStreaming;
 
 export interface ChatCompletionCreateParamsBase {
   /**
