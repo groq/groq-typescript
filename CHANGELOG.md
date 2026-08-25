@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.6.0 (2026-08-25)
+
+Full Changelog: [v1.5.0...v1.6.0](https://github.com/groq/groq-typescript/compare/v1.5.0...v1.6.0)
+
+### Features
+
+* **chat:** add Qwen3.8 reasoning guidance ([c2b0264](https://github.com/groq/groq-typescript/commit/c2b0264c844a87849264506c1f4be6ec23ad2c86))
+
+
+### Chores
+
+* GitHub Terraform: Create/Update .github/workflows/code-freeze-bypass.yaml [skip ci] ([99fc8ef](https://github.com/groq/groq-typescript/commit/99fc8ef8ee522d37b7cca12bafb7410ee0375f74))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([8d224a0](https://github.com/groq/groq-typescript/commit/8d224a0ebbc0e21d541fe4da3209c850ce576e53))
+* GitHub Terraform: Create/Update .github/workflows/stale.yaml [skip ci] ([2c5b7aa](https://github.com/groq/groq-typescript/commit/2c5b7aa89f1114626e8a2d5f508e91fef220ee1d))
+* **internal:** allow the mock server port to be set with STAINLESS_MOCK_PORT ([90cec2d](https://github.com/groq/groq-typescript/commit/90cec2d39edeb74cf719212a2a82f1a6c3fdc7bf))
+
+
+### Styles
+
+* **chat:** format completion params union ([91d9de9](https://github.com/groq/groq-typescript/commit/91d9de9e02ee0c1e1dea61a01d4933d92adf1782))
+
 ## 1.5.0 (2026-07-30)
 
 Full Changelog: [v1.4.1...v1.5.0](https://github.com/groq/groq-typescript/compare/v1.4.1...v1.5.0)
