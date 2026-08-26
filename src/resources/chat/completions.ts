@@ -1889,7 +1889,8 @@ export interface ChatCompletionCreateParamsBase {
     | 'openai/gpt-oss-120b'
     | 'openai/gpt-oss-20b'
     | 'qwen/qwen3-32b'
-    | 'qwen/qwen3.6-27b';
+    | 'qwen/qwen3.6-27b'
+    | 'qwen/qwen3.8-27b';
 
   /**
    * Whether to enable citations in the response. When enabled, the model will
@@ -2016,8 +2017,11 @@ export interface ChatCompletionCreateParamsBase {
   presence_penalty?: number | null;
 
   /**
-   * qwen3 models support the following values Set to 'none' to disable reasoning.
-   * Set to 'default' or null to let Qwen reason.
+   * qwen3 models support `none` to disable reasoning and `default` or null to use
+   * the model default.
+   *
+   * qwen/qwen3.8-27b additionally supports `low`, `medium`, and `high`. Its default
+   * is `medium`; `high` selects the model's native `xhigh` mode.
    *
    * openai/gpt-oss-20b and openai/gpt-oss-120b support 'low', 'medium', or 'high'.
    * 'medium' is the default value.
