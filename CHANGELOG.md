@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.0 (2026-09-03)
+
+Full Changelog: [v1.6.0...v1.7.0](https://github.com/groq/groq-typescript/compare/v1.6.0...v1.7.0)
+
+### Features
+
+* **api:** strict OpenAI compatibility for white-label deployments ([8180ac6](https://github.com/groq/groq-typescript/commit/8180ac6ec732f3703ae8d15704dc3bab4d301806))
+
 ## 1.6.0 (2026-08-25)
 
 Full Changelog: [v1.5.0...v1.6.0](https://github.com/groq/groq-typescript/compare/v1.5.0...v1.6.0)
