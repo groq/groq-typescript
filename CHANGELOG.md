@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.7.0](https://github.com/groq/groq-typescript/compare/v1.6.0...v1.7.0) (2026-09-04)
+
+
+### Features
+
+* **api:** strict OpenAI compatibility for white-label deployments ([8180ac6](https://github.com/groq/groq-typescript/commit/8180ac6ec732f3703ae8d15704dc3bab4d301806))
+
+
+### Chores
+
+* **deps:** bump @humanfs/node from 0.16.6 to 0.16.8 ([dd847d5](https://github.com/groq/groq-typescript/commit/dd847d5b4ffdee36f49fe063d37ddec02d7e58a1))
+* **deps:** bump browserslist from 4.28.1 to 4.28.9 ([cac5491](https://github.com/groq/groq-typescript/commit/cac5491016579f7ce4c2c366ecc93f182d99937c))
+
+
+### Documentation
+
+* **openapi:** tighten the reasoning_effort description ([c0f7d7d](https://github.com/groq/groq-typescript/commit/c0f7d7dea69659edb64486f4a53aea9ae541d957))
+
 ## 1.6.0 (2026-08-25)
 
 Full Changelog: [v1.5.0...v1.6.0](https://github.com/groq/groq-typescript/compare/v1.5.0...v1.6.0)
