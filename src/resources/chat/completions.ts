@@ -2056,8 +2056,6 @@ export interface ChatCompletionCreateParamsBase {
    * openai/gpt-oss-20b and openai/gpt-oss-120b support 'low', 'medium', or 'high'.
    * 'medium' is the default value.
    *
-   * t6 models support `low`, `medium`, `high`, and `max`.
-   *
    * Values outside a model's supported set are rejected with a 400.
    */
   reasoning_effort?: 'none' | 'default' | 'minimal' | 'low' | 'medium' | 'high' | 'xhigh' | 'max' | null;
